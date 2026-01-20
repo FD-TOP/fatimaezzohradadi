@@ -5,15 +5,15 @@
     --primary-dark: #1a1a2e;
     --secondary-dark: #232946;
     --accent-cyan: #00e0b7;
-    --text-light: #e5e5e5;
-    --text-secondary-light: #94a1b2;
-    --font-family: 'Poppins', sans-serif;
+    --text-light: #ffffff; /* Passé de #e5e5e5 à blanc pur pour un contraste maximal */
+    --text-secondary-light: #cbd5e0; /* Éclairci (anciennement #94a1b2) pour le SEO/Accessibilité */
+    --font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, sans-serif;
     --transition-smooth: all 0.3s ease-in-out;
 }
-}
+
 /* --- Base & Scroll --- */
 body {
-    --font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: var(--font-family);
     background-color: var(--primary-dark);
     color: var(--text-light);
     line-height: 1.7;
@@ -53,134 +53,64 @@ body {
 .btn-primary {
     background-color: var(--accent-cyan);
     border-color: var(--accent-cyan);
-    color: var(--primary-dark);
+    color: #000000; /* Texte noir sur fond cyan pour un contraste parfait */
 }
 
 .btn-primary:hover {
-    background-color: #00b894; 
-    border-color: #00b894;
+    background-color: #00f0c2; 
     transform: translateY(-2px);
 }
 
 .btn-outline-light {
-    border-color: var(--text-secondary-light);
-    color: var(--text-secondary-light);
+    border-color: var(--text-light);
+    color: var(--text-light);
 }
 
 .btn-outline-light:hover {
-    background-color: var(--secondary-dark);
-    color: var(--accent-cyan);
+    background-color: var(--accent-cyan);
+    color: #000000;
     border-color: var(--accent-cyan);
 }
 
-/* --- Cartes (Regroupées) --- */
+/* --- Cartes & Expertise --- */
 .expertise-card, .card-cv, .project-card, .contact-card {
     background-color: var(--secondary-dark);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure légèrement plus visible */
     padding: 30px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: var(--transition-smooth);
-    display: flex;
-    flex-direction: column;
 }
 
-/* Effets Hover Partagés */
-.expertise-card:hover, .project-card:hover, .contact-card:hover, .card-cv:hover:not(.no-transform) {
-    box-shadow: 0 10px 20px rgba(0, 224, 183, 0.15); 
-    border-color: var(--accent-cyan);
+.text-secondary-light {
+    color: var(--text-secondary-light) !important;
 }
-
-.expertise-card:hover, .project-card:hover { transform: translateY(-5px); }
-
-.expertise-card i { color: var(--accent-cyan); }
 
 /* --- Badges & Footer --- */
 .badge { padding: 8px 12px; font-weight: 600; margin-top: 10px; }
-.bg-primary-soft { background-color: #3f486b !important; color: var(--text-secondary-light); }
+.bg-primary-soft { 
+    background-color: #2d3748 !important; /* Fond plus sombre */
+    color: #ffffff !important; /* Texte blanc pur pour le contraste */
+}
 
 footer { background-color: var(--secondary-dark); }
 .border-top-accent { border-top: 3px solid var(--accent-cyan); }
-.social-icon { font-size: 1.4rem; transition: color 0.3s; }
+.social-icon { font-size: 1.4rem; transition: color 0.3s; color: #ffffff; }
 .social-icon:hover { color: var(--accent-cyan) !important; }
-
-/* --- Hero (Index) --- */
-.hero {
-    background: linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95)), url('../img/hero_background_tech.jpg') no-repeat center center / cover;
-    background-attachment: fixed;
-    height: 100vh; 
-}
-
-.profile-pic {
-    width: 300px; height: 300px; object-fit: cover;
-    border: 3px solid var(--accent-cyan); 
-    box-shadow: 0 0 20px rgba(0, 224, 183, 0.5); 
-    border-radius: 50%;
-}
-
-.animate-fade-in-title { animation: fadeIn 1.2s ease-out; letter-spacing: 5px; text-transform: uppercase; }
-
-/* --- CV (cv.html) --- */
-.cv-photo-styled {
-    width: 300px; height: 400px; object-fit: cover;
-    border: 4px solid var(--accent-cyan);
-    border-radius: 40px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.sidebar-column { background-color: var(--primary-dark); border-right: 1px solid var(--secondary-dark); padding: 30px 15px; }
-
-@media (min-width: 992px) {
-    .sidebar-column { position: sticky; top: 60px; height: calc(100vh - 60px); overflow-y: auto; padding: 40px !important; }
-    .main-content-column { padding-left: 50px !important; padding: 40px !important; }
-}
-
-.timeline-cv { position: relative; padding: 20px 0 20px 20px; margin-left: 20px; border-left: 2px solid var(--secondary-dark); }
-.timeline-item { margin-bottom: 35px; position: relative; padding-left: 20px; }
-.timeline-dot {
-    position: absolute; top: 0; left: -31px; width: 18px; height: 18px;
-    background: var(--accent-cyan); border: 3px solid var(--primary-dark); border-radius: 50%; z-index: 10;
-}
-
-/* --- Portfolio & Projects --- */
-.project-card { padding: 0; overflow: hidden; height: 100%; }
-.project-card p.text-secondary-light { color: #ffffff !important; opacity: 0.9; } 
-.project-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-.project-card .p-4 { flex-grow: 1; display: flex; flex-direction: column; }
-.project-card .card-title { min-height: 3rem; margin-bottom: 10px; }
-.project-card p { flex-grow: 1; }
 
 /* --- Formulaires --- */
 .form-control {
     background-color: var(--primary-dark) !important;
     border-color: var(--secondary-dark) !important;
-    color: var(--text-light) !important;
-    transition: var(--transition-smooth);
+    color: #ffffff !important;
 }
 
-.form-control:focus {
-    border-color: var(--accent-cyan) !important;
-    box-shadow: 0 0 0 0.25rem rgba(0, 224, 183, 0.25) !important;
+.form-control::placeholder {
+    color: #a0aec0 !important; /* Placeholder plus clair pour la lisibilité */
 }
-
-/* --- Animations --- */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-.animate-fade-in { animation: fadeIn 1s ease-out; }
-.animate-slide-up { animation: slideUp 0.8s ease-out 0.3s backwards; }
 
 /* --- Media Queries --- */
 @media (max-width: 576px) {
-    body { padding-top: 54px; }
-    .btn-primary, .btn-outline-light { padding: 10px 25px; font-size: 0.9rem; }
-    .hero { height: auto; min-height: 100vh; padding: 100px 0; background-attachment: scroll; }
-    .profile-pic { width: 150px; height: 150px; }
-    h1 { font-size: 2.2rem; }
+    h1 { font-size: 1.8rem; }
+    .hero { padding: 80px 0; }
 }
-
-@media (max-width: 991px) {
-    .sidebar-column { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--secondary-dark); margin-bottom: 20px; }
-    .main-content-column { padding-left: 15px !important; }
-}
-
