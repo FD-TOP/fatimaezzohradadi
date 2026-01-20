@@ -3,114 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>/* --- STRUCTURE GLOBALE DU CV --- */
-.cv-container {
-    padding-top: 70px; /* Espace pour la navbar */
-    background-color: var(--primary-blue);
-}
-
-/* On utilise Flexbox pour s'assurer que les colonnes occupent tout l'espace */
-.cv-row {
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 100vh;
-}
-
-/* --- SIDEBAR (Colonne Gauche) --- */
-.sidebar-column {
-    background-color: var(--primary-blue);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px 25px;
-    /* Empêche la sidebar de se rétrécir sur grand écran */
-    flex: 0 0 33.333%; 
-    max-width: 33.333%;
-}
-
-.cv-photo-container {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.cv-photo-styled {
-    width: 220px;
-    height: 220px;
-    object-fit: cover; /* Important : évite de déformer le visage */
-    border-radius: 50%; /* Format circulaire pour éviter les problèmes de ratio */
-    border: 4px solid var(--accent-cyan);
-    box-shadow: 0 0 20px rgba(0, 224, 183, 0.3);
-}
-
-/* --- CONTENU PRINCIPAL (Colonne Droite) --- */
-.main-content-column {
-    flex: 0 0 66.666%;
-    max-width: 66.666%;
-    padding: 40px 50px;
-}
-
-/* --- TIMELINE (Expériences et Formations) --- */
-.timeline-cv {
-    position: relative;
-    border-left: 2px solid var(--accent-cyan);
-    margin-left: 20px;
-    padding-left: 30px;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 40px;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: -41px; /* Centre le point sur la ligne de 2px */
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    background: var(--accent-cyan);
-    border: 4px solid var(--primary-blue);
-    border-radius: 50%;
-}
-
-/* --- RESPONSIVE (Correction des déformations mobile) --- */
-@media (max-width: 991px) {
-    .sidebar-column, .main-content-column {
-        flex: 0 0 100%;
-        max-width: 100%;
-        border-right: none;
-    }
-    
-    .sidebar-column {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 30px 15px;
-    }
-    
-    .main-content-column {
-        padding: 30px 20px;
-    }
-
-    .cv-photo-styled {
-        width: 150px;
-        height: 150px;
-    }
-    </style>
-}
     <title>CV | Fatima Ezzohra Dadi - Développeuse & UX/UI</title>
-    <meta name="description" content="Parcours professionnel et académique de Fatima Ezzohra Dadi. Étudiante à l'EISINE, diplômée de l'EST Meknès. Expertise en support IT, Web et Design.">
-    <meta name="author" content="Fatima Ezzohra Dadi">
-    <meta name="keywords" content="CV, Fatima Ezzohra Dadi, EISINE, EST Meknès, Développement Web, Support IT, Charleville-Mézières">
+    
+    <style>
+        /* --- STRUCTURE GLOBALE DU CV --- */
+        :root {
+            --primary-blue: #1a1a2e;
+            --secondary-blue: #232946;
+            --accent-cyan: #00e0b7;
+            --text-white: #ffffff;
+            --text-gray: #cbd5e0;
+        }
+
+        body {
+            background-color: var(--primary-blue) !important;
+            color: var(--text-white) !important;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cv-container {
+            padding-top: 70px; /* Espace navbar */
+            min-height: 100vh;
+        }
+
+        .cv-row {
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 100vh;
+        }
+
+        /* --- SIDEBAR (Gauche) --- */
+        .sidebar-column {
+            background-color: var(--primary-blue);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 25px;
+            flex: 0 0 33.333%;
+            max-width: 33.333%;
+        }
+
+        .cv-photo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .cv-photo-styled {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            border: 4px solid var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 224, 183, 0.3);
+        }
+
+        /* --- CONTENU PRINCIPAL (Droite) --- */
+        .main-content-column {
+            flex: 0 0 66.666%;
+            max-width: 66.666%;
+            padding: 40px 50px;
+        }
+
+        /* --- TIMELINE --- */
+        .timeline-cv {
+            position: relative;
+            border-left: 2px solid var(--accent-cyan);
+            margin-left: 15px;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-cyan);
+            border: 4px solid var(--primary-blue);
+            border-radius: 50%;
+        }
+
+        /* --- CARDS & BADGES --- */
+        .card-cv {
+            background-color: var(--secondary-blue);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .badge.bg-primary-soft {
+            background-color: #3f486b !important;
+            color: white;
+            border: none;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 991px) {
+            .sidebar-column, .main-content-column {
+                flex: 0 0 100%;
+                max-width: 100%;
+                border-right: none;
+            }
+            .sidebar-column { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            .cv-photo-styled { width: 150px; height: 150px; }
+        }
+    </style>
 
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style.css"></noscript>
-
-    <link rel="icon" type="image/png" href="images/site.png">
-    <link rel="apple-touch-icon" href="images/site.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
@@ -134,119 +141,82 @@
     </header>
 
     <main class="container-fluid cv-container">
-        <div class="row g-0">
-            
-            <aside class="col-lg-4 p-4 sidebar-column">
-                <div class="text-center mb-4">
-                    <img src="images/photoperso2.jpg" alt="Portrait de Fatima Ezzohra Dadi" class="img-fluid cv-photo-styled" width="300" height="400">
+        <div class="cv-row g-0">
+            <aside class="sidebar-column">
+                <div class="cv-photo-container">
+                    <img src="images/photoperso2.jpg" alt="Portrait de Fatima Ezzohra Dadi" class="cv-photo-styled">
                 </div>
                 
-                <section class="card-cv p-4 mb-4 shadow-lg border-start border-4 border-accent">
-                    <h2 class="h5 text-accent mb-3"><i class="fas fa-id-card me-2" aria-hidden="true"></i> Contact & Infos</h2>
-                    <ul class="list-unstyled info-list">
-                        <li class="text-break"><i class="fas fa-envelope me-2 text-accent" aria-hidden="true"></i> fatimaezzohradadil@gmail.com</li>
-                        <li><i class="fas fa-phone me-2 text-accent" aria-hidden="true"></i> +33753670409</li>
-                        <li><i class="fas fa-map-marker-alt me-2 text-accent" aria-hidden="true"></i> Charleville-Mézières</li>
-                        <li><i class="fas fa-calendar-alt me-2 text-accent" aria-hidden="true"></i> 22 octobre 2004</li>
-                        <li><i class="fas fa-globe me-2 text-accent" aria-hidden="true"></i> Marocaine | Permis B</li>
+                <section class="card-cv mb-4 border-start border-4 border-info">
+                    <h2 class="h5 text-info mb-3"><i class="fas fa-id-card me-2"></i> Infos</h2>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-info"></i> fatimaezzohradadil@gmail.com</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-info"></i> +33753670409</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-info"></i> Charleville-Mézières</li>
+                        <li class="mb-2"><i class="fas fa-calendar-alt me-2 text-info"></i> 22/10/2004</li>
+                        <li><i class="fas fa-globe me-2 text-info"></i> Marocaine | Permis B</li>
                     </ul>
                 </section>
-                
-                <section class="card-cv p-4 mb-4 shadow-lg">
-                    <h2 class="h5 text-accent mb-3"><i class="fas fa-tools me-2" aria-hidden="true"></i> Compétences Techniques</h2>
-                    <div class="row row-cols-1 g-2 skills-grid">
-                        <div class="col"><span class="badge bg-primary-soft w-100 text-start py-2"><i class="fas fa-headset me-2"></i> Support IT & Helpdesk</span></div>
-                        <div class="col"><span class="badge bg-primary-soft w-100 text-start py-2"><i class="fas fa-code me-2"></i> HTML5/CSS3/JS/PHP</span></div>
-                        <div class="col"><span class="badge bg-primary-soft w-100 text-start py-2"><i class="fab fa-wordpress me-2"></i> WordPress Maintenance</span></div>
-                        <div class="col"><span class="badge bg-primary-soft w-100 text-start py-2"><i class="fas fa-database me-2"></i> SQL / BDD</span></div>
-                        <div class="col"><span class="badge bg-primary-soft w-100 text-start py-2"><i class="fas fa-pencil-ruler me-2"></i> UX/UI & Prototypage</span></div>
-                        <div class="col"><span class="badge bg-primary-soft w-100 text-start py-2"><i class="fab fa-adobe me-2"></i> Ps, Ai, Id (Suite Adobe)</span></div>
-                        <div class="col"><span class="badge bg-primary-soft w-100 text-start py-2"><i class="fas fa-cube me-2"></i> Modélisation 3D (3DS Max)</span></div>
+
+                <section class="card-cv mb-4">
+                    <h2 class="h5 text-info mb-3"><i class="fas fa-tools me-2"></i> Compétences</h2>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-primary-soft">Support IT</span>
+                        <span class="badge bg-primary-soft">HTML/CSS/JS</span>
+                        <span class="badge bg-primary-soft">WordPress</span>
+                        <span class="badge bg-primary-soft">SQL</span>
+                        <span class="badge bg-primary-soft">UX/UI</span>
+                        <span class="badge bg-primary-soft">Suite Adobe</span>
                     </div>
                 </section>
 
-                <section class="card-cv p-4 mb-4 shadow-lg">
-                    <h2 class="h5 text-accent mb-3"><i class="fas fa-star me-2" aria-hidden="true"></i> Qualités & Soft Skills</h2>
-                    <ul class="list-unstyled info-list">
-                        <li><i class="fas fa-check me-2 text-accent" aria-hidden="true"></i> Leadership d'équipe</li>
-                        <li><i class="fas fa-check me-2 text-accent" aria-hidden="true"></i> Relation Client & Success</li>
-                        <li><i class="fas fa-check me-2 text-accent" aria-hidden="true"></i> Communication efficace</li>
-                        <li><i class="fas fa-check me-2 text-accent" aria-hidden="true"></i> Sens de l'initiative</li>
-                    </ul>
-                </section>
-
-                <section class="card-cv p-4 mb-4 shadow-lg">
-                    <h2 class="h5 text-accent mb-3"><i class="fas fa-language me-2" aria-hidden="true"></i> Langues</h2>
-                    <ul class="list-unstyled info-list">
-                        <li><i class="fas fa-circle me-2 bullet-point" aria-hidden="true"></i> Arabe: Maternel</li>
-                        <li><i class="fas fa-circle me-2 bullet-point" aria-hidden="true"></i> Français: Courant</li>
-                        <li><i class="fas fa-circle me-2 bullet-point" aria-hidden="true"></i> Anglais: Courant</li>
-                    </ul>
+                <section class="card-cv">
+                    <h2 class="h5 text-info mb-3"><i class="fas fa-language me-2"></i> Langues</h2>
+                    <p class="small mb-1">Arabe : Maternel</p>
+                    <p class="small mb-1">Français : Courant</p>
+                    <p class="small">Anglais : Courant</p>
                 </section>
             </aside>
 
-            <div class="col-lg-8 p-4 main-content-column">
-                <h1 class="mb-5 display-4 fw-bold text-light d-none d-lg-block">FATIMA EZZOHRA DADI</h1>
+            <div class="main-content-column">
+                <h1 class="mb-5 display-4 fw-bold d-none d-lg-block">FATIMA EZZOHRA DADI</h1>
                 
-                <section class="mb-5 p-4 card-cv shadow-lg">
-                    <h2 class="h4 text-white mb-3 border-bottom-accent pb-2"><i class="fas fa-user-circle me-2 text-accent" aria-hidden="true"></i> Profil Professionnel</h2>
-                    <p class="lead text-secondary-light border-start border-accent border-4 ps-3">
-                        Étudiante en développement web et multimédia, je combine une expertise en développement front-end et UX/UI design avec 
-                        une solide capacité de support technique (Helpdesk). Maîtrisant la Suite Adobe, WordPress et la modélisation 3D, j'allie 
-                        créativité visuelle et rigueur technique.
+                <section class="mb-5">
+                    <h2 class="h4 border-bottom border-info pb-2 mb-3"><i class="fas fa-user-circle me-2 text-info"></i> Profil</h2>
+                    <p class="text-secondary-light border-start border-info border-4 ps-3">
+                        Étudiante en développement web et multimédia, je combine expertise front-end et UX/UI design avec support technique.
                     </p>
                 </section>
 
-                <section class="mb-5 p-4 card-cv shadow-lg">
-                    <h2 class="h4 text-white mb-4 border-bottom-accent pb-2"><i class="fas fa-briefcase me-2 text-accent" aria-hidden="true"></i> Expérience Professionnelle</h2>
+                <section class="mb-5">
+                    <h2 class="h4 border-bottom border-info pb-2 mb-4"><i class="fas fa-briefcase me-2 text-info"></i> Expériences</h2>
                     <div class="timeline-cv">
                         <article class="timeline-item">
                             <div class="timeline-dot"></div>
-                            <h3 class="h5 timeline-title text-accent">Freelance, Web & Design graphique</h3>
-                            <p class="timeline-meta text-secondary-light"><i class="fas fa-calendar-alt me-2" aria-hidden="true"></i> 06/2022 - Aujourd'hui</p>
-                            <p class="timeline-description text-secondary-light">Développement de solutions web sur mesure et création d'identités visuelles pour divers clients.</p>
+                            <h3 class="h5 text-info mb-0">Freelance, Web & Design</h3>
+                            <p class="small text-muted">06/2022 - Présent</p>
+                            <p>Développement de solutions web et identités visuelles.</p>
                         </article>
-                        
                         <article class="timeline-item">
                             <div class="timeline-dot"></div>
-                            <h3 class="h5 timeline-title text-accent">Chargé de clientèle, Intelcia</h3>
-                            <p class="timeline-meta text-secondary-light"><i class="fas fa-calendar-alt me-2" aria-hidden="true"></i> 05/2024 - 06/2025 | Meknès, Maroc</p>
-                        </article>
-                        
-                        <article class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h3 class="h5 timeline-title text-accent">Stagiaire, WeHelp digital developpement</h3>
-                            <p class="timeline-meta text-secondary-light"><i class="fas fa-calendar-alt me-2" aria-hidden="true"></i> 04/2024 - 06/2024 | Meknès, Maroc</p>
-                        </article>
-
-                        <article class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h3 class="h5 timeline-title text-accent">Responsable logistique, JLM</h3>
-                            <p class="timeline-meta text-secondary-light"><i class="fas fa-calendar-alt me-2" aria-hidden="true"></i> 10/2023 - 03/2024 | Meknès, Maroc</p>
+                            <h3 class="h5 text-info mb-0">Chargé de clientèle, Intelcia</h3>
+                            <p class="small text-muted">05/2024 - 06/2025</p>
                         </article>
                     </div>
                 </section>
 
-                <section class="mb-5 p-4 card-cv shadow-lg">
-                    <h2 class="h4 text-white mb-4 border-bottom-accent pb-2"><i class="fas fa-graduation-cap me-2 text-accent" aria-hidden="true"></i> Formation</h2>
+                <section>
+                    <h2 class="h4 border-bottom border-info pb-2 mb-4"><i class="fas fa-graduation-cap me-2 text-info"></i> Formation</h2>
                     <div class="timeline-cv">
                         <article class="timeline-item">
                             <div class="timeline-dot"></div>
-                            <h3 class="h5 timeline-title text-accent">Licence pro: Métiers du numérique, EISINE</h3>
-                            <p class="timeline-meta text-secondary-light"><i class="fas fa-calendar-alt me-2" aria-hidden="true"></i> 09/2025 - Aujourd'hui | Charleville-Mézières, France</p>
+                            <h3 class="h5 text-info mb-0">Licence pro Métiers du numérique</h3>
+                            <p class="small text-muted">EISINE | 2025 - Présent</p>
                         </article>
-                        
                         <article class="timeline-item">
                             <div class="timeline-dot"></div>
-                            <h3 class="h5 timeline-title text-accent">DUT: Développement web et multimédia, EST</h3>
-                            <p class="timeline-meta text-secondary-light"><i class="fas fa-calendar-alt me-2" aria-hidden="true"></i> 09/2022 - 07/2024 | Meknès, Maroc</p>
-                            <p class="timeline-description text-secondary-light">Diplôme obtenu avec Mention Bien.</p>
-                        </article>
-                        
-                        <article class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <h3 class="h5 timeline-title text-accent">Baccalauréat : Sciences mathématiques A</h3>
-                            <p class="timeline-meta text-secondary-light"><i class="fas fa-calendar-alt me-2" aria-hidden="true"></i> 2022 | Azrou, Maroc</p>
+                            <h3 class="h5 text-info mb-0">DUT Développement Web</h3>
+                            <p class="small text-muted">EST Meknès | 2022 - 2024</p>
                         </article>
                     </div>
                 </section>
@@ -254,25 +224,10 @@
         </div>
     </main>
 
-    <footer class="unique-footer text-white text-center py-4">
-        <div class="container">
-            <p class="m-0 mb-2 fw-bold">&copy; 2026 F.E. Dadi</p>
-            <div class="social-links">
-                <a href="mailto:fatimaezzohradadil@gmail.com" class="social-icon" aria-label="Envoyer un email">
-                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/fatima-ezzohra-dadi-8384a5362" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin" aria-hidden="true"></i>
-                </a>
-                <a href="https://github.com/FD-TOP" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
-                    <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
+    <footer class="text-center py-4 border-top border-info mt-4">
+        <p class="m-0 small">&copy; 2026 F.E. Dadi - Tous droits réservés</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
-
-
