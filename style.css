@@ -1,272 +1,262 @@
-/* --- 1. CONFIGURATION & VARIABLES --- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Fatima Ezzohra Dadi</title>
+    
+    <style>
+        /* --- CONFIGURATION GLOBALE --- */
+        :root {
+            --primary-blue: #1a1a2e;
+            --secondary-blue: #232946;
+            --accent-cyan: #00e0b7;
+            --text-white: #ffffff;
+            --text-gray: #cbd5e0;
+            --transition-smooth: all 0.3s ease-in-out;
+        }
 
-:root {
-    --primary-blue: #1a1a2e;        /* Fond Midnight Blue Profond */
-    --secondary-blue: #232946;      /* Fond des Cartes (Dark Slate Blue) */
-    --accent-cyan: #00e0b7;         /* Cyan Électrique */
-    --text-white: #ffffff;          /* Texte blanc pur */
-    --text-secondary: #cbd5e0;      /* Gris bleu clair pour textes secondaires */
-    --font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, sans-serif;
-    --transition-smooth: all 0.3s ease-in-out;
-}
+        html, body {
+            background-color: var(--primary-blue) !important;
+            color: var(--text-white) !important;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
-/* --- 2. BASE & RESET --- */
-html, body {
-    background-color: var(--primary-blue) !important;
-    color: var(--text-white) !important;
-    font-family: var(--font-family);
-    line-height: 1.7;
-    margin: 0;
-    padding-top: 60px; /* Espace pour la navbar fixe */
-    width: 100%;
-    overflow-x: hidden; /* Empêche les déformations horizontales */
-}
+        h1, h2, h3, h4, p, li, span { color: var(--text-white) !important; }
 
-/* Force la visibilité des textes blancs partout */
-h1, h2, h3, h4, h5, h6, p, li, span, a, label, .badge {
-    color: var(--text-white) !important;
-}
+        /* --- NAVIGATION --- */
+        .navbar {
+            background-color: var(--primary-blue) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 0;
+        }
+        .text-accent { color: var(--accent-cyan) !important; }
 
-/* --- 3. NAVIGATION --- */
-.navbar {
-    background-color: var(--primary-blue) !important;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    border-bottom: 1px solid var(--secondary-blue);
-}
+        /* --- STRUCTURE CV --- */
+        .cv-container { padding-top: 80px; }
+        
+        .cv-row {
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 100vh;
+        }
 
-.logo { font-weight: 800; font-size: 1.5rem; }
-.text-accent { color: var(--accent-cyan) !important; }
+        /* SIDEBAR (Gauche) */
+        .sidebar-column {
+            background-color: var(--primary-blue);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 25px;
+            flex: 0 0 33.333%;
+            max-width: 33.333%;
+        }
 
-.nav-link {
-    color: var(--text-white) !important;
-    transition: var(--transition-smooth);
-    font-weight: 500;
-}
+        /* PHOTO RECTANGLE (Correction demandée) */
+        .cv-photo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-.nav-link:hover, .nav-link.active {
-    color: var(--accent-cyan) !important;
-    border-bottom: 2px solid var(--accent-cyan);
-}
+        .cv-photo-styled {
+            width: 100%;
+            max-width: 250px;
+            height: 320px; /* Ratio rectangulaire 3:4 environ */
+            object-fit: cover; 
+            border: 3px solid var(--accent-cyan);
+            border-radius: 15px; /* Coins arrondis pour un look moderne */
+            box-shadow: 0 10px 20px rgba(0, 224, 183, 0.2);
+        }
 
-/* --- 4. BOUTONS --- */
-.btn-primary, .btn-outline-light {
-    font-weight: 700;
-    padding: 12px 35px;
-    border-radius: 5px;
-    transition: var(--transition-smooth);
-}
+        /* CONTENU PRINCIPAL (Droite) */
+        .main-content-column {
+            flex: 0 0 66.666%;
+            max-width: 66.666%;
+            padding: 40px 50px;
+        }
 
-.btn-primary {
-    background-color: var(--accent-cyan) !important;
-    border-color: var(--accent-cyan) !important;
-    color: var(--primary-blue) !important;
-}
+        /* --- STYLES DES SECTIONS --- */
+        .card-cv {
+            background-color: var(--secondary-blue);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-smooth);
+        }
 
-.btn-primary:hover {
-    background-color: #00b894 !important;
-    transform: translateY(-2px);
-}
+        .card-cv:hover { border-color: var(--accent-cyan); }
 
-.btn-outline-light {
-    border-color: var(--text-secondary) !important;
-    color: var(--text-secondary) !important;
-    background: transparent !important;
-}
+        .section-title {
+            color: var(--accent-cyan) !important;
+            border-bottom: 2px solid var(--accent-cyan);
+            display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
 
-.btn-outline-light:hover {
-    background-color: var(--secondary-blue) !important;
-    color: var(--accent-cyan) !important;
-    border-color: var(--accent-cyan) !important;
-}
+        .timeline-cv {
+            position: relative;
+            border-left: 2px solid var(--accent-cyan);
+            margin-left: 15px;
+            padding-left: 30px;
+        }
 
-/* --- 5. CARTES (Expertise, CV, Portfolio) --- */
-/* --- STABILISATION DE LA PAGE CV --- */
+        .timeline-item { position: relative; margin-bottom: 35px; }
 
-.cv-container {
-    padding-top: 60px; /* Aligne sous la navbar */
-    min-height: 100vh;
-}
+        .timeline-dot {
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-cyan);
+            border: 4px solid var(--primary-blue);
+            border-radius: 50%;
+        }
 
-.row.g-0 {
-    display: flex;
-    flex-wrap: wrap; /* Permet aux colonnes de s'empiler sur mobile */
-}
+        .badge-tech {
+            background-color: #3f486b !important;
+            color: white !important;
+            padding: 8px 12px;
+            margin: 3px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
 
-/* Sidebar (Gauche) */
-.sidebar-column {
-    background-color: var(--primary-blue);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px 20px !important;
-    display: flex;
-    flex-direction: column;
-}
+        /* --- RESPONSIVE --- */
+        @media (max-width: 991px) {
+            .sidebar-column, .main-content-column {
+                flex: 0 0 100%;
+                max-width: 100%;
+                border-right: none;
+            }
+            .sidebar-column { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
 
-/* Contenu Principal (Droite) */
-.main-content-column {
-    padding: 40px !important;
-    background-color: var(--primary-blue);
-}
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">F.E. DADI<span class="text-accent">.dev</span></a>
+            </div>
+        </nav>
+    </header>
 
-/* Correction de la Photo (Évite l'écrasement) */
-.cv-photo-styled {
-    width: 100%;
-    max-width: 280px; /* Empêche la photo d'être trop géante */
-    height: auto;
-    aspect-ratio: 3 / 4; /* Force un format portrait propre */
-    object-fit: cover; /* Recadre sans déformer */
-    border: 4px solid var(--accent-cyan);
-    border-radius: 20px;
-    margin: 0 auto 20px auto;
-    display: block;
-}
+    <main class="container-fluid cv-container">
+        <div class="cv-row g-0">
+            <aside class="sidebar-column">
+                <div class="cv-photo-container">
+                    <img src="images/photoperso2.jpg" alt="Fatima Ezzohra Dadi" class="cv-photo-styled">
+                </div>
 
-/* Timeline (Évite le décalage des points) */
-.timeline-cv {
-    position: relative;
-    border-left: 2px solid var(--accent-cyan);
-    margin-left: 15px;
-    padding-left: 30px;
-}
+                <section class="card-cv">
+                    <h2 class="section-title"><i class="fas fa-address-card me-2"></i> Contact</h2>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><i class="fas fa-phone text-accent me-2"></i> +33753670409 [cite: 5]</li>
+                        <li class="mb-2"><i class="fas fa-envelope text-accent me-2"></i> fatimaezzohradadi1@gmail.com [cite: 6]</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt text-accent me-2"></i> 38 rue Montjoly, Charleville-Mezieres </li>
+                    </ul>
+                </section>
 
-.timeline-item {
-    position: relative;
-    margin-bottom: 30px;
-}
+                <section class="card-cv">
+                    <h2 class="section-title"><i class="fas fa-laptop-code me-2"></i> Compétences</h2>
+                    <div class="d-flex flex-wrap">
+                        <span class="badge-tech">Support IT & Helpdesk [cite: 9]</span>
+                        <span class="badge-tech">HTML5/CSS3/JS/PHP [cite: 10]</span>
+                        <span class="badge-tech">WordPress [cite: 11]</span>
+                        <span class="badge-tech">Suite Adobe [cite: 12]</span>
+                        <span class="badge-tech">UX/UI Design [cite: 12]</span>
+                        <span class="badge-tech">Modélisation 3D [cite: 13]</span>
+                        <span class="badge-tech">Leadership d'Équipe [cite: 15]</span>
+                    </div>
+                </section>
 
-.timeline-dot {
-    position: absolute;
-    left: -41px; /* Ajusté précisément pour tomber sur la ligne */
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    background: var(--accent-cyan);
-    border: 4px solid var(--primary-blue);
-    border-radius: 50%;
-}
+                <section class="card-cv">
+                    <h2 class="section-title"><i class="fas fa-heart me-2"></i> Intérêts</h2>
+                    <div class="row row-cols-2 g-2 small">
+                        <div class="col"><i class="fas fa-theater-masks text-accent me-2"></i> Théâtre [cite: 31]</div>
+                        <div class="col"><i class="fas fa-running text-accent me-2"></i> Sport [cite: 32]</div>
+                        <div class="col"><i class="fas fa-plane text-accent me-2"></i> Voyage [cite: 33]</div>
+                        <div class="col"><i class="fas fa-music text-accent me-2"></i> Musique [cite: 37]</div>
+                    </div>
+                </section>
+            </aside>
 
-/* --- RESPONSIVE : Correction Mobile --- */
-@media (max-width: 991px) {
-    .sidebar-column {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        min-height: auto;
-        width: 100%;
-    }
-    .main-content-column {
-        width: 100%;
-    }
-}
-.expertise-card, .card-cv, .project-card, .contact-card {
-    background-color: var(--secondary-blue) !important;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: var(--transition-smooth);
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Empêche les décalages de hauteur */
-}
+            <div class="main-content-column">
+                <section class="mb-5">
+                    <h1 class="display-4 fw-bold mb-2">FATIMA EZZOHRA DADI </h1>
+                    <p class="h4 text-accent mb-4">Étudiante en développement web et multimédia [cite: 2]</p>
+                    <div class="card-cv">
+                        <p class="lead mb-0">
+                            Forte d'une expérience en relation client et gestion de projets, je suis rigoureuse et créative, prête à m'investir dans des solutions numériques innovantes. [cite: 3]
+                        </p>
+                    </div>
+                </section>
 
-.expertise-card:hover, .project-card:hover, .contact-card:hover, .card-cv:hover:not(.no-transform) {
-    box-shadow: 0 10px 20px rgba(0, 224, 183, 0.15);
-    border-color: var(--accent-cyan) !important;
-    transform: translateY(-5px);
-}
+                <section class="mb-5">
+                    <h2 class="section-title"><i class="fas fa-briefcase me-2"></i> Expérience Professionnelle</h2>
+                    <div class="timeline-cv">
+                        <article class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h3 class="h5 text-accent mb-1">Freelancer Web & Graphique [cite: 18]</h3>
+                            <p class="small text-secondary-light mb-2">AOÛT 2022 - ACTUEL | MEKNÈS, MAROC [cite: 19]</p>
+                        </article>
 
-.expertise-card i { color: var(--accent-cyan); }
+                        <article class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h3 class="h5 text-accent mb-1">Chargée de clientèle - INTELCIA [cite: 20, 21]</h3>
+                            <p class="small text-secondary-light mb-2">MAI 2024 - JUILLET 2025 | MEKNÈS, MAROC </p>
+                        </article>
 
-/* --- 6. RÉGLAGE PORTFOLIO --- */
-.project-card { padding: 0; overflow: hidden; }
+                        <article class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h3 class="h5 text-accent mb-1">Stagiaire Développeur Web - WEHELP [cite: 22, 23]</h3>
+                            <p class="small text-secondary-light mb-2">AVRIL 2024 - JUILLET 2024 | MEKNÈS, MAROC [cite: 23]</p>
+                        </article>
 
-.project-img-container {
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
-    background: #000;
-}
+                        <article class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h3 class="h5 text-accent mb-1">Responsable logistique - JLM ESTM [cite: 24, 25]</h3>
+                            <p class="small text-secondary-light mb-2">SEPTEMBRE 2023 - AVRIL 2024 | MEKNÈS, MAROC </p>
+                        </article>
+                    </div>
+                </section>
 
-.project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Recadrage intelligent sans déformation */
-}
+                <section>
+                    <h2 class="section-title"><i class="fas fa-graduation-cap me-2"></i> Formations</h2>
+                    <div class="timeline-cv">
+                        <article class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h3 class="h5 text-accent mb-1">Licence professionnelle Métiers du numérique [cite: 34]</h3>
+                            <p class="mb-1">EISINE | CHARLEVILLE-MÉZIÈRES [cite: 36]</p>
+                            <p class="small text-secondary-light">SEPTEMBRE 2025 - EN COURS [cite: 36]</p>
+                        </article>
 
-.project-card .p-4 {
-    flex-grow: 1; /* Aligne les boutons en bas */
-    display: flex;
-    flex-direction: column;
-}
+                        <article class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <h3 class="h5 text-accent mb-1">DUT : Développement web et multimédia [cite: 40]</h3>
+                            <p class="mb-1">ESTM | MEKNÈS-MAROC [cite: 41]</p>
+                            <p class="small text-secondary-light">2022 - 2024 [cite: 41]</p>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
 
-/* --- 7. RÉGLAGE CV (Sidebar & Timeline) --- */
-.cv-container { padding-top: 80px; }
+    <footer class="text-center py-4 border-top border-secondary">
+        <p class="small mb-0 opacity-75">© 2026 Fatima Ezzohra Dadi. Tous droits réservés.</p>
+    </footer>
 
-.sidebar-column {
-    background-color: var(--primary-blue);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    min-height: 100vh;
-}
-
-.cv-photo-styled {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    border: 4px solid var(--accent-cyan);
-    border-radius: 40px;
-}
-
-.timeline-cv {
-    position: relative;
-    border-left: 2px solid var(--accent-cyan);
-    margin-left: 15px;
-    padding-left: 25px;
-}
-
-.timeline-item { margin-bottom: 35px; position: relative; }
-
-.timeline-dot {
-    position: absolute;
-    left: -36px; /* Ajustement précis sur la ligne */
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    background: var(--accent-cyan);
-    border: 4px solid var(--primary-blue);
-    border-radius: 50%;
-}
-
-/* --- 8. BADGES & FORMULAIRES --- */
-.badge { padding: 8px 12px; font-weight: 600; margin-top: 10px; }
-.bg-primary-soft { background-color: #3f486b !important; }
-
-.form-control {
-    background-color: var(--primary-blue) !important;
-    border-color: var(--secondary-blue) !important;
-    color: var(--text-white) !important;
-    transition: var(--transition-smooth);
-}
-
-.form-control:focus {
-    border-color: var(--accent-cyan) !important;
-    box-shadow: 0 0 0 0.25rem rgba(0, 224, 183, 0.25) !important;
-}
-
-/* --- 9. RESPONSIVE --- */
-@media (max-width: 991px) {
-    .sidebar-column {
-        min-height: auto;
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        margin-bottom: 30px;
-    }
-    .project-img-container { height: 180px; }
-    h1 { font-size: 2.2rem !important; }
-}
-
-/* --- 10. ANIMATIONS --- */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.animate-fade-in { animation: fadeIn 1s ease-out; }
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
