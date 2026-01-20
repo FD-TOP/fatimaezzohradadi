@@ -1,144 +1,149 @@
-/* --- Importation & Configuration --- */
+/* --- 1. CONFIGURATION & VARIABLES --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
 
 :root {
-    --primary-dark: #1a1a2e;
-    --secondary-dark: #232946;
-    --accent-cyan: #00e0b7;
-    --text-white: #ffffff;
-    --text-gray: #cbd5e0; /* Gris clair pour le texte secondaire */
+    --primary-blue: #1a1a2e;    /* Fond bleu nuit profond */
+    --secondary-blue: #232946;  /* Fond des cartes */
+    --accent-cyan: #00e0b7;     /* Couleur d'accentuation */
+    --text-white: #ffffff;      /* Écritures en blanc */
+    --text-gray: #cbd5e0;       /* Texte secondaire */
     --font-family: 'Poppins', sans-serif;
-    --transition: all 0.3s ease-in-out;
 }
 
-/* --- Base --- */
-body {
-    font-family: var(--font-family);
-    background-color: var(--primary-dark);
-    color: var(--text-white); /* Couleur par défaut pour tout le site */
-    line-height: 1.7;
-    padding-top: 60px;
-    margin: 0;
-}
-
-/* --- Typographie Globale --- */
-h1, h2, h3, h4, h5, h6, .navbar-brand {
+/* --- 2. BASE & TYPOGRAPHIE --- */
+html, body {
+    background-color: var(--primary-blue) !important;
     color: var(--text-white) !important;
+    font-family: var(--font-family);
+    line-height: 1.7;
+    margin: 0;
+    padding-top: 30px; /* Espace pour la navbar fixe */
+    overflow-x: hidden;
 }
 
-p {
-    color: var(--text-gray); /* Par défaut, les paragraphes sont gris clair pour le confort visuel */
+/* Forcer le blanc sur tous les textes par défaut */
+h1, h2, h3, h4, h5, h6, p, li, span, label, a, div {
+    color: var(--text-white);
 }
 
-/* --- Navigation --- */
-.navbar {
-    background-color: var(--primary-dark) !important;
-    border-bottom: 1px solid var(--secondary-dark);
-}
-
-.logo .text-accent {
+/* Titres et Accents en Cyan */
+.text-accent, .logo .text-accent, .timeline-title, .card-title, h1.display-2 {
     color: var(--accent-cyan) !important;
+}
+
+/* --- 3. NAVIGATION --- */
+.navbar {
+    background-color: var(--primary-blue) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 .nav-link {
     color: var(--text-white) !important;
     font-weight: 500;
+    transition: 0.3s;
 }
 
 .nav-link:hover, .nav-link.active {
     color: var(--accent-cyan) !important;
+    border-bottom: 2px solid var(--accent-cyan);
 }
 
-/* --- Cartes (Expertise, Portfolio, CV) --- */
+/* --- 4. CARTES (EXPERTISE, CV, PORTFOLIO) --- */
 .expertise-card, .card-cv, .project-card, .contact-card {
-    background-color: var(--secondary-dark);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px;
+    background-color: var(--secondary-blue) !important;
+    border: 1px solid rgba(0, 224, 183, 0.2) !important;
     border-radius: 12px;
-    transition: var(--transition);
+    padding: 30px;
+    height: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Forcer la couleur du texte dans les cartes */
-.expertise-card h3, .card-cv h2, .project-card h2 {
-    color: var(--accent-cyan) !important;
-}
-
-.expertise-card p, .card-cv p, .project-card p, .timeline-description {
-    color: var(--text-white) !important; /* On force le blanc ici pour la lisibilité sur fond bleu */
+.expertise-card:hover, .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 224, 183, 0.15);
 }
 
 .text-secondary-light {
     color: var(--text-gray) !important;
 }
 
-/* --- Badges --- */
-.badge {
-    padding: 8px 12px;
-    font-weight: 600;
-}
-
-.bg-primary-soft {
-    background-color: #31395c !important; /* Bleu un peu plus clair pour détacher du fond */
-    color: var(--text-white) !important;
-}
-
-/* --- Boutons --- */
+/* --- 5. BOUTONS --- */
 .btn-primary {
     background-color: var(--accent-cyan) !important;
-    border-color: var(--accent-cyan) !important;
-    color: var(--primary-dark) !important;
+    border: none !important;
+    color: var(--primary-blue) !important; /* Texte bleu sur fond cyan pour le contraste */
     font-weight: 700;
+    padding: 12px 30px;
 }
 
 .btn-outline-light {
-    border-color: var(--text-white) !important;
+    border: 2px solid var(--text-white) !important;
     color: var(--text-white) !important;
+    background: transparent !important;
 }
 
 .btn-outline-light:hover {
-    background-color: var(--text-white);
-    color: var(--primary-dark) !important;
+    background-color: var(--text-white) !important;
+    color: var(--primary-blue) !important;
 }
 
-/* --- Timeline CV --- */
-.timeline-title {
-    color: var(--accent-cyan) !important;
+/* --- 6. SECTION CV & TIMELINE --- */
+.timeline-cv {
+    position: relative;
+    border-left: 2px solid var(--secondary-blue);
+    margin-left: 20px;
+    padding-left: 20px;
 }
 
-.timeline-meta {
-    color: var(--text-gray) !important;
+.timeline-dot {
+    position: absolute;
+    left: -11px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    border: 4px solid var(--primary-blue);
 }
 
-/* --- Formulaires --- */
-.form-label {
-    color: var(--text-white) !important;
+.cv-photo-styled {
+    border: 4px solid var(--accent-cyan);
+    border-radius: 20px;
 }
 
+/* --- 7. FORMULAIRES --- */
 .form-control {
-    background-color: var(--primary-dark) !important;
+    background-color: var(--primary-blue) !important;
     color: var(--text-white) !important;
-    border: 1px solid var(--secondary-dark);
+    border: 1px solid var(--secondary-blue) !important;
 }
 
-.form-control::placeholder {
-    color: #6a7280 !important;
+.form-control:focus {
+    border-color: var(--accent-cyan) !important;
+    box-shadow: 0 0 0 0.25rem rgba(0, 224, 183, 0.2);
 }
 
-/* --- Footer --- */
-footer p {
-    color: var(--text-white) !important;
+/* --- 8. FOOTER --- */
+footer {
+    background-color: var(--primary-blue);
+    border-top: 2px solid var(--accent-cyan);
 }
 
 .social-icon {
-    color: var(--text-white) !important;
+    font-size: 1.5rem;
+    transition: 0.3s;
 }
 
 .social-icon:hover {
     color: var(--accent-cyan) !important;
 }
 
-/* --- Media Queries --- */
-@media (max-width: 576px) {
+/* --- 9. ANIMATIONS --- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.animate-fade-in { animation: fadeIn 1s ease-out; }
+
+/* --- 10. RESPONSIVE --- */
+@media (max-width: 768px) {
     h1 { font-size: 2rem !important; }
-    p { font-size: 0.95rem; }
+    .sidebar-column { border-right: none; border-bottom: 1px solid var(--secondary-blue); }
 }
