@@ -2,46 +2,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
 
 :root {
-    --primary-blue: #1a1a2e;    /* Fond bleu nuit profond */
-    --secondary-blue: #232946;  /* Fond des cartes */
-    --accent-cyan: #00e0b7;     /* Couleur d'accentuation */
-    --text-white: #ffffff;      /* Écritures en blanc */
-    --text-gray: #cbd5e0;       /* Texte secondaire */
+    --primary-blue: #1a1a2e;    /* Fond unique */
+    --secondary-blue: #232946;  /* Cartes et sections */
+    --accent-cyan: #00e0b7;     /* Accents et Titres */
+    --text-white: #ffffff;
+    --text-gray: #cbd5e0;
     --font-family: 'Poppins', sans-serif;
 }
 
-/* --- 2. BASE & TYPOGRAPHIE --- */
+/* --- 2. RESET & BASE (FOND UNIQUE) --- */
 html, body {
     background-color: var(--primary-blue) !important;
     color: var(--text-white) !important;
     font-family: var(--font-family);
-    line-height: 1.7;
     margin: 0;
-    padding-top: 30px; /* Espace pour la navbar fixe */
-    overflow-x: hidden;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Empêche les déformations horizontales */
 }
 
-/* Forcer le blanc sur tous les textes par défaut */
-h1, h2, h3, h4, h5, h6, p, li, span, label, a, div {
-    color: var(--text-white);
+/* Force la couleur blanche sur TOUS les textes pour contrer Bootstrap */
+h1, h2, h3, h4, h5, h6, p, li, span, label, a, .badge, .form-control {
+    color: var(--text-white) !important;
 }
 
-/* Titres et Accents en Cyan */
-.text-accent, .logo .text-accent, .timeline-title, .card-title, h1.display-2 {
-    color: var(--accent-cyan) !important;
-}
-
-/* --- 3. NAVIGATION --- */
+/* --- 3. NAVIGATION FIXE --- */
 .navbar {
     background-color: var(--primary-blue) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .nav-link {
-    color: var(--text-white) !important;
-    font-weight: 500;
     transition: 0.3s;
+    font-weight: 500;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -49,30 +44,57 @@ h1, h2, h3, h4, h5, h6, p, li, span, label, a, div {
     border-bottom: 2px solid var(--accent-cyan);
 }
 
-/* --- 4. CARTES (EXPERTISE, CV, PORTFOLIO) --- */
+/* --- 4. STRUCTURE DES PAGES (Correction déformations) --- */
+main {
+    padding-top: 80px; /* Évite que le contenu passe sous la navbar */
+    min-height: 100vh;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+/* --- 5. CARTES UNIFORMES (CV & PORTFOLIO) --- */
 .expertise-card, .card-cv, .project-card, .contact-card {
     background-color: var(--secondary-blue) !important;
     border: 1px solid rgba(0, 224, 183, 0.2) !important;
     border-radius: 12px;
-    padding: 30px;
-    height: 100%;
-    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 25px;
+    height: 100%; /* Aligne la hauteur des cartes sur une même ligne */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .expertise-card:hover, .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     box-shadow: 0 10px 20px rgba(0, 224, 183, 0.15);
 }
 
-.text-secondary-light {
-    color: var(--text-gray) !important;
+/* Correction des images de projets */
+.project-img-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
-/* --- 5. BOUTONS --- */
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Empêche l'image de s'étirer */
+}
+
+/* --- 6. ACCENTS & BOUTONS --- */
+.text-accent, .timeline-title, .navbar-brand span, i.text-accent {
+    color: var(--accent-cyan) !important;
+}
+
 .btn-primary {
     background-color: var(--accent-cyan) !important;
     border: none !important;
-    color: var(--primary-blue) !important; /* Texte bleu sur fond cyan pour le contraste */
+    color: var(--primary-blue) !important; /* Texte sombre sur bouton clair */
     font-weight: 700;
     padding: 12px 30px;
 }
@@ -88,12 +110,12 @@ h1, h2, h3, h4, h5, h6, p, li, span, label, a, div {
     color: var(--primary-blue) !important;
 }
 
-/* --- 6. SECTION CV & TIMELINE --- */
+/* --- 7. SPÉCIFIQUE CV (TIMELINE) --- */
 .timeline-cv {
     position: relative;
-    border-left: 2px solid var(--secondary-blue);
-    margin-left: 20px;
-    padding-left: 20px;
+    border-left: 2px solid var(--accent-cyan);
+    margin-left: 15px;
+    padding-left: 25px;
 }
 
 .timeline-dot {
@@ -102,20 +124,24 @@ h1, h2, h3, h4, h5, h6, p, li, span, label, a, div {
     width: 20px;
     height: 20px;
     background: var(--accent-cyan);
-    border-radius: 50%;
     border: 4px solid var(--primary-blue);
+    border-radius: 50%;
 }
 
 .cv-photo-styled {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     border: 4px solid var(--accent-cyan);
     border-radius: 20px;
+    object-fit: cover;
 }
 
-/* --- 7. FORMULAIRES --- */
+/* --- 8. FORMULAIRES --- */
 .form-control {
     background-color: var(--primary-blue) !important;
-    color: var(--text-white) !important;
     border: 1px solid var(--secondary-blue) !important;
+    color: var(--text-white) !important;
 }
 
 .form-control:focus {
@@ -123,27 +149,21 @@ h1, h2, h3, h4, h5, h6, p, li, span, label, a, div {
     box-shadow: 0 0 0 0.25rem rgba(0, 224, 183, 0.2);
 }
 
-/* --- 8. FOOTER --- */
+/* --- 9. FOOTER --- */
 footer {
-    background-color: var(--primary-blue);
-    border-top: 2px solid var(--accent-cyan);
+    background-color: var(--primary-blue) !important;
+    border-top: 3px solid var(--accent-cyan);
 }
-
-.social-icon {
-    font-size: 1.5rem;
-    transition: 0.3s;
-}
-
-.social-icon:hover {
-    color: var(--accent-cyan) !important;
-}
-
-/* --- 9. ANIMATIONS --- */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.animate-fade-in { animation: fadeIn 1s ease-out; }
 
 /* --- 10. RESPONSIVE --- */
-@media (max-width: 768px) {
-    h1 { font-size: 2rem !important; }
-    .sidebar-column { border-right: none; border-bottom: 1px solid var(--secondary-blue); }
+@media (max-width: 991px) {
+    .sidebar-column {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .display-2 { font-size: 2.5rem !important; }
+    .project-img-container { height: 180px; }
 }
