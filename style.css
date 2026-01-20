@@ -81,6 +81,82 @@ h1, h2, h3, h4, h5, h6, p, li, span, a, label, .badge {
 }
 
 /* --- 5. CARTES (Expertise, CV, Portfolio) --- */
+/* --- STABILISATION DE LA PAGE CV --- */
+
+.cv-container {
+    padding-top: 60px; /* Aligne sous la navbar */
+    min-height: 100vh;
+}
+
+.row.g-0 {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux colonnes de s'empiler sur mobile */
+}
+
+/* Sidebar (Gauche) */
+.sidebar-column {
+    background-color: var(--primary-blue);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 20px !important;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenu Principal (Droite) */
+.main-content-column {
+    padding: 40px !important;
+    background-color: var(--primary-blue);
+}
+
+/* Correction de la Photo (Évite l'écrasement) */
+.cv-photo-styled {
+    width: 100%;
+    max-width: 280px; /* Empêche la photo d'être trop géante */
+    height: auto;
+    aspect-ratio: 3 / 4; /* Force un format portrait propre */
+    object-fit: cover; /* Recadre sans déformer */
+    border: 4px solid var(--accent-cyan);
+    border-radius: 20px;
+    margin: 0 auto 20px auto;
+    display: block;
+}
+
+/* Timeline (Évite le décalage des points) */
+.timeline-cv {
+    position: relative;
+    border-left: 2px solid var(--accent-cyan);
+    margin-left: 15px;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -41px; /* Ajusté précisément pour tomber sur la ligne */
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-cyan);
+    border: 4px solid var(--primary-blue);
+    border-radius: 50%;
+}
+
+/* --- RESPONSIVE : Correction Mobile --- */
+@media (max-width: 991px) {
+    .sidebar-column {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        min-height: auto;
+        width: 100%;
+    }
+    .main-content-column {
+        width: 100%;
+    }
+}
 .expertise-card, .card-cv, .project-card, .contact-card {
     background-color: var(--secondary-blue) !important;
     border-radius: 12px;
@@ -193,3 +269,4 @@ h1, h2, h3, h4, h5, h6, p, li, span, a, label, .badge {
 /* --- 10. ANIMATIONS --- */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .animate-fade-in { animation: fadeIn 1s ease-out; }
+
