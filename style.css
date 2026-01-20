@@ -5,112 +5,140 @@
     --primary-dark: #1a1a2e;
     --secondary-dark: #232946;
     --accent-cyan: #00e0b7;
-    --text-light: #ffffff; /* Passé de #e5e5e5 à blanc pur pour un contraste maximal */
-    --text-secondary-light: #cbd5e0; /* Éclairci (anciennement #94a1b2) pour le SEO/Accessibilité */
-    --font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, sans-serif;
-    --transition-smooth: all 0.3s ease-in-out;
+    --text-white: #ffffff;
+    --text-gray: #cbd5e0; /* Gris clair pour le texte secondaire */
+    --font-family: 'Poppins', sans-serif;
+    --transition: all 0.3s ease-in-out;
 }
 
-/* --- Base & Scroll --- */
+/* --- Base --- */
 body {
     font-family: var(--font-family);
     background-color: var(--primary-dark);
-    color: var(--text-light);
+    color: var(--text-white); /* Couleur par défaut pour tout le site */
     line-height: 1.7;
     padding-top: 60px;
-    overflow-x: hidden;
+    margin: 0;
+}
+
+/* --- Typographie Globale --- */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    color: var(--text-white) !important;
+}
+
+p {
+    color: var(--text-gray); /* Par défaut, les paragraphes sont gris clair pour le confort visuel */
 }
 
 /* --- Navigation --- */
 .navbar {
-    background-color: var(--primary-dark) !important; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    background-color: var(--primary-dark) !important;
     border-bottom: 1px solid var(--secondary-dark);
 }
 
-.logo { font-weight: 800; font-size: 1.5rem; }
-.text-accent { color: var(--accent-cyan) !important; }
+.logo .text-accent {
+    color: var(--accent-cyan) !important;
+}
 
 .nav-link {
-    color: var(--text-light) !important;
-    transition: var(--transition-smooth);
+    color: var(--text-white) !important;
     font-weight: 500;
 }
 
 .nav-link:hover, .nav-link.active {
-    color: var(--accent-cyan) !important; 
-    border-bottom: 2px solid var(--accent-cyan);
+    color: var(--accent-cyan) !important;
 }
 
-/* --- Boutons --- */
-.btn-primary, .btn-outline-light {
-    font-weight: 700;
-    padding: 12px 35px;
-    border-radius: 5px;
-    transition: var(--transition-smooth);
-}
-
-.btn-primary {
-    background-color: var(--accent-cyan);
-    border-color: var(--accent-cyan);
-    color: #000000; /* Texte noir sur fond cyan pour un contraste parfait */
-}
-
-.btn-primary:hover {
-    background-color: #00f0c2; 
-    transform: translateY(-2px);
-}
-
-.btn-outline-light {
-    border-color: var(--text-light);
-    color: var(--text-light);
-}
-
-.btn-outline-light:hover {
-    background-color: var(--accent-cyan);
-    color: #000000;
-    border-color: var(--accent-cyan);
-}
-
-/* --- Cartes & Expertise --- */
+/* --- Cartes (Expertise, Portfolio, CV) --- */
 .expertise-card, .card-cv, .project-card, .contact-card {
     background-color: var(--secondary-dark);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure légèrement plus visible */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: var(--transition-smooth);
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+/* Forcer la couleur du texte dans les cartes */
+.expertise-card h3, .card-cv h2, .project-card h2 {
+    color: var(--accent-cyan) !important;
+}
+
+.expertise-card p, .card-cv p, .project-card p, .timeline-description {
+    color: var(--text-white) !important; /* On force le blanc ici pour la lisibilité sur fond bleu */
 }
 
 .text-secondary-light {
-    color: var(--text-secondary-light) !important;
+    color: var(--text-gray) !important;
 }
 
-/* --- Badges & Footer --- */
-.badge { padding: 8px 12px; font-weight: 600; margin-top: 10px; }
-.bg-primary-soft { 
-    background-color: #2d3748 !important; /* Fond plus sombre */
-    color: #ffffff !important; /* Texte blanc pur pour le contraste */
+/* --- Badges --- */
+.badge {
+    padding: 8px 12px;
+    font-weight: 600;
 }
 
-footer { background-color: var(--secondary-dark); }
-.border-top-accent { border-top: 3px solid var(--accent-cyan); }
-.social-icon { font-size: 1.4rem; transition: color 0.3s; color: #ffffff; }
-.social-icon:hover { color: var(--accent-cyan) !important; }
+.bg-primary-soft {
+    background-color: #31395c !important; /* Bleu un peu plus clair pour détacher du fond */
+    color: var(--text-white) !important;
+}
+
+/* --- Boutons --- */
+.btn-primary {
+    background-color: var(--accent-cyan) !important;
+    border-color: var(--accent-cyan) !important;
+    color: var(--primary-dark) !important;
+    font-weight: 700;
+}
+
+.btn-outline-light {
+    border-color: var(--text-white) !important;
+    color: var(--text-white) !important;
+}
+
+.btn-outline-light:hover {
+    background-color: var(--text-white);
+    color: var(--primary-dark) !important;
+}
+
+/* --- Timeline CV --- */
+.timeline-title {
+    color: var(--accent-cyan) !important;
+}
+
+.timeline-meta {
+    color: var(--text-gray) !important;
+}
 
 /* --- Formulaires --- */
+.form-label {
+    color: var(--text-white) !important;
+}
+
 .form-control {
     background-color: var(--primary-dark) !important;
-    border-color: var(--secondary-dark) !important;
-    color: #ffffff !important;
+    color: var(--text-white) !important;
+    border: 1px solid var(--secondary-dark);
 }
 
 .form-control::placeholder {
-    color: #a0aec0 !important; /* Placeholder plus clair pour la lisibilité */
+    color: #6a7280 !important;
+}
+
+/* --- Footer --- */
+footer p {
+    color: var(--text-white) !important;
+}
+
+.social-icon {
+    color: var(--text-white) !important;
+}
+
+.social-icon:hover {
+    color: var(--accent-cyan) !important;
 }
 
 /* --- Media Queries --- */
 @media (max-width: 576px) {
-    h1 { font-size: 1.8rem; }
-    .hero { padding: 80px 0; }
+    h1 { font-size: 2rem !important; }
+    p { font-size: 0.95rem; }
 }
