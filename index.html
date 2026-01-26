@@ -7,7 +7,7 @@
     
     <meta name="description" content="Portfolio créatif de Fatima Ezzohra Dadi : experte Web, Design UX/UI et Multimédia.">
     <link rel="icon" type="image/png" href="images/logofd.png">
-
+    <link rel="preload" as="image" href="images/bg.webp" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -46,10 +46,20 @@
 
         /* --- HEADER / ACCUEIL --- */
         #home { 
-            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative;
-            background: url('images/bg.webp') no-repeat center center;
-            background-size: cover; background-attachment: fixed;
-        }
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    position: relative;
+    /* On garde fixed seulement sur desktop, on optimise pour le mobile */
+    background: #050505 url('images/bg.webp') no-repeat center center;
+    background-size: cover;
+}
+
+@media (min-width: 992px) {
+    #home { background-attachment: fixed; }
+}
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 2; }
         .hero-title { font-family: 'Syncopate', sans-serif; font-size: clamp(2.5rem, 10vw, 7rem); line-height: 0.9; text-transform: uppercase; }
@@ -149,7 +159,7 @@
             <div class="cv-card row mx-0" data-aos="fade-up">
                 <aside class="col-lg-4 cv-sidebar">
                     <div class="text-center">
-                        <img src="images/photosperso.webp" alt="Fatima Dadi" class="cv-photo shadow">
+                        <img src="images/photosperso.webp" alt="Fatima Dadi" class="cv-photo shadow" loading="lazy">
                         <h3 class="h4 fw-bold">Fatima Ezzohra DADI</h3>
                         <p class="small fw-bold mb-5" style="color:var(--accent)">DÉVELOPPEMENT WEB & MULTIMÉDIA</p>
                     </div>
@@ -192,7 +202,7 @@
             <div class="row g-4">
                 <article class="col-md-6 col-lg-4" data-aos="flip-left">
                     <div class="project-card">
-                        <img src="images/logo.webp" class="project-img" alt="ThaiJap">
+                        <img src="images/logo.webp" class="project-img" alt="ThaiJap" loading="lazy">
                         <div class="project-overlay">
                             <h5 class="mb-3">THAIJAP QR</h5>
                             <div class="d-flex gap-2">
@@ -204,7 +214,7 @@
                 </article>
                 <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100">
                     <div class="project-card">
-                        <img src="images/skill.webp" class="project-img" alt="Skill Shop">
+                        <img src="images/skill.webp" class="project-img" alt="Skill Shop" loading="lazy">
                         <div class="project-overlay">
                             <h5 class="mb-3">SKILL SHOP</h5>
                             <a href="https://fd-top.github.io/Skillshop/" target="_blank" class="btn-mini btn-mini-fill">Lancer l'App</a>
