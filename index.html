@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fatima Ezzohra Dadi | Portfolio Digital & CV</title>
     
+    <meta name="description" content="Découvrez les projets de Fatima Ezzohra Dadi : experte Web, Design UX/UI et Support IT Helpdesk.">
+    <link rel="icon" type="image/png" href="images/logofd.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
@@ -25,9 +28,9 @@
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
 
-        /* --- FOND ANIMÉ --- */
+        /* --- BACKGROUND ANIMÉ (BLOBS) --- */
         .bg-blobs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #050505; overflow: hidden; }
-        .blob { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255, 45, 117, 0.1) 0%, transparent 70%); border-radius: 50%; filter: blur(80px); animation: move 20s infinite alternate; }
+        .blob { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255, 45, 117, 0.1) 0%, transparent 70%); border-radius: 50%; filter: blur(80px); animation: move 25s infinite alternate; }
         @keyframes move { from { transform: translate(-10%, -10%); } to { transform: translate(80%, 50%); } }
 
         /* --- NAVIGATION --- */
@@ -36,18 +39,27 @@
         .nav-link { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
         .nav-link:hover { color: var(--accent) !important; }
 
-        /* --- HERO (ANIMATION FLUIDE) --- */
-        #home { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+        /* --- ACCUEIL AVEC PHOTO D'ARRIÈRE-PLAN --- */
+        #home { 
+            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/bg.jpeg') no-repeat center center;
+            background-size: cover; background-attachment: fixed;
+        }
         .hero-title { font-family: 'Syncopate', sans-serif; font-size: clamp(2.2rem, 9vw, 6.5rem); line-height: 0.9; }
         .hero-title span { color: transparent; -webkit-text-stroke: 1px var(--accent); }
+
         .animation-box { height: 60px; overflow: hidden; margin-top: 25px; position: relative; }
-        .animation-box div { font-weight: 700; text-transform: uppercase; letter-spacing: 6px; color: var(--accent); height: 60px; line-height: 60px; position: absolute; width: 100%; opacity: 0; animation: textFade 16s infinite; }
+        .animation-box div {
+            font-weight: 700; text-transform: uppercase; letter-spacing: 6px; color: var(--accent);
+            height: 60px; line-height: 60px; position: absolute; width: 100%; opacity: 0;
+            animation: textFade 16s infinite;
+        }
         .animation-box div:nth-child(2) { animation-delay: 4s; }
         .animation-box div:nth-child(3) { animation-delay: 8s; }
         .animation-box div:nth-child(4) { animation-delay: 12s; }
         @keyframes textFade { 0%, 5% { opacity: 0; transform: translateY(15px); } 10%, 20% { opacity: 1; transform: translateY(0); } 25%, 100% { opacity: 0; transform: translateY(-15px); } }
 
-        /* --- STYLE CV --- */
+        /* --- CV --- */
         .cv-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 40px; backdrop-filter: blur(20px); overflow: hidden; }
         .cv-sidebar { background: rgba(0,0,0,0.4); padding: 40px; border-right: 1px solid var(--border); }
         .cv-photo { width: 160px; height: 160px; border-radius: 35px; border: 2px solid var(--accent); object-fit: cover; margin-bottom: 25px; transition: 0.4s; }
@@ -55,15 +67,16 @@
         .skill-badge { display: inline-block; padding: 7px 15px; margin: 4px; border-radius: 10px; background: rgba(255, 45, 117, 0.1); border: 1px solid var(--border); font-size: 0.75rem; transition: 0.3s; font-weight: 500; }
         .skill-badge:hover { background: var(--accent); color: white; transform: translateY(-3px); }
         .timeline-item { border-left: 1px solid var(--border); padding-left: 20px; margin-bottom: 30px; position: relative; transition: 0.4s; text-align: left; }
-        .timeline-item:hover { transform: translateX(10px); border-left-color: var(--accent); }
+        .timeline-item:hover { transform: translateX(10px); }
         .timeline-item::after { content: ''; position: absolute; left: -6px; top: 0; width: 11px; height: 11px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
 
-        /* --- PROJETS --- */
+        /* --- PROJETS (BOUTONS CORRIGÉS) --- */
         .project-card { height: 420px; border-radius: 35px; overflow: hidden; position: relative; border: 1px solid var(--border); background: #000; }
         .project-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.6s; }
-        .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; opacity: 0; transition: 0.4s; }
+        .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; opacity: 0; transition: 0.4s; }
         .project-card:hover .project-overlay { opacity: 1; }
         .project-card:hover .project-img { transform: scale(1.1); opacity: 0.4; }
+        
         .btn-group-custom { display: flex; gap: 10px; width: 100%; margin-top: 15px; }
         .btn-project { flex: 1; padding: 12px 10px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; text-decoration: none; border-radius: 50px; text-align: center; transition: 0.3s; }
         .btn-fill { background: var(--accent); color: white; border: none; }
@@ -78,9 +91,8 @@
         .contact-link { transition: 0.4s; padding: 25px; border-radius: 25px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); text-decoration: none; color: white; display: block; }
         .contact-link:hover { background: rgba(255, 45, 117, 0.1); border-color: var(--accent); color: white; }
         .form-control-custom { background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 15px; color: white; padding: 15px; margin-bottom: 20px; width: 100%; }
-        .form-control-custom:focus { outline: none; border-color: var(--accent); background: rgba(255,255,255,0.1); }
 
-        @media (max-width: 991px) { .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border); text-align: center; } }
+        @media (max-width: 991px) { .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border); text-align: center; } .hero-title { font-size: 3rem; } }
     </style>
 </head>
 <body>
@@ -124,91 +136,53 @@
                     </div>
 
                     <div class="mb-5">
-                        <h3 class="cv-section-header">CONTACT</h3>
-                        <div class="small opacity-75 text-start">
-                            <p class="mb-3"><i class="fas fa-envelope me-3" style="color: var(--accent)"></i> fatimaezzohradadi1@gmail.com</p>
-                            <p class="mb-3"><i class="fas fa-phone me-3" style="color: var(--accent)"></i> +33 7 53 67 04 09</p>
-                            <p class="mb-3"><i class="fas fa-map-marker-alt me-3" style="color: var(--accent)"></i> Charleville-Mézières, France</p>
-                        </div>
-                    </div>
-
-                    <div class="mb-5">
                         <h3 class="cv-section-header">COMPÉTENCES</h3>
                         <div class="d-flex flex-wrap gap-1">
-                            <span class="skill-badge">Support IT & Helpdesk</span>
-                            <span class="skill-badge">HTML5 / CSS3 / JS</span>
-                            <span class="skill-badge">PHP / SQL</span>
+                            <span class="skill-badge">Support Helpdesk IT</span>
+                            <span class="skill-badge">Web Fullstack</span>
                             <span class="skill-badge">React JS</span>
-                            <span class="skill-badge">WordPress Admin</span>
-                            <span class="skill-badge">Suite Adobe (Ps, Ai, Id, Pr)</span>
-                            <span class="skill-badge">UX/UI Design & Figma</span>
-                            <span class="skill-badge">Modélisation 3D (3DS Max)</span>
-                            <span class="skill-badge">Gestion Clientèle</span>
+                            <span class="skill-badge">Suite Adobe</span>
+                            <span class="skill-badge">UX/UI Figma</span>
+                            <span class="skill-badge">3DS Max</span>
+                            <span class="skill-badge">SQL</span>
                         </div>
                     </div>
 
-                    <div>
-                        <h3 class="cv-section-header">INTÉRÊTS</h3>
-                        <p class="small opacity-50 text-start">Théâtre, Sport, Voyage, Musique, Cuisine, Art.</p>
+                    <div class="text-start small opacity-75">
+                        <h3 class="cv-section-header">CONTACT</h3>
+                        <p class="mb-3"><i class="fas fa-envelope me-2" style="color:var(--accent)"></i> fatimaezzohradadi1@gmail.com</p>
+                        <p class="mb-3"><i class="fas fa-phone me-2" style="color:var(--accent)"></i> +33 7 53 67 04 09</p>
+                        <p class="mb-3"><i class="fas fa-map-marker-alt me-2" style="color:var(--accent)"></i> Charleville-Mézières, France</p>
                     </div>
                 </aside>
 
-                <div class="col-lg-8 p-4 p-md-5">
+                <div class="col-lg-8 p-4 p-md-5 text-start">
                     <h3 class="cv-section-header">EXPÉRIENCES PROFESSIONNELLES</h3>
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold mb-1">Freelancer Web & Graphisme</h4>
-                        <p class="small fw-bold mb-2" style="color: var(--accent)">AOÛT 2022 - ACTUEL</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold mb-1">Chargée de clientèle | INTELCIA</h4>
-                        <p class="small fw-bold mb-2" style="color: var(--accent)">MAI 2024 - JUILLET 2025 | MEKNÈS, MAROC</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold mb-1">Stagiaire Développeur Web | WEHELP DIGITAL</h4>
-                        <p class="small fw-bold mb-2" style="color: var(--accent)">AVRIL 2024 - JUILLET 2024 | MEKNÈS, MAROC</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold mb-1">Responsable Logistique | JLM ESTM</h4>
-                        <p class="small fw-bold mb-2" style="color: var(--accent)">SEPTEMBRE 2023 - AVRIL 2024 | MAROC</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold mb-1">Stagiaire Développeur Web | WEHELP DIGITAL</h4>
-                        <p class="small fw-bold mb-2" style="color: var(--accent)">AOÛT 2023 | MEKNÈS, MAROC</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold mb-1">Stagiaire Enseignante | ECOLE PRIMAIRE</h4>
-                        <p class="small fw-bold mb-2" style="color: var(--accent)">JUILLET 2023 | OUED IFRANE, MAROC</p>
-                    </div>
+                    <div class="timeline-item"><h6>Freelancer Web & Graphisme</h6><p class="small opacity-50">AOÛT 2022 - ACTUEL</p></div>
+                    <div class="timeline-item"><h6>Chargée de clientèle | INTELCIA</h6><p class="small opacity-50">2024 - 2025 | MAROC</p></div>
+                    <div class="timeline-item"><h6>Stagiaire Développeur | WEHELP DIGITAL</h6><p class="small opacity-50">2023 - 2024 | MEKNÈS</p></div>
+                    <div class="timeline-item"><h6>Responsable Logistique | JLM ESTM</h6><p class="small opacity-50">2023 - 2024 | MEKNÈS</p></div>
+                    <div class="timeline-item"><h6>Stagiaire Enseignante | ECOLE PRIMAIRE</h6><p class="small opacity-50">JUILLET 2023 | OUED IFRANE</p></div>
 
                     <h3 class="cv-section-header mt-5">FORMATIONS</h3>
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold mb-1">Licence Pro Métiers du numérique</h4>
-                        <p class="small fw-bold mb-0" style="color: var(--accent)">EISINE | 2025 - PRÉSENT | CHARLEVILLE</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold mb-1">DUT Web et Multimédia</h4>
-                        <p class="small fw-bold mb-0" style="color: var(--accent)">ESTM | 2022 - 2024 | Mention Bien</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold mb-1">Baccalauréat Sciences Mathématiques A</h4>
-                        <p class="small fw-bold mb-0" style="color: var(--accent)">LYCÉE MOHAMED 5 | 2022 | Azrou | Mention Bien</p>
-                    </div>
+                    <div class="timeline-item"><h6>Licence Pro Métiers du numérique</h6><p class="small opacity-50">EISINE | 2025 - PRÉSENT</p></div>
+                    <div class="timeline-item"><h6>DUT Web et Multimédia</h6><p class="small opacity-50">ESTM | Mention Bien | 2022 - 2024</p></div>
+                    <div class="timeline-item"><h6>Bac Sciences Mathématiques A</h6><p class="small opacity-50">Lycée Mohamed 5 | Azrou | Mention Bien</p></div>
                 </div>
             </div>
-            <div class="text-center mt-5">
-                <a href="images/cvfatimadadi.pdf" download class="btn-premium"><i class="fas fa-file-pdf me-2"></i> TÉLÉCHARGER LE CV PDF</a>
+            <div class="mt-5 text-center">
+                <a href="images/cvfatimadadi.pdf" download class="btn-premium"><i class="fas fa-file-pdf me-2"></i> TÉLÉCHARGER LE CV COMPLET</a>
             </div>
         </section>
 
         <section id="portfolio" class="container py-5">
-            <h2 class="text-center mb-5 hero-title" style="font-size:3rem">PROJETS</h2>
+            <h2 class="text-center mb-5 hero-title" style="font-size:3rem">MES 5 PROJETS</h2>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
                     <div class="project-card">
                         <img src="images/logo.png" class="project-img" alt="ThaiJap">
                         <div class="project-overlay">
                             <h5>THAIJAP QR</h5>
-                            <p class="small">Commande resto (Firebase)</p>
                             <div class="btn-group-custom">
                                 <a href="https://fd-top.github.io/thaijap/" target="_blank" class="btn-project btn-fill">Client</a>
                                 <a href="https://fd-top.github.io/thaijap/admin.html" target="_blank" class="btn-project btn-outline">Admin</a>
@@ -221,10 +195,7 @@
                         <img src="images/skill.png" class="project-img" alt="Skill Shop">
                         <div class="project-overlay">
                             <h5>SKILL SHOP</h5>
-                            <p class="small">Dashboard JS ES6</p>
-                            <div class="btn-group-custom">
-                                <a href="https://fd-top.github.io/Skillshop/" target="_blank" class="btn-project btn-fill w-100">Voir Projet</a>
-                            </div>
+                            <div class="btn-group-custom"><a href="https://fd-top.github.io/Skillshop/" target="_blank" class="btn-project btn-fill w-100">Voir Projet</a></div>
                         </div>
                     </div>
                 </div>
@@ -232,10 +203,8 @@
                     <div class="project-card">
                         <img src="images/3D.png" class="project-img" alt="3D">
                         <div class="project-overlay">
-                            <h5>ARCHITECTURE 3D</h5>
-                            <div class="btn-group-custom">
-                                <a href="estm/ESTM2.max" download class="btn-project btn-outline w-100">Fichier .Max</a>
-                            </div>
+                            <h5>RENDU ARCHI 3D</h5>
+                            <div class="btn-group-custom"><a href="estm/ESTM2.max" download class="btn-project btn-outline w-100">Fichier .Max</a></div>
                         </div>
                     </div>
                 </div>
@@ -244,9 +213,7 @@
                         <img src="images/ui.png" class="project-img" alt="Design">
                         <div class="project-overlay">
                             <h5>BRAND IDENTITY</h5>
-                            <div class="btn-group-custom">
-                                <a href="images/chartegraphique.pdf" target="_blank" class="btn-project btn-fill w-100">Voir PDF</a>
-                            </div>
+                            <div class="btn-group-custom"><a href="images/chartegraphique.pdf" target="_blank" class="btn-project btn-fill w-100">Voir PDF</a></div>
                         </div>
                     </div>
                 </div>
@@ -255,9 +222,7 @@
                         <img src="images/gestion.png" class="project-img" alt="Logistique">
                         <div class="project-overlay">
                             <h5>LOGISTIQUE JLM</h5>
-                            <div class="btn-group-custom">
-                                <a href="#cv" class="btn-project btn-outline w-100">Détails CV</a>
-                            </div>
+                            <div class="btn-group-custom"><a href="#cv" class="btn-project btn-outline w-100">Détails CV</a></div>
                         </div>
                     </div>
                 </div>
@@ -265,30 +230,28 @@
         </section>
 
         <section id="contact" class="container py-5">
-            <div class="cv-card p-5">
-                <h2 class="text-center mb-5 hero-title" style="font-size:2.5rem">CONTACT</h2>
-                <div class="row g-4 mb-5 text-center">
+            <div class="cv-card p-5 text-center">
+                <h2 class="hero-title mb-5" style="font-size:2.5rem">CONTACT</h2>
+                <div class="row g-4 mb-5">
                     <div class="col-md-6">
                         <a href="mailto:fatimaezzohradadi1@gmail.com" class="contact-link">
                             <i class="fas fa-envelope fa-2x mb-3 text-accent" style="color:var(--accent)"></i>
                             <h5 class="fw-bold">Email Direct</h5>
-                            <p class="small opacity-75">fatimaezzohradadi1@gmail.com</p>
                         </a>
                     </div>
                     <div class="col-md-6">
                         <a href="https://linkedin.com/in/fatima-ezzohra-dadi" target="_blank" class="contact-link">
                             <i class="fab fa-linkedin fa-2x mb-3 text-accent" style="color:var(--accent)"></i>
                             <h5 class="fw-bold">LinkedIn Pro</h5>
-                            <p class="small opacity-75">Fatima Ezzohra Dadi</p>
                         </a>
                     </div>
                 </div>
-                <form id="contact-form" class="mx-auto mt-4" style="max-width: 650px;">
+                <form id="contact-form" class="mx-auto" style="max-width: 650px;">
                     <div class="row">
-                        <div class="col-md-6"><input type="text" class="form-control-custom" placeholder="Nom" required></div>
+                        <div class="col-md-6"><input type="text" class="form-control-custom" placeholder="Nom complet" required></div>
                         <div class="col-md-6"><input type="email" class="form-control-custom" placeholder="Email" required></div>
                     </div>
-                    <textarea class="form-control-custom" rows="4" placeholder="Message..."></textarea>
+                    <textarea class="form-control-custom" rows="4" placeholder="Votre message..."></textarea>
                     <button type="submit" class="btn-premium w-100 border-0 p-3">ENVOYER LE MESSAGE</button>
                 </form>
             </div>
