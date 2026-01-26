@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr"> <head>
+<html lang="fr">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatima Ezzohra Dadi | Portfolio Digital & CV</title>
     
-    <title>Fatima Ezzohra Dadi | Portfolio Digital & CV</title> <meta name="description" content="Découvrez les projets de Fatima Ezzohra Dadi : experte Web, Design UX/UI et Support IT Helpdesk."> <meta name="author" content="Fatima Ezzohra Dadi"> <meta name="keywords" content="Développement Web, UX/UI Design, 3DS Max, Helpdesk, Charleville-Mézières, Meknès, Portfolio"> <link rel="icon" type="image/png" href="images/logofd.png"> <meta property="og:title" content="Fatima Ezzohra Dadi - Portfolio Premium"> <meta property="og:image" content="images/preview.jpg"> <meta property="og:type" content="website"> <meta property="og:url" content="https://fd-top.github.io/"> <meta property="og:description" content="Découvrez mon univers numérique : de la conception UX/UI au développement de solutions web."> <meta name="twitter:card" content="summary_large_image"> <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -11,103 +15,83 @@
         :root { 
             --accent: #ff2d75; 
             --dark-bg: #050505; 
-            --card-bg: #0f0f0f;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.08);
-            --text-dim: #999;
+            --card-bg: rgba(15, 15, 15, 0.95);
+            --border: rgba(255, 45, 117, 0.25);
         }
-        
-        * { scroll-behavior: smooth; cursor: default; }
-        body { background-color: var(--dark-bg); color: #fff; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
 
-        /* --- ANIMATIONS --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-in { opacity: 0; }
-        .animate-in.visible { animation: fadeInUp 0.8s ease-out forwards; opacity: 1; }
+        /* --- GLOBAL --- */
+        * { scroll-behavior: smooth; box-sizing: border-box; }
+        body { background-color: var(--dark-bg); color: #fff; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; margin: 0; font-display: swap; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+        /* --- FOND ANIMÉ --- */
+        .bg-blobs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #050505; overflow: hidden; }
+        .blob { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255, 45, 117, 0.1) 0%, transparent 70%); border-radius: 50%; filter: blur(80px); animation: move 20s infinite alternate; }
+        @keyframes move { from { transform: translate(-10%, -10%); } to { transform: translate(80%, 50%); } }
 
         /* --- NAVIGATION --- */
-        .navbar { background: rgba(5, 5, 5, 0.8) !important; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 15px 0; transition: 0.5s; }
-        .navbar-brand { font-family: 'Syncopate', sans-serif; font-size: 1.2rem; letter-spacing: 4px; color: var(--accent) !important; text-decoration: none; font-weight: 700; }
-        .nav-link { font-weight: 500; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; margin-left: 20px; opacity: 0.6; transition: 0.3s; }
-        .nav-link:hover, .nav-link.active { opacity: 1; color: var(--accent) !important; }
+        .navbar { background: rgba(5, 5, 5, 0.85) !important; backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); padding: 12px 0; }
+        .navbar-brand { font-family: 'Syncopate', sans-serif; color: var(--accent) !important; font-weight: 700; letter-spacing: 3px; }
+        .nav-link { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .nav-link:hover { color: var(--accent) !important; }
 
-        /* --- HERO --- */
-        #home {
-            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
-            background: radial-gradient(circle at 50% 50%, rgba(255, 45, 117, 0.15), transparent 70%), url('images/bg.jpeg') center/cover no-repeat;
-            background-attachment: fixed; position: relative; padding: 20px;
-        }
-        .hero-title { font-family: 'Syncopate', sans-serif; font-size: clamp(2.2rem, 8vw, 7rem); font-weight: 900; line-height: 0.9; margin-bottom: 30px; letter-spacing: -5px; }
-        .hero-title span { color: var(--accent); text-shadow: 0 0 30px rgba(255, 45, 117, 0.6); }
-        
-        .typing-container { min-height: 60px; display: flex; justify-content: center; align-items: center; }
-        .typing-effect { 
-            font-size: clamp(0.8rem, 2vw, 1.1rem); 
-            text-transform: uppercase; 
-            letter-spacing: 5px; 
-            color: var(--accent); 
-            font-weight: 700; 
-            border-right: 3px solid var(--accent); 
-            animation: typing 3.5s steps(40, end), blink 0.8s infinite; 
-            white-space: normal;
-            overflow: hidden;
-            max-width: 100%;
-        }
-        @keyframes typing { from { max-width: 0 } to { max-width: 100% } }
-        @keyframes blink { 50% { border-color: transparent; } }
+        /* --- HERO (ANIMATION FLUIDE) --- */
+        #home { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .hero-title { font-family: 'Syncopate', sans-serif; font-size: clamp(2.2rem, 9vw, 6.5rem); line-height: 0.9; }
+        .hero-title span { color: transparent; -webkit-text-stroke: 1px var(--accent); }
+        .animation-box { height: 60px; overflow: hidden; margin-top: 25px; position: relative; }
+        .animation-box div { font-weight: 700; text-transform: uppercase; letter-spacing: 6px; color: var(--accent); height: 60px; line-height: 60px; position: absolute; width: 100%; opacity: 0; animation: textFade 16s infinite; }
+        .animation-box div:nth-child(2) { animation-delay: 4s; }
+        .animation-box div:nth-child(3) { animation-delay: 8s; }
+        .animation-box div:nth-child(4) { animation-delay: 12s; }
+        @keyframes textFade { 0%, 5% { opacity: 0; transform: translateY(15px); } 10%, 20% { opacity: 1; transform: translateY(0); } 25%, 100% { opacity: 0; transform: translateY(-15px); } }
 
-        /* --- CV DASHBOARD --- */
-        .cv-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 40px; overflow: hidden; }
-        .cv-sidebar { background: #0a0a0a; padding: 40px; border-right: 1px solid var(--border); }
-        .cv-photo { width: 160px; height: 160px; object-fit: cover; border-radius: 40px; border: 2px solid var(--accent); margin-bottom: 25px; transition: 0.5s; }
-        .cv-photo:hover { transform: scale(1.05); }
-        .cv-section-header { font-family: 'Syncopate', sans-serif; font-size: 0.7rem; color: var(--accent); letter-spacing: 4px; margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-        .timeline-item { position: relative; padding-left: 25px; border-left: 1px solid var(--border); margin-bottom: 35px; transition: 0.4s; }
-        .timeline-item:hover { border-left: 1px solid var(--accent); transform: translateX(8px); }
-        .timeline-item::after { content: ""; position: absolute; left: -5px; top: 5px; width: 9px; height: 9px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 15px var(--accent); }
+        /* --- STYLE CV --- */
+        .cv-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 40px; backdrop-filter: blur(20px); overflow: hidden; }
+        .cv-sidebar { background: rgba(0,0,0,0.4); padding: 40px; border-right: 1px solid var(--border); }
+        .cv-photo { width: 160px; height: 160px; border-radius: 35px; border: 2px solid var(--accent); object-fit: cover; margin-bottom: 25px; transition: 0.4s; }
+        .cv-section-header { font-family: 'Syncopate', sans-serif; font-size: 0.75rem; color: var(--accent); letter-spacing: 3px; margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 10px; text-align: left; }
+        .skill-badge { display: inline-block; padding: 7px 15px; margin: 4px; border-radius: 10px; background: rgba(255, 45, 117, 0.1); border: 1px solid var(--border); font-size: 0.75rem; transition: 0.3s; font-weight: 500; }
+        .skill-badge:hover { background: var(--accent); color: white; transform: translateY(-3px); }
+        .timeline-item { border-left: 1px solid var(--border); padding-left: 20px; margin-bottom: 30px; position: relative; transition: 0.4s; text-align: left; }
+        .timeline-item:hover { transform: translateX(10px); border-left-color: var(--accent); }
+        .timeline-item::after { content: ''; position: absolute; left: -6px; top: 0; width: 11px; height: 11px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
 
-        /* --- PORTFOLIO --- */
-        .project-card { position: relative; border-radius: 35px; overflow: hidden; background: var(--card-bg); height: 450px; border: 1px solid var(--border); transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-        .project-img { height: 100%; width: 100%; object-fit: cover; transition: 0.8s; }
-        .project-info { position: absolute; inset: 0; padding: 30px; background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; transform: translateY(20px); opacity: 0; transition: 0.5s; }
-        .project-card:hover .project-info { transform: translateY(0); opacity: 1; }
-        .project-card:hover .project-img { transform: scale(1.1); filter: blur(2px) brightness(0.6); }
+        /* --- PROJETS --- */
+        .project-card { height: 420px; border-radius: 35px; overflow: hidden; position: relative; border: 1px solid var(--border); background: #000; }
+        .project-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.6s; }
+        .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; opacity: 0; transition: 0.4s; }
+        .project-card:hover .project-overlay { opacity: 1; }
+        .project-card:hover .project-img { transform: scale(1.1); opacity: 0.4; }
+        .btn-group-custom { display: flex; gap: 10px; width: 100%; margin-top: 15px; }
+        .btn-project { flex: 1; padding: 12px 10px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; text-decoration: none; border-radius: 50px; text-align: center; transition: 0.3s; }
+        .btn-fill { background: var(--accent); color: white; border: none; }
+        .btn-outline { background: transparent; color: white; border: 1px solid white; }
+        .btn-project:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 45, 117, 0.3); color: white; }
 
-        .btn-pink { background: var(--accent); color: #fff; border: none; padding: 12px 25px; border-radius: 15px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; transition: 0.4s; text-decoration: none; display: inline-block; }
-        .btn-pink:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(255, 45, 117, 0.4); background: #fff; color: var(--accent); }
-        
-        .filter-btn { background: transparent; border: 1px solid var(--border); color: #fff; padding: 10px 22px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin: 5px; transition: 0.3s; }
-        .filter-btn.active { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 20px rgba(255, 45, 117, 0.3); }
-
-        .project-item.hide { display: none !important; }
-        .project-item.show { display: block !important; animation: reveal 0.7s ease forwards; }
-        @keyframes reveal { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        /* --- PREMIUM BUTTON --- */
+        .btn-premium { background: linear-gradient(45deg, var(--accent), #ff5e95); color: white !important; border: none; padding: 15px 45px; border-radius: 50px; font-weight: 700; letter-spacing: 2px; text-decoration: none; display: inline-block; transition: 0.4s; }
+        .btn-premium:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(255, 45, 117, 0.4); }
 
         /* --- CONTACT --- */
-        #contact { background: radial-gradient(circle at 10% 90%, rgba(255, 45, 117, 0.05), transparent 50%); padding: 100px 0; }
-        .contact-glass-box { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid var(--border); border-radius: 40px; padding: 40px; transition: 0.4s; }
-        .form-control-custom { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); color: #fff; border-radius: 15px; padding: 15px; margin-bottom: 20px; width: 100%; transition: 0.3s; }
-        .form-control-custom:focus { outline: none; border-color: var(--accent); background: rgba(255, 255, 255, 0.06); box-shadow: 0 0 15px rgba(255, 45, 117, 0.2); }
-        .social-link-card { display: flex; align-items: center; padding: 20px; background: var(--glass); border: 1px solid var(--border); border-radius: 20px; color: #fff; text-decoration: none; transition: 0.4s; margin-bottom: 15px; }
-        .social-link-card:hover { border-color: var(--accent); transform: translateX(10px); background: rgba(255, 45, 117, 0.05); }
-        .social-link-card i { font-size: 1.5rem; margin-right: 20px; color: var(--accent); }
+        .contact-link { transition: 0.4s; padding: 25px; border-radius: 25px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); text-decoration: none; color: white; display: block; }
+        .contact-link:hover { background: rgba(255, 45, 117, 0.1); border-color: var(--accent); color: white; }
+        .form-control-custom { background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 15px; color: white; padding: 15px; margin-bottom: 20px; width: 100%; }
+        .form-control-custom:focus { outline: none; border-color: var(--accent); background: rgba(255,255,255,0.1); }
 
-        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+        @media (max-width: 991px) { .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border); text-align: center; } }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" aria-label="Menu principal">
+    <div class="bg-blobs"><div class="blob"></div></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#home">FATIMA.DADI</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer le menu navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#cv">Mon CV</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Projets</a></li>
@@ -117,242 +101,204 @@
         </div>
     </nav>
 
-    <main id="main-content">
-        
+    <main>
         <header id="home">
             <div class="container">
-                <h1 class="hero-title animate-in">DIGITAL<br><span>CREATIVE</span></h1>
-                <div class="typing-container animate-in">
-                    <span class="typing-effect" aria-label="Fatima Ezzohra Dadi | Designer & Developer">Fatima Ezzohra Dadi | Designer & Developer</span>
-                </div>
-                <div class="mt-4 animate-in">
-                    <a href="#portfolio" class="btn btn-pink shadow">DÉCOUVRIR MES TRAVAUX</a>
+                <h1 class="hero-title">FATIMA<br><span>EZZOHRA</span> DADI</h1>
+                <div class="animation-box">
+                    <div>Développement Web & Multimédia</div>
+                    <div>UX / UI Designer Créative</div>
+                    <div>Modélisation 3D (3DS Max)</div>
+                    <div>Support IT & Helpdesk</div>
                 </div>
             </div>
         </header>
 
-        <section id="cv" class="container py-5 mt-5">
-            <div class="cv-card row mx-0 animate-in" id="printable-cv" itemscope itemtype="http://schema.org/Person">
+        <section id="cv" class="container py-5">
+            <div class="cv-card row mx-0">
                 <aside class="col-lg-4 cv-sidebar">
-                    <img src="images/photosperso.png" alt="Portrait de Fatima Ezzohra Dadi" class="cv-photo shadow-lg" itemprop="image"> <h2 class="h3 fw-bold mb-1" itemprop="name">Fatima Ezzohra DADI</h2> <p class="text-accent small mb-5 fw-bold" itemprop="jobTitle">DÉVELOPPEMENT WEB & MULTIMÉDIA</p> <div class="mb-5">
-                        <h3 class="cv-section-header">CONTACT</h3>
-                        <p class="small mb-2 opacity-75"><i class="fas fa-envelope text-accent me-3" aria-hidden="true"></i> <span itemprop="email">fatimaezzohradadi1@gmail.com</span></p> <p class="small mb-2 opacity-75"><i class="fas fa-phone text-accent me-3" aria-hidden="true"></i> <span itemprop="telephone">+33 7 53 67 04 09</span></p> <p class="small mb-2 opacity-75"><i class="fas fa-map-marker-alt text-accent me-3" aria-hidden="true"></i> <span>38 rue Montjoly, Charleville-Mézières</span></p> </div>
+                    <div class="text-center">
+                        <img src="images/photosperso.png" alt="Fatima Dadi" class="cv-photo shadow-lg">
+                        <h2 class="h3 fw-bold mb-1">Fatima Ezzohra DADI</h2>
+                        <p class="small fw-bold mb-5" style="color: var(--accent); letter-spacing: 2px;">DÉVELOPPEMENT WEB & MULTIMÉDIA</p>
+                    </div>
 
                     <div class="mb-5">
-                        <h3 class="cv-section-header">COMPÉTENCES</h3> <ul class="list-unstyled small opacity-75">
-                            <li class="mb-2">• Support IT & Helpdesk </li>
-                            <li class="mb-2">• Web (HTML5, CSS3, JS, PHP) </li>
-                            <li class="mb-2">• Administration WordPress </li>
-                            <li class="mb-2">• Suite Adobe (Ps, Ai, Id, Pr)</li>
-                            <li class="mb-2">• Bases de données & SQL </li>
-                            <li class="mb-2">• UX/UI Design & Figma </li>
-                            <li class="mb-2">• Modélisation 3D (3DS Max) </li>
-                            <li class="mb-2">• Gestion Clientèle & Leadership </li>
-                        </ul>
+                        <h3 class="cv-section-header">CONTACT</h3>
+                        <div class="small opacity-75 text-start">
+                            <p class="mb-3"><i class="fas fa-envelope me-3" style="color: var(--accent)"></i> fatimaezzohradadi1@gmail.com</p>
+                            <p class="mb-3"><i class="fas fa-phone me-3" style="color: var(--accent)"></i> +33 7 53 67 04 09</p>
+                            <p class="mb-3"><i class="fas fa-map-marker-alt me-3" style="color: var(--accent)"></i> Charleville-Mézières, France</p>
+                        </div>
                     </div>
-                    
+
+                    <div class="mb-5">
+                        <h3 class="cv-section-header">COMPÉTENCES</h3>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="skill-badge">Support IT & Helpdesk</span>
+                            <span class="skill-badge">HTML5 / CSS3 / JS</span>
+                            <span class="skill-badge">PHP / SQL</span>
+                            <span class="skill-badge">React JS</span>
+                            <span class="skill-badge">WordPress Admin</span>
+                            <span class="skill-badge">Suite Adobe (Ps, Ai, Id, Pr)</span>
+                            <span class="skill-badge">UX/UI Design & Figma</span>
+                            <span class="skill-badge">Modélisation 3D (3DS Max)</span>
+                            <span class="skill-badge">Gestion Clientèle</span>
+                        </div>
+                    </div>
+
                     <div>
-                        <h3 class="cv-section-header">CENTRES D'INTÉRÊT</h3> <p class="small opacity-50">Théâtre, Sport, Voyage, Musique, Cuisine, Art .</p>
+                        <h3 class="cv-section-header">INTÉRÊTS</h3>
+                        <p class="small opacity-50 text-start">Théâtre, Sport, Voyage, Musique, Cuisine, Art.</p>
                     </div>
                 </aside>
 
-                <div class="col-lg-8 p-5">
-                    <h3 class="cv-section-header">EXPÉRIENCES PROFESSIONNELLES</h3> <div class="timeline-item">
-                        <h4 class="h6 fw-bold">Freelancer Web & Graphisme</h4> <p class="small text-accent fw-bold">AOÛT 2022 - ACTUEL </p>
+                <div class="col-lg-8 p-4 p-md-5">
+                    <h3 class="cv-section-header">EXPÉRIENCES PROFESSIONNELLES</h3>
+                    <div class="timeline-item">
+                        <h4 class="h6 fw-bold mb-1">Freelancer Web & Graphisme</h4>
+                        <p class="small fw-bold mb-2" style="color: var(--accent)">AOÛT 2022 - ACTUEL</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="h6 fw-bold mb-1">Chargée de clientèle | INTELCIA</h4>
+                        <p class="small fw-bold mb-2" style="color: var(--accent)">MAI 2024 - JUILLET 2025 | MEKNÈS, MAROC</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="h6 fw-bold mb-1">Stagiaire Développeur Web | WEHELP DIGITAL</h4>
+                        <p class="small fw-bold mb-2" style="color: var(--accent)">AVRIL 2024 - JUILLET 2024 | MEKNÈS, MAROC</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="h6 fw-bold mb-1">Responsable Logistique | JLM ESTM</h4>
+                        <p class="small fw-bold mb-2" style="color: var(--accent)">SEPTEMBRE 2023 - AVRIL 2024 | MAROC</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="h6 fw-bold mb-1">Stagiaire Développeur Web | WEHELP DIGITAL</h4>
+                        <p class="small fw-bold mb-2" style="color: var(--accent)">AOÛT 2023 | MEKNÈS, MAROC</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="h6 fw-bold mb-1">Stagiaire Enseignante | ECOLE PRIMAIRE</h4>
+                        <p class="small fw-bold mb-2" style="color: var(--accent)">JUILLET 2023 | OUED IFRANE, MAROC</p>
                     </div>
 
+                    <h3 class="cv-section-header mt-5">FORMATIONS</h3>
                     <div class="timeline-item">
-                        <h4 class="h6 fw-bold">Chargée de clientèle | INTELCIA</h4> <p class="small text-accent fw-bold">MAI 2024 - JUILLET 2025 | MEKNÈS, MAROC </p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold">Stagiaire Développeur Web | WEHELP DIGITAL</h4> <p class="small text-accent fw-bold">AVRIL 2024 - JUILLET 2024 | MEKNÈS, MAROC</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold">Responsable Logistique | JLM ESTM</h4> <p class="small text-accent fw-bold">SEPTEMBRE 2023 - AVRIL 2024 | MEKNÈS, MAROC </p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold">Stagiaire Développeur Web | WEHELP DIGITAL</h4> <p class="small text-accent fw-bold">AOÛT 2023 | MEKNÈS, MAROC /p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h4 class="h6 fw-bold">Stagiaire Enseignante | ECOLE PRIMAIRE.COM</h4> <p class="small text-accent fw-bold">JUILLET 2023 | OUED IFRANE, MAROC </p>
-                    </div>
-
-                    <h3 class="cv-section-header mt-5">FORMATIONS</h3> <div class="timeline-item">
-                        <h4 class="h6 fw-bold">Licence Pro Métiers du numérique</h4> <p class="small text-accent fw-bold">EISINE | 2025 - PRÉSENT | CHARLEVILLE-MÉZIÈRES </p>
+                        <h4 class="h6 fw-bold mb-1">Licence Pro Métiers du numérique</h4>
+                        <p class="small fw-bold mb-0" style="color: var(--accent)">EISINE | 2025 - PRÉSENT | CHARLEVILLE</p>
                     </div>
                     <div class="timeline-item">
-                        <h4 class="h6 fw-bold">DUT Développement Web et Multimédia</h4> <p class="small text-accent fw-bold">ESTM | 2022 - 2024 | MEKNÈS (Mention Bien) </p>
+                        <h4 class="h6 fw-bold mb-1">DUT Web et Multimédia</h4>
+                        <p class="small fw-bold mb-0" style="color: var(--accent)">ESTM | 2022 - 2024 | Mention Bien</p>
                     </div>
                     <div class="timeline-item">
-                        <h4 class="h6 fw-bold">Baccalauréat Sciences Mathématiques A</h4> <p class="small text-accent fw-bold">LYCÉE MOHAMED 5 | 2022 | AZROU (Mention Bien) </p>
+                        <h4 class="h6 fw-bold mb-1">Baccalauréat Sciences Mathématiques A</h4>
+                        <p class="small fw-bold mb-0" style="color: var(--accent)">LYCÉE MOHAMED 5 | 2022 | Azrou | Mention Bien</p>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a href="images/cvfatimadadi.pdf" download class="btn btn-outline-light rounded-pill px-5 py-3" aria-label="Télécharger mon CV au format PDF">TÉLÉCHARGER LE CV COMPLET PDF</a>
+                <a href="images/cvfatimadadi.pdf" download class="btn-premium"><i class="fas fa-file-pdf me-2"></i> TÉLÉCHARGER LE CV PDF</a>
             </div>
         </section>
 
         <section id="portfolio" class="container py-5">
-            <div class="text-center mb-5 animate-in">
-                <h2 class="hero-title" style="font-size: 4rem;">PROJETS</h2>
-            </div>
-
-            <div class="text-center mb-5 animate-in" role="group" aria-label="Filtres de projets">
-                <button class="filter-btn active" data-filter="all" aria-pressed="true">Tout</button>
-                <button class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
-                <button class="filter-btn" data-filter="design" aria-pressed="false">Design</button>
-                <button class="filter-btn" data-filter="3d" aria-pressed="false">3D</button>
-                <button class="filter-btn" data-filter="autre" aria-pressed="false">Gestion</button>
-            </div>
-
-            <div class="row g-4" id="portfolio-grid">
-                <article class="col-md-6 col-lg-4 project-item web show" itemprop="hasPart"> <div class="project-card">
-                        <div class="project-img-box"><img src="images/skill.png" class="project-img" alt="Capture application Skill Shop" itemprop="image"></div>
-                        <div class="project-info">
-                            <h3 class="h4 fw-bold" itemprop="name">SKILL SHOP</h3>
-                            <p class="small opacity-70 mb-4" itemprop="description">Dashboard interactif de montée en compétences (JS ES6).</p>
-                            <a href="https://fd-top.github.io/Skillshop/" target="_blank" class="btn-pink text-center" aria-label="Voir le projet Skill Shop">Lancer l'App</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="col-md-6 col-lg-4 project-item web show">
+            <h2 class="text-center mb-5 hero-title" style="font-size:3rem">PROJETS</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="project-card">
-                        <div class="project-img-box"><img src="images/logo.png" class="project-img" alt="ThaiJap solution QR Code"></div>
-                        <div class="project-info">
-                            <h3 class="h4 fw-bold">THAIJAP QR</h3>
-                            <p class="small opacity-70 mb-4">Solution restaurants (Firebase).</p>
-                            <div class="d-flex gap-2">
-                                <a href="https://fd-top.github.io/thaijap/" target="_blank" class="btn-pink flex-grow-1 text-center" style="font-size: 0.65rem; padding: 10px 5px;">DÉMO CLIENT</a>
-                                <a href="https://fd-top.github.io/thaijap/admin.html" target="_blank" class="btn-pink flex-grow-1 text-center" style="font-size: 0.65rem; padding: 10px 5px;">DÉMO ADMIN</a>
+                        <img src="images/logo.png" class="project-img" alt="ThaiJap">
+                        <div class="project-overlay">
+                            <h5>THAIJAP QR</h5>
+                            <p class="small">Commande resto (Firebase)</p>
+                            <div class="btn-group-custom">
+                                <a href="https://fd-top.github.io/thaijap/" target="_blank" class="btn-project btn-fill">Client</a>
+                                <a href="https://fd-top.github.io/thaijap/admin.html" target="_blank" class="btn-project btn-outline">Admin</a>
                             </div>
                         </div>
                     </div>
-                </article>
-
-                <article class="col-md-6 col-lg-4 project-item 3d show">
+                </div>
+                <div class="col-md-6 col-lg-4">
                     <div class="project-card">
-                        <div class="project-img-box"><img src="images/3D.png" class="project-img" alt="Rendu modélisation 3D"></div>
-                        <div class="project-info">
-                            <h3 class="h4 fw-bold">RENDU 3D</h3>
-                            <p class="small opacity-70 mb-4">Architecture sous 3DS Max.</p>
-                            <a href="estm/ESTM2.max" download class="btn-pink text-center">Fichier .max</a>
+                        <img src="images/skill.png" class="project-img" alt="Skill Shop">
+                        <div class="project-overlay">
+                            <h5>SKILL SHOP</h5>
+                            <p class="small">Dashboard JS ES6</p>
+                            <div class="btn-group-custom">
+                                <a href="https://fd-top.github.io/Skillshop/" target="_blank" class="btn-project btn-fill w-100">Voir Projet</a>
+                            </div>
                         </div>
                     </div>
-                </article>
-
-                <article class="col-md-6 col-lg-4 project-item design show">
+                </div>
+                <div class="col-md-6 col-lg-4">
                     <div class="project-card">
-                        <div class="project-img-box"><img src="images/ui.png" class="project-img" alt="Travaux de design graphique"></div>
-                        <div class="project-info">
-                            <h3 class="h4 fw-bold">BRAND IDENTITY</h3>
-                            <p class="small opacity-70 mb-4">Chartes graphiques Suite Adobe.</p>
-                            <a href="images/chartegraphique.pdf" target="_blank" class="btn-pink text-center">Voir PDF</a>
+                        <img src="images/3D.png" class="project-img" alt="3D">
+                        <div class="project-overlay">
+                            <h5>ARCHITECTURE 3D</h5>
+                            <div class="btn-group-custom">
+                                <a href="estm/ESTM2.max" download class="btn-project btn-outline w-100">Fichier .Max</a>
+                            </div>
                         </div>
                     </div>
-                </article>
-
-                <article class="col-md-6 col-lg-4 project-item autre show">
+                </div>
+                <div class="col-md-6 col-lg-4">
                     <div class="project-card">
-                        <div class="project-img-box"><img src="images/gestion.png" class="project-img" alt="Logistique événementielle JLM"></div>
-                        <div class="project-info">
-                            <h3 class="h4 fw-bold">LOGISTIQUE JLM</h3>
-                            <p class="small opacity-70 mb-4">Organisation événementielle.</p>
-                            <a href="#cv" class="btn-pink text-center">Détails CV</a>
+                        <img src="images/ui.png" class="project-img" alt="Design">
+                        <div class="project-overlay">
+                            <h5>BRAND IDENTITY</h5>
+                            <div class="btn-group-custom">
+                                <a href="images/chartegraphique.pdf" target="_blank" class="btn-project btn-fill w-100">Voir PDF</a>
+                            </div>
                         </div>
                     </div>
-                </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <img src="images/gestion.png" class="project-img" alt="Logistique">
+                        <div class="project-overlay">
+                            <h5>LOGISTIQUE JLM</h5>
+                            <div class="btn-group-custom">
+                                <a href="#cv" class="btn-project btn-outline w-100">Détails CV</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="contact" class="container py-5 mt-5">
-            <div class="text-center mb-5 animate-in">
-                <h2 class="hero-title" style="font-size: 4rem;">CONTACT</h2>
-            </div>
-            <div class="row g-5 animate-in">
-                <div class="col-lg-5">
-                    <h3 class="cv-section-header">MES RÉSEAUX</h3>
-                    <a href="mailto:fatimaezzohradadi1@gmail.com" class="social-link-card" aria-label="Envoyer un email à Fatima Ezzohra Dadi">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <div><span class="d-block fw-bold fs-5">Email</span><span class="small opacity-50">fatimaezzohradadi1@gmail.com</span></div>
-                    </a>
-                    <a href="https://www.linkedin.com/in/fatima-ezzohra-dadi" target="_blank" rel="nofollow noopener" class="social-link-card" aria-label="Consulter mon profil LinkedIn">
-                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                        <div><span class="d-block fw-bold fs-5">LinkedIn</span><span class="small opacity-50">Professionnel</span></div>
-                    </a>
-                    <p class="small opacity-50 mt-4 px-3"><i class="fas fa-location-dot me-2" aria-hidden="true"></i> Basée à Charleville-Mézières, France.</p>
-                </div>
-                <div class="col-lg-7">
-                    <div class="contact-glass-box shadow-lg">
-                        <form id="contact-form" aria-label="Formulaire de contact">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="form-name" class="sr-only">Nom complet</label> <input type="text" id="form-name" class="form-control-custom" placeholder="Nom Complet" required aria-required="true">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="form-email" class="sr-only">Adresse email</label>
-                                    <input type="email" id="form-email" class="form-control-custom" placeholder="Email" required aria-required="true">
-                                </div>
-                            </div>
-                            <label for="form-message" class="sr-only">Message</label>
-                            <textarea id="form-message" rows="4" class="form-control-custom" placeholder="Votre message..." required aria-required="true"></textarea>
-                            <button type="submit" class="btn-pink w-100 py-3 mt-2 border-0 shadow" aria-label="Envoyer le message">ENVOYER LE MESSAGE</button>
-                        </form>
+        <section id="contact" class="container py-5">
+            <div class="cv-card p-5">
+                <h2 class="text-center mb-5 hero-title" style="font-size:2.5rem">CONTACT</h2>
+                <div class="row g-4 mb-5 text-center">
+                    <div class="col-md-6">
+                        <a href="mailto:fatimaezzohradadi1@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope fa-2x mb-3 text-accent" style="color:var(--accent)"></i>
+                            <h5 class="fw-bold">Email Direct</h5>
+                            <p class="small opacity-75">fatimaezzohradadi1@gmail.com</p>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="https://linkedin.com/in/fatima-ezzohra-dadi" target="_blank" class="contact-link">
+                            <i class="fab fa-linkedin fa-2x mb-3 text-accent" style="color:var(--accent)"></i>
+                            <h5 class="fw-bold">LinkedIn Pro</h5>
+                            <p class="small opacity-75">Fatima Ezzohra Dadi</p>
+                        </a>
                     </div>
                 </div>
+                <form id="contact-form" class="mx-auto mt-4" style="max-width: 650px;">
+                    <div class="row">
+                        <div class="col-md-6"><input type="text" class="form-control-custom" placeholder="Nom" required></div>
+                        <div class="col-md-6"><input type="email" class="form-control-custom" placeholder="Email" required></div>
+                    </div>
+                    <textarea class="form-control-custom" rows="4" placeholder="Message..."></textarea>
+                    <button type="submit" class="btn-premium w-100 border-0 p-3">ENVOYER LE MESSAGE</button>
+                </form>
             </div>
         </section>
     </main>
 
-    <footer class="py-5 text-center border-top border-secondary opacity-50" role="contentinfo">
-        <a href="#home" class="footer-logo d-block mb-3 text-decoration-none" style="font-family:'Syncopate'; color:var(--accent);" aria-label="Retour en haut de page">FATIMA.DADI</a>
-        <p class="small">
-            &copy; 2026 FATIMA EZZOHRA DADI | 
-            <a href="https://github.com/FD-TOP" rel="nofollow noopener" style="color:var(--accent)" aria-label="Lien vers mon GitHub">GITHUB</a> </p>
-        <p class="small mt-2">Réalisé dans le cadre de la Licence Pro Métiers du Numérique - EISINE</p>
+    <footer class="py-4 text-center opacity-50 small">
+        © 2026 FATIMA EZZOHRA DADI | Licence Pro EISINE | Charleville-Mézières
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log("Tracking : Session utilisateur Fatima Dadi active."); 
-
-            // LOGIQUE FILTRES
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectItems = document.querySelectorAll('.project-item');
-
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelector('.filter-btn.active').classList.remove('active');
-                    btn.classList.add('active');
-                    const filter = btn.getAttribute('data-filter');
-                    projectItems.forEach(item => {
-                        if (filter === 'all' || item.classList.contains(filter)) {
-                            item.classList.remove('hide');
-                            item.classList.add('show');
-                        } else {
-                            item.classList.remove('show');
-                            item.classList.add('hide');
-                        }
-                    });
-                });
-            });
-
-            // ANIMATIONS AU SCROLL
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
-        });
-    </script>
 </body>
 </html>
