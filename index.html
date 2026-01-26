@@ -1,271 +1,257 @@
-<!DOCTYPE html>
+la photo d'arriere plan dans la partie acceuil ne s'affiche pas <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatima Ezzohra Dadi | Portfolio Digital Expérientiel</title>
-    
-    <meta name="description" content="Portfolio créatif de Fatima Ezzohra Dadi : experte Web, Design UX/UI et Multimédia.">
-    <link rel="icon" type="image/png" href="images/logofd.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatima Ezzohra Dadi | Portfolio Digital Expérientiel</title>
+    
+    <meta name="description" content="Portfolio créatif de Fatima Ezzohra Dadi : experte Web, Design UX/UI et Multimédia.">
+    <link rel="icon" type="image/png" href="images/logofd.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link rel="preload" as="image" href="images/bg.jpeg" fetchpriority="high">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet" font-display="swap">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="images/bg.webp" fetchpriority="high">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet" font-display="swap">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <style>
-        :root { 
-            --accent: #ff2d75; 
-            --accent-glow: rgba(255, 45, 117, 0.6);
-            --dark-bg: #030303; 
-            --card-bg: rgba(18, 18, 18, 0.9);
-            --border: rgba(255, 45, 117, 0.3);
-            --grad: linear-gradient(45deg, #ff2d75, #bc13fe);
-        }
+    <style>
+        :root { 
+            --accent: #ff2d75; 
+            --accent-glow: rgba(255, 45, 117, 0.6);
+            --dark-bg: #030303; 
+            --card-bg: rgba(18, 18, 18, 0.9);
+            --border: rgba(255, 45, 117, 0.3);
+            --grad: linear-gradient(45deg, #ff2d75, #bc13fe);
+        }
 
-        /* --- GLOBAL --- */
-        * { scroll-behavior: smooth; box-sizing: border-box; cursor: none !important; }
-        body { background-color: var(--dark-bg); color: #fff; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; margin: 0; }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+        /* --- GLOBAL --- */
+        * { scroll-behavior: smooth; box-sizing: border-box; cursor: none !important; }
+        body { background-color: var(--dark-bg); color: #fff; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; margin: 0; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
 
-        /* --- EFFET DE CURSEUR --- */
-        #cursor-dot { width: 8px; height: 8px; background: var(--accent); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; }
-        #cursor-outline { width: 40px; height: 40px; border: 2px solid var(--accent); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9998; transition: 0.15s ease-out; }
+        /* --- EFFET DE CURSEUR --- */
+        #cursor-dot { width: 8px; height: 8px; background: var(--accent); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; }
+        #cursor-outline { width: 40px; height: 40px; border: 2px solid var(--accent); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9998; transition: 0.15s ease-out; }
 
-        /* --- BACKGROUND DYNAMIQUE --- */
-        .bg-blobs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #000; overflow: hidden; }
-        .blob { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); border-radius: 50%; filter: blur(80px); animation: move 25s infinite alternate; opacity: 0.4; }
-        @keyframes move { from { transform: translate(-10%, -10%); } to { transform: translate(100%, 80%); } }
+        /* --- BACKGROUND DYNAMIQUE --- */
+        .bg-blobs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #000; overflow: hidden; }
+        .blob { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); border-radius: 50%; filter: blur(80px); animation: move 25s infinite alternate; opacity: 0.4; }
+        @keyframes move { from { transform: translate(-10%, -10%); } to { transform: translate(100%, 80%); } }
 
-        /* --- NAVIGATION --- */
-        .navbar { background: rgba(3, 3, 3, 0.8) !important; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); padding: 18px 0; }
-        .navbar-brand { font-family: 'Syncopate', sans-serif; color: var(--accent) !important; font-weight: 700; letter-spacing: 6px; }
+        /* --- NAVIGATION --- */
+        .navbar { background: rgba(3, 3, 3, 0.8) !important; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); padding: 18px 0; }
+        .navbar-brand { font-family: 'Syncopate', sans-serif; color: var(--accent) !important; font-weight: 700; letter-spacing: 6px; }
 
-        /* --- HEADER / ACCUEIL FIXÉ --- */
-        #home { 
-            height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            position: relative;
-            /* FIX : Correction de l'URL et ajout de propriétés de secours */
-            background-color: #030303;
-            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.7)), url('images/bg.webp');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            background-attachment: fixed;
-        }
+        /* --- ACCUEIL --- */
+        #home { 
+            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.7)), url('images/bg.webp') no-repeat center center/cover fixed;
+        }
+        .hero-title { font-family: 'Syncopate', sans-serif; font-size: clamp(2.5rem, 10vw, 7.5rem); line-height: 0.85; text-transform: uppercase; margin-bottom: 20px; }
+        .glitch-text { color: transparent !important; -webkit-text-stroke: 1.5px var(--accent); filter: drop-shadow(0 0 15px var(--accent)); transition: 0.4s; }
+        
+        .animation-box { height: 60px; overflow: hidden; position: relative; }
+        .scrolling-text { font-weight: 700; text-transform: uppercase; letter-spacing: 10px; color: var(--accent); height: 60px; line-height: 60px; position: absolute; width: 100%; top: 0; left: 0; opacity: 0; animation: slideTextFade 16s infinite; }
+        @keyframes slideTextFade { 0% { opacity: 0; transform: translateY(30px) scale(0.9); } 5%, 20% { opacity: 1; transform: translateY(0); } 25% { opacity: 0; transform: translateY(-30px); } }
 
-        .hero-title { font-family: 'Syncopate', sans-serif; font-size: clamp(2.5rem, 10vw, 7.5rem); line-height: 0.85; text-transform: uppercase; margin-bottom: 20px; }
-        .glitch-text { color: transparent !important; -webkit-text-stroke: 1.5px var(--accent); filter: drop-shadow(0 0 15px var(--accent)); transition: 0.4s; }
-        
-        .animation-box { height: 60px; overflow: hidden; position: relative; }
-        .scrolling-text { font-weight: 700; text-transform: uppercase; letter-spacing: 10px; color: var(--accent); height: 60px; line-height: 60px; position: absolute; width: 100%; top: 0; left: 0; opacity: 0; animation: slideTextFade 16s infinite; }
-        @keyframes slideTextFade { 0% { opacity: 0; transform: translateY(30px) scale(0.9); } 5%, 20% { opacity: 1; transform: translateY(0); } 25% { opacity: 0; transform: translateY(-30px); } }
+        .btn-creative { padding: 16px 45px; border-radius: 15px; background: rgba(255, 45, 117, 0.05); border: 1px solid var(--accent); color: #fff !important; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; transition: 0.5s; backdrop-filter: blur(10px); }
+        .btn-creative:hover { background: var(--accent); box-shadow: 0 0 50px var(--accent-glow); transform: translateY(-8px); }
 
-        .btn-creative { padding: 16px 45px; border-radius: 15px; background: rgba(255, 45, 117, 0.05); border: 1px solid var(--accent); color: #fff !important; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; transition: 0.5s; backdrop-filter: blur(10px); }
-        .btn-creative:hover { background: var(--accent); box-shadow: 0 0 50px var(--accent-glow); transform: translateY(-8px); }
+        /* --- CV CARD --- */
+        .cv-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 50px; backdrop-filter: blur(30px); overflow: hidden; }
+        .cv-sidebar { background: rgba(255, 45, 117, 0.04); padding: 50px 40px; border-right: 1px solid var(--border); }
+        .cv-photo { width: 180px; height: 180px; border-radius: 40px; border: 2px solid var(--accent); object-fit: cover; margin-bottom: 30px; transition: 0.6s; }
+        
+        .skill-badge { display: inline-block; padding: 10px 20px; margin: 6px; border-radius: 15px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); font-size: 0.8rem; transition: 0.3s; }
+        .skill-badge:hover { background: var(--grad); transform: scale(1.1); border-color: transparent; }
 
-        /* --- CV CARD --- */
-        .cv-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 50px; backdrop-filter: blur(30px); overflow: hidden; }
-        .cv-sidebar { background: rgba(255, 45, 117, 0.04); padding: 50px 40px; border-right: 1px solid var(--border); }
-        .cv-photo { width: 180px; height: 180px; border-radius: 40px; border: 2px solid var(--accent); object-fit: cover; margin-bottom: 30px; transition: 0.6s; }
-        
-        .skill-badge { display: inline-block; padding: 10px 20px; margin: 6px; border-radius: 15px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); font-size: 0.8rem; transition: 0.3s; }
-        .skill-badge:hover { background: var(--grad); transform: scale(1.1); border-color: transparent; }
+        .timeline-item { border-left: 2px solid var(--border); padding: 0 0 40px 30px; position: relative; transition: 0.4s; text-align: left; }
+        .timeline-item:hover { border-left-color: var(--accent); transform: translateX(10px); }
+        .timeline-item::after { content: ''; position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background: var(--dark-bg); border: 3px solid var(--accent); border-radius: 50%; box-shadow: 0 0 15px var(--accent); }
 
-        .timeline-item { border-left: 2px solid var(--border); padding: 0 0 40px 30px; position: relative; transition: 0.4s; text-align: left; }
-        .timeline-item:hover { border-left-color: var(--accent); transform: translateX(10px); }
-        .timeline-item::after { content: ''; position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background: var(--dark-bg); border: 3px solid var(--accent); border-radius: 50%; box-shadow: 0 0 15px var(--accent); }
+        /* --- PROJECTS --- */
+        .project-card { height: 420px; border-radius: 45px; overflow: hidden; position: relative; border: 1px solid var(--border); background: #000; transition: 0.7s; }
+        .project-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transition: 0.8s; }
+        .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 25%, transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; opacity: 0; transition: 0.5s; }
+        .project-card:hover .project-overlay { opacity: 1; }
+        
+        .btn-mini { padding: 8px 18px; font-size: 0.7rem; border-radius: 12px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: 0.3s; display: inline-block; }
+        .btn-mini-fill { background: var(--accent); color: white; }
+        .btn-mini-outline { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); }
 
-        /* --- PROJECTS --- */
-        .project-card { height: 420px; border-radius: 45px; overflow: hidden; position: relative; border: 1px solid var(--border); background: #000; transition: 0.7s; }
-        .project-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transition: 0.8s; }
-        .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 25%, transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; opacity: 0; transition: 0.5s; }
-        .project-card:hover .project-overlay { opacity: 1; }
-        
-        .btn-mini { padding: 8px 18px; font-size: 0.7rem; border-radius: 12px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: 0.3s; display: inline-block; }
-        .btn-mini-fill { background: var(--accent); color: white; }
-        .btn-mini-outline { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); }
+        /* --- CONTACT --- */
+        .form-control-custom { background: rgba(255,255,255,0.03); border: 1px solid rgba(255, 45, 117, 0.2); border-radius: 12px; color: #fff; padding: 18px 20px; width: 100%; transition: 0.3s; margin-bottom: 15px; }
+        .form-control-custom:focus { outline: none; border-color: var(--accent); background: rgba(255, 45, 117, 0.05); transform: translateY(-2px); }
 
-        /* --- CONTACT --- */
-        .form-control-custom { background: rgba(255,255,255,0.03); border: 1px solid rgba(255, 45, 117, 0.2); border-radius: 12px; color: #fff; padding: 18px 20px; width: 100%; transition: 0.3s; margin-bottom: 15px; }
-        .form-control-custom:focus { outline: none; border-color: var(--accent); background: rgba(255, 45, 117, 0.05); transform: translateY(-2px); }
-
-        @media (max-width: 991px) { .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border); text-align: center; } .hero-title { font-size: 3.5rem; } #home { background-attachment: scroll; } }
-        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
-    </style>
+        @media (max-width: 991px) { .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border); text-align: center; } .hero-title { font-size: 3.5rem; } }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    </style>
 </head>
 <body>
 
-    <div id="cursor-dot"></div>
-    <div id="cursor-outline"></div>
-    <div class="bg-blobs"><div class="blob"></div></div>
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+    <div class="bg-blobs"><div class="blob"></div></div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="Main Navigation">
-        <div class="container">
-            <a class="navbar-brand" href="#home">FATIMA.DADI</a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Ouvrir le menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
-                    <li class="nav-item"><a class="nav-link mx-3" href="#home">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link mx-3" href="#cv">Mon CV</a></li>
-                    <li class="nav-item"><a class="nav-link mx-3" href="#portfolio">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link mx-3" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">FATIMA.DADI</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link mx-3" href="#home">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link mx-3" href="#cv">Mon CV</a></li>
+                    <li class="nav-item"><a class="nav-link mx-3" href="#portfolio">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link mx-3" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <main id="main-content">
-        <header id="home">
-            <div class="hero-overlay"></div>
-            <div class="container hero-content" data-aos="zoom-out" data-aos-duration="1200">
-                <h1 class="hero-title">FATIMA<br><span class="glitch-text">EZZOHRA</span> DADI</h1>
-                <div class="animation-box">
-                    [cite_start]<div class="scrolling-text">Front-end (JS, PHP) & Multimédia [cite: 2, 10]</div>
-                    [cite_start]<div class="scrolling-text" style="animation-delay: 4s;">Design (UX/UI, 3D) [cite: 2, 12, 13]</div>
-                    [cite_start]<div class="scrolling-text" style="animation-delay: 8s;">Support IT & Helpdesk [cite: 2, 9]</div>
-                </div>
-                <div class="mt-5">
-                    <a href="#portfolio" class="btn-creative">Explorer mes travaux <i class="fas fa-chevron-down ms-3"></i></a>
-                </div>
-            </div>
-        </header>
+    <main id="main-content">
+        <header id="home">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content" data-aos="zoom-out" data-aos-duration="1200">
+                <h1 class="hero-title">FATIMA<br><span class="glitch-text">EZZOHRA</span> DADI</h1>
+                <div class="animation-box">
+                    <div class="scrolling-text">Développement Web (JS, PHP) </div>
+                    <div class="scrolling-text" style="animation-delay: 4s;">Design (UX/UI, 3D) </div>
+                    <div class="scrolling-text" style="animation-delay: 8s;">Support IT & Helpdesk </div>
+                </div>
+                <div class="mt-5">
+                    <a href="#portfolio" class="btn-creative">Explorer mes travaux <i class="fas fa-chevron-down ms-3"></i></a>
+                </div>
+            </div>
+        </header>
 
-        <section id="cv" class="container py-5">
-            [cite_start]<h2 class="sr-only">Parcours et Compétences [cite: 17, 30]</h2>
-            <div class="cv-card row mx-0" data-aos="fade-up">
-                <aside class="col-lg-4 cv-sidebar">
-                    <div class="text-center">
-                        <img src="images/photosperso.webp" alt="Fatima Dadi" class="cv-photo" width="180" height="180" loading="lazy">
-                        [cite_start]<h3 class="h4 fw-bold">Fatima Ezzohra DADI [cite: 1]</h3>
-                        [cite_start]<p class="small fw-bold mb-5" style="color:var(--accent); letter-spacing: 2px;">DÉVELOPPEMENT WEB & MULTIMÉDIA [cite: 2]</p>
-                    </div>
+        <section id="cv" class="container py-5">
+            <h2 class="sr-only">Parcours et Compétences </h2>
+            <div class="cv-card row mx-0" data-aos="fade-up">
+                <aside class="col-lg-4 cv-sidebar">
+                    <div class="text-center">
+                        <img src="images/photosperso.webp" alt="Fatima Dadi" class="cv-photo" width="180" height="180" loading="lazy">
+                        <h3 class="h4 fw-bold">Fatima Ezzohra DADI </h3>
+                        <p class="small fw-bold mb-5" style="color:var(--accent); letter-spacing: 2px;">DÉVELOPPEMENT WEB & MULTIMÉDIA </p>
+                    </div>
 
-                    [cite_start]<h3 class="small fw-bold border-bottom border-secondary pb-2 mb-3 text-start">COMPÉTENCES [cite: 8]</h3>
-                    <div class="mb-4 text-start">
-                        [cite_start]<span class="skill-badge">Support IT & Helpdesk [cite: 9]</span>
-                        [cite_start]<span class="skill-badge">HTML5, CSS3, JS, PHP [cite: 10]</span>
-                        [cite_start]<span class="skill-badge">WordPress Admin [cite: 11]</span>
-                        [cite_start]<span class="skill-badge">Suite Adobe (Ps, Ai, Id) [cite: 12]</span>
-                        [cite_start]<span class="skill-badge">UX/UI & Prototypage [cite: 12]</span>
-                        [cite_start]<span class="skill-badge">3DS Max (2D/3D) [cite: 13]</span>
-                        [cite_start]<span class="skill-badge">Adobe Premiere Pro [cite: 14]</span>
-                        [cite_start]<span class="skill-badge">Leadership d'Équipe [cite: 15]</span>
-                    </div>
+                    <h3 class="small fw-bold border-bottom border-secondary pb-2 mb-3 text-start">COMPÉTENCES</h3>
+                    <div class="mb-4 text-start">
+                        <span class="skill-badge">Support IT & Helpdesk </span>
+                        <span class="skill-badge">HTML5, CSS3, JS, PHP </span>
+                        <span class="skill-badge">WordPress Admin </span>
+                        <span class="skill-badge">Suite Adobe (Ps, Ai, Id) </span>
+                        <span class="skill-badge">UX/UI & Prototypage </span>
+                        <span class="skill-badge">3DS Max (2D/3D) </span> 
+                        <span class="skill-badge">Adobe Premiere Pro </span>
+                        <span class="skill-badge">Leadership d'Équipe </span>
+                    </div>
 
-                    [cite_start]<h3 class="small fw-bold border-bottom border-secondary pb-2 mb-3 text-start">INTÉRÊTS [cite: 16]</h3>
-                    <div class="mb-4 text-start small opacity-75">
-                        [cite_start]Théâtre [cite: 31][cite_start], Sport [cite: 32][cite_start], Voyage [cite: 33][cite_start], Musique [cite: 37][cite_start], Cuisine [cite: 38][cite_start], Art [cite: 39]
-                    </div>
+                    <h3 class="small fw-bold border-bottom border-secondary pb-2 mb-3 text-start">INTÉRÊTS </h3>
+                    <div class="mb-4 text-start small opacity-75">
+                        Théâtre , Sport , Voyage , Musique , Cuisine , Art 
+                    </div>
 
-                    [cite_start]<h3 class="small fw-bold border-bottom border-secondary pb-2 mb-3 text-start">CONTACT [cite: 4]</h3>
-                    <div class="text-start small opacity-75">
-                        [cite_start]<p class="mb-2"><i class="fas fa-phone me-2 text-accent"></i> +33 7 53 67 04 09 [cite: 5]</p>
-                        [cite_start]<p class="mb-2"><i class="fas fa-envelope me-2 text-accent"></i> fatimaezzohradadi1@gmail.com [cite: 6]</p>
-                        [cite_start]<p class="mb-2"><i class="fas fa-map-marker-alt me-2 text-accent"></i> 38 rue Montjoly, Charleville-Mezières [cite: 7]</p>
-                    </div>
-                </aside>
+                    <h3 class="small fw-bold border-bottom border-secondary pb-2 mb-3 text-start">CONTACT </h3>
+                    <div class="text-start small opacity-75">
+                        <p class="mb-2"><i class="fas fa-phone me-2 text-accent"></i> +33 7 53 67 04 09 </p>
+                        <p class="mb-2"><i class="fas fa-envelope me-2 text-accent"></i> fatimaezzohradadi1@gmail.com </p>
+                        <p class="mb-2"><i class="fas fa-map-marker-alt me-2 text-accent"></i> 38 rue Montjoly, Charleville-Mezières </p>
+                    </div>
+                </aside>
 
-                <div class="col-lg-8 p-4 p-md-5 text-start">
-                    [cite_start]<h3 class="small fw-bold mb-4" style="color:var(--accent); letter-spacing:3px;">EXPÉRIENCES [cite: 17]</h3>
-                    [cite_start]<div class="timeline-item"><h4>Freelancer Web & Graphisme [cite: 18]</h4><p class="small opacity-75 mb-0">Maroc | [cite_start]Août 2022 - Actuel [cite: 19]</p></div>
-                    <div class="timeline-item"><h4>Chargée de clientèle | [cite_start]INTELCIA [cite: 20]</h4><p class="small opacity-75 mb-0">Meknès, Maroc | [cite_start]Mai 2024 - Juillet 2025 [cite: 21]</p></div>
-                    <div class="timeline-item"><h4>Stagiaire Développeur Web | [cite_start]WEHELP [cite: 22]</h4><p class="small opacity-75 mb-0">Meknès, Maroc | [cite_start]Avril 2024 - Juillet 2024 [cite: 23]</p></div>
-                    <div class="timeline-item"><h4>Responsable Logistique | [cite_start]JLM ESTM [cite: 24]</h4><p class="small opacity-75 mb-0">Meknès, Maroc | [cite_start]Sept 2023 - Avril 2024 [cite: 25]</p></div>
-                    <div class="timeline-item"><h4>Stagiaire Développeur Web | [cite_start]WEHELP [cite: 26]</h4><p class="small opacity-75 mb-0">Meknès, Maroc | [cite_start]Août 2023 [cite: 27]</p></div>
-                    <div class="timeline-item"><h4>Stagiaire Enseignante | [cite_start]Ecole Primaire.com [cite: 28]</h4><p class="small opacity-75 mb-0">Oued Ifrane, Maroc | [cite_start]Juillet 2023 [cite: 29]</p></div>
+                <div class="col-lg-8 p-4 p-md-5 text-start">
+                    <h3 class="small fw-bold mb-4" style="color:var(--accent); letter-spacing:3px;">EXPÉRIENCES </h3>
+                    <div class="timeline-item"><h4>Freelancer Web & Graphique </h4><p class="small opacity-75 mb-0">Maroc | Août 2022 - Actuel </p></div>
+                    <div class="timeline-item"><h4>Chargée de clientèle | INTELCIA </h4><p class="small opacity-75 mb-0">Meknès, Maroc | Mai 2024 - Juillet 2025 </p></div>
+                    <div class="timeline-item"><h4>Stagiaire Développeur Web | WEHELP </h4><p class="small opacity-75 mb-0">Meknès, Maroc | Avril 2024 - Juillet 2024 </p></div>
+                    <div class="timeline-item"><h4>Responsable Logistique | JLM ESTM </h4><p class="small opacity-75 mb-0">Meknès, Maroc | Sept 2023 - Avril 2024 </p></div>
+                    <div class="timeline-item"><h4>Stagiaire Développeur Web | WEHELP </h4><p class="small opacity-75 mb-0">Meknès, Maroc | Août 2023 </p></div>
+                    <div class="timeline-item"><h4>Stagiaire Enseignante | Ecole Primaire.com </h4><p class="small opacity-75 mb-0">Oued Ifrane, Maroc | Juillet 2023 </p></div>
 
-                    [cite_start]<h3 class="small fw-bold mt-5 mb-4" style="color:var(--accent); letter-spacing:3px;">FORMATIONS [cite: 30]</h3>
-                    [cite_start]<div class="timeline-item"><h4>Licence Métiers du numérique [cite: 34]</h4><p class="small opacity-75">EISINE, Charleville-Mezières | [cite_start]2025 - En cours [cite: 36]</p></div>
-                    [cite_start]<div class="timeline-item"><h4>DUT Développement Web et Multimédia [cite: 40]</h4><p class="small opacity-75">ESTM, Meknès-Maroc | [cite_start]2022 - 2024 [cite: 41]</p></div>
-                    [cite_start]<div class="timeline-item"><h4>Baccalauréat Sciences Mathématiques A [cite: 42]</h4><p class="small opacity-75">Lycée Mohamed 5, Azrou-Maroc | [cite_start]2022 [cite: 43]</p></div>
-                </div>
-            </div>
-            <div class="mt-5 text-center">
-                <a href="fzdadiCV.pdf" download class="btn-creative"><i class="fas fa-file-pdf me-3"></i> Télécharger CV PDF</a>
-            </div>
-        </section>
+                    <h3 class="small fw-bold mt-5 mb-4" style="color:var(--accent); letter-spacing:3px;">FORMATIONS </h3>
+                    <div class="timeline-item"><h4>Licence Métiers du numérique </h4><p class="small opacity-75">EISINE, Charleville-Mezières | 2025 - En cours </p></div>
+                    <div class="timeline-item"><h4>DUT Développement Web et Multimédia </h4><p class="small opacity-75">ESTM, Meknès-Maroc | 2022 - 2024 </p></div>
+                    <div class="timeline-item"><h4>Baccalauréat Sciences Mathématiques A </h4><p class="small opacity-75">Lycée Mohamed 5, Azrou-Maroc | 2022 </p></div>
+                </div>
+            </div>
+            <div class="mt-5 text-center">
+                <a href="fzdadiCV.pdf" download class="btn-creative"><i class="fas fa-file-pdf me-3"></i> Télécharger CV PDF</a>
+            </div>
+        </section>
 
-        <section id="portfolio" class="container py-5">
-            [cite_start]<h2 class="text-center mb-5 hero-title" style="font-size:3.5rem">RÉALISATIONS [cite: 44]</h2>
-            <div class="row g-4">
-                <article class="col-md-6 col-lg-4" data-aos="flip-left">
-                    <div class="project-card">
-                        <img src="images/logo.webp" class="project-img" alt="ThaiJap" width="400" height="400" loading="lazy">
-                        <div class="project-overlay">
-                            <h3 class="h5 mb-3">THAIJAP QR</h3>
-                            <div class="d-flex gap-2">
-                                <a href="https://fd-top.github.io/thaijap/" target="_blank" class="btn-mini btn-mini-fill">Client</a>
-                                <a href="https://fd-top.github.io/thaijap/admin.html" target="_blank" class="btn-mini btn-mini-outline">Admin</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100"><div class="project-card"><img src="images/skill.webp" class="project-img" alt="SkillShop" width="400" height="400" loading="lazy"><div class="project-overlay"><h3 class="h5 mb-3">SKILL SHOP</h3><a href="https://fd-top.github.io/Skillshop/" target="_blank" class="btn-mini btn-mini-fill">Lancer l'App</a></div></div></article>
-                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="200"><div class="project-card"><img src="images/3D.webp" class="project-img" alt="3D Archviz" width="400" height="400" loading="lazy"><div class="project-overlay"><h3 class="h5 mb-3">RENDU ARCHI 3D</h3><a href="estm/ESTM2.max" download class="btn-mini btn-mini-outline">Fichier .Max</a></div></div></article>
-                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="300"><div class="project-card"><img src="images/ui.webp" class="project-img" alt="Identity Design" width="400" height="400" loading="lazy"><div class="project-overlay"><h3 class="h5 mb-3">BRAND IDENTITY</h3><a href="images/chartegraphique.pdf" target="_blank" class="btn-mini btn-mini-fill">Voir PDF</a></div></div></article>
-                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="400"><div class="project-card"><img src="images/gestion.webp" class="project-img" alt="Logistique" width="400" height="400" loading="lazy"><div class="project-overlay"><h3 class="h5 mb-3">LOGISTIQUE JLM</h3><a href="#cv" class="btn-mini btn-mini-outline">Détails CV</a></div></div></article>
-            </div>
-        </section>
+        <section id="portfolio" class="container py-5">
+            <h2 class="text-center mb-5 hero-title" style="font-size:3.5rem">RÉALISATIONS </h2>
+            <div class="row g-4">
+                <article class="col-md-6 col-lg-4" data-aos="flip-left">
+                    <div class="project-card">
+                        <img src="images/logo.webp" class="project-img" alt="ThaiJap" width="400" height="400" loading="lazy">
+                        <div class="project-overlay">
+                            <h3 class="h5 mb-3">THAIJAP QR</h3>
+                            <div class="d-flex gap-2">
+                                <a href="https://fd-top.github.io/thaijap/" target="_blank" class="btn-mini btn-mini-fill">Client</a>
+                                <a href="https://fd-top.github.io/thaijap/admin.html" target="_blank" class="btn-mini btn-mini-outline">Admin</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100"><div class="project-card"><img src="images/skill.webp" class="project-img" alt="SkillShop" width="400" height="400" loading="lazy"><div class="project-overlay"><h3 class="h5 mb-3">SKILL SHOP</h3><a href="https://fd-top.github.io/Skillshop/" target="_blank" class="btn-mini btn-mini-fill">Lancer l'App</a></div></div></article>
+                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="200"><div class="project-card"><img src="images/3D.webp" class="project-img" alt="3D Archviz" width="400" height="400" loading="lazy"><div class="project-overlay"><h3 class="h5 mb-3">RENDU ARCHI 3D</h3><a href="estm/ESTM2.max" download class="btn-mini btn-mini-outline">Fichier .Max</a></div></div></article>
+                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="300"><div class="project-card"><img src="images/ui.webp" class="project-img" alt="Identity Design" width="400" height="400" loading="lazy"><div class="project-overlay"><h3 class="h5 mb-3">BRAND IDENTITY</h3><a href="images/chartegraphique.pdf" target="_blank" class="btn-mini btn-mini-fill">Voir PDF</a></div></div></article>
+                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="400"><div class="project-card"><img src="images/gestion.webp" class="project-img" alt="Logistique" width="400" height="400" loading="lazy"><div class="project-overlay"><h3 class="h5 mb-3">LOGISTIQUE JLM</h3><a href="#cv" class="btn-mini btn-mini-outline">Détails CV</a></div></div></article>
+            </div>
+        </section>
 
-        <section id="contact" class="container py-5">
-            <div class="cv-card p-4 p-md-5" data-aos="zoom-in">
-                <h2 class="text-center mb-5 hero-title" style="font-size:2.8rem">ME CONTACTER</h2>
-                <div class="row g-5">
-                    <div class="col-lg-5">
-                        <div class="d-grid gap-4">
-                            <a href="mailto:fatimaezzohradadi1@gmail.com" class="btn-creative justify-content-start w-100 py-4 px-4">
-                                <i class="fas fa-envelope fa-2x me-3"></i>
-                                [cite_start]<div class="text-start"><span class="d-block small opacity-50">Email Personnel [cite: 6]</span><span class="fw-bold">fatimaezzohradadi1@gmail.com</span></div>
-                            </a>
-                            <a href="https://linkedin.com/in/fatima-ezzohra-dadi" target="_blank" class="btn-creative justify-content-start w-100 py-4 px-4">
-                                <i class="fab fa-linkedin fa-2x me-3"></i>
-                                [cite_start]<div class="text-start"><span class="d-block small opacity-50">LinkedIn Professionnel</span><span class="fw-bold">Fatima Ezzohra Dadi [cite: 1]</span></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <form id="contact-form" class="row g-3">
-                            <div class="col-md-6"><input type="text" class="form-control-custom" placeholder="Nom complet" required aria-label="Nom"></div>
-                            <div class="col-md-6"><input type="email" class="form-control-custom" placeholder="Email" required aria-label="Email"></div>
-                            <div class="col-12"><textarea class="form-control-custom" rows="5" placeholder="Votre message..." required aria-label="Message"></textarea></div>
-                            <div class="col-12 mt-4"><button type="submit" class="btn-creative w-100 border-0 shadow-lg">ENVOYER LE MESSAGE <i class="fas fa-paper-plane ms-2"></i></button></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        <section id="contact" class="container py-5">
+            <div class="cv-card p-4 p-md-5" data-aos="zoom-in">
+                <h2 class="text-center mb-5 hero-title" style="font-size:2.8rem">ME CONTACTER</h2>
+                <div class="row g-5">
+                    <div class="col-lg-5">
+                        <div class="d-grid gap-4">
+                            <a href="mailto:fatimaezzohradadi1@gmail.com" class="btn-creative justify-content-start w-100 py-4 px-4">
+                                <i class="fas fa-envelope fa-2x me-3"></i>
+                                <div class="text-start"><span class="d-block small opacity-50">Email Personnel </span><span class="fw-bold">fatimaezzohradadi1@gmail.com</span></div>
+                            </a>
+                            <a href="https://linkedin.com/in/fatima-ezzohra-dadi" target="_blank" class="btn-creative justify-content-start w-100 py-4 px-4">
+                                <i class="fab fa-linkedin fa-2x me-3"></i>
+                                <div class="text-start"><span class="d-block small opacity-50">LinkedIn Professionnel</span><span class="fw-bold">Fatima Ezzohra Dadi </span></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <form id="contact-form" class="row g-3">
+                            <div class="col-md-6"><input type="text" class="form-control-custom" placeholder="Nom complet" required aria-label="Nom"></div>
+                            <div class="col-md-6"><input type="email" class="form-control-custom" placeholder="Email" required aria-label="Email"></div>
+                            <div class="col-12"><textarea class="form-control-custom" rows="5" placeholder="Votre message..." required aria-label="Message"></textarea></div>
+                            <div class="col-12 mt-4"><button type="submit" class="btn-creative w-100 border-0 shadow-lg">ENVOYER LE MESSAGE <i class="fas fa-paper-plane ms-2"></i></button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <footer class="py-5 text-center opacity-40 small">
-        <p>© 2026 FATIMA EZZOHRA DADI | [cite_start]France [cite: 1]</p>
-    </footer>
+    <footer class="py-5 text-center opacity-40 small">
+        <p>© 2026 FATIMA EZZOHRA DADI | France </p>
+    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({ once: true, duration: 900 });
-            const dot = document.getElementById('cursor-dot');
-            const outline = document.getElementById('cursor-outline');
-            window.addEventListener('mousemove', (e) => {
-                dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
-                outline.animate({ left: e.clientX + 'px', top: e.clientY + 'px' }, { duration: 500, fill: "forwards" });
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ once: true, duration: 900 });
+            const dot = document.getElementById('cursor-dot');
+            const outline = document.getElementById('cursor-outline');
+            window.addEventListener('mousemove', (e) => {
+                dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+                outline.animate({ left: e.clientX + 'px', top: e.clientY + 'px' }, { duration: 500, fill: "forwards" });
+            });
+        });
+    </script>
 </body>
-</html>
+</html>; corrige le codee sans rien surpprimer 
