@@ -3,111 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatima Ezzohra Dadi | Digital Creative</title>
+    <title>Fatima Ezzohra Dadi | Portfolio Digital Expérientiel</title>
     
+    <meta name="description" content="Portfolio créatif de Fatima Ezzohra Dadi : experte Web, Design UX/UI et Multimédia.">
+    <link rel="icon" type="image/png" href="images/logofd.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
         :root { 
             --accent: #ff2d75; 
-            --accent-glow: rgba(255, 45, 117, 0.4);
+            --accent-glow: rgba(255, 45, 117, 0.5);
             --dark-bg: #050505; 
-            --card-bg: rgba(20, 20, 20, 0.8);
-            --border: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(15, 15, 15, 0.9);
+            --border: rgba(255, 45, 117, 0.3);
         }
 
-        /* --- ANIMATIONS GLOBALES --- */
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 var(--accent-glow); } 70% { box-shadow: 0 0 0 15px rgba(255, 45, 117, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 45, 117, 0); } }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+        /* --- EFFET DE CURSEUR --- */
+        #cursor-dot { width: 8px; height: 8px; background: var(--accent); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; }
+        #cursor-outline { width: 40px; height: 40px; border: 2px solid var(--accent); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9998; transition: 0.1s ease-out; }
 
-        * { scroll-behavior: smooth; box-sizing: border-box; }
+        /* --- GLOBAL --- */
+        * { scroll-behavior: smooth; box-sizing: border-box; cursor: none !important; }
         body { background-color: var(--dark-bg); color: #fff; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; margin: 0; font-display: swap; }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; border: 2px solid var(--dark-bg); }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
 
         /* --- BACKGROUND DYNAMIQUE --- */
-        .bg-blobs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #050505; overflow: hidden; }
-        .blob { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255, 45, 117, 0.15) 0%, transparent 70%); border-radius: 50%; filter: blur(60px); animation: move 25s infinite alternate; }
-        @keyframes move { from { transform: translate(-20%, -20%); } to { transform: translate(60%, 40%); } }
+        .bg-blobs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #000; overflow: hidden; }
+        .blob { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); border-radius: 50%; filter: blur(60px); animation: move 20s infinite alternate; }
+        @keyframes move { from { transform: translate(-10%, -10%); } to { transform: translate(100%, 80%); } }
 
         /* --- NAVIGATION --- */
-        .navbar { background: rgba(5, 5, 5, 0.9) !important; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 15px 0; transition: 0.4s; }
-        .navbar-brand { font-family: 'Syncopate', sans-serif; color: var(--accent) !important; font-weight: 700; letter-spacing: 4px; }
-        .nav-link { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; position: relative; }
-        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background: var(--accent); transition: 0.3s; }
-        .nav-link:hover::after { width: 100%; }
+        .navbar { background: rgba(5, 5, 5, 0.85) !important; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 15px 0; }
+        .navbar-brand { font-family: 'Syncopate', sans-serif; color: var(--accent) !important; font-weight: 700; letter-spacing: 5px; }
+        .nav-link { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
 
-        /* --- ACCUEIL (HERO) --- */
+        /* --- HEADER / ACCUEIL --- */
         #home { 
             height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('images/bg.jpeg') no-repeat center center/cover fixed;
+            background: url('images/bg.jpeg') no-repeat center center;
+            background-size: cover; background-attachment: fixed;
         }
-        .hero-title { font-family: 'Syncopate', sans-serif; font-size: clamp(2.5rem, 10vw, 7rem); line-height: 0.85; margin-bottom: 20px; }
-        .hero-title span { color: transparent; -webkit-text-stroke: 1.5px var(--accent); filter: drop-shadow(0 0 10px var(--accent)); }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 100%); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-title { font-family: 'Syncopate', sans-serif; font-size: clamp(2.5rem, 10vw, 7rem); line-height: 0.9; text-transform: uppercase; }
+        .glitch-text { color: transparent !important; -webkit-text-stroke: 1.5px var(--accent); filter: drop-shadow(0 0 10px var(--accent-glow)); transition: 0.5s; }
+        .glitch-text:hover { color: var(--accent) !important; text-shadow: 0 0 25px var(--accent); }
         
-        .animation-box { height: 60px; overflow: hidden; position: relative; margin-top: 30px; }
-        .animation-box div { font-weight: 700; text-transform: uppercase; letter-spacing: 8px; color: var(--accent); height: 60px; line-height: 60px; position: absolute; width: 100%; opacity: 0; animation: slideText 16s infinite; }
-        .animation-box div:nth-child(2) { animation-delay: 4s; }
-        .animation-box div:nth-child(3) { animation-delay: 8s; }
-        .animation-box div:nth-child(4) { animation-delay: 12s; }
-        @keyframes slideText { 0%, 5% { opacity: 0; transform: translateY(30px); } 10%, 20% { opacity: 1; transform: translateY(0); } 25%, 100% { opacity: 0; transform: translateY(-30px); } }
-
-        /* --- BOUTONS STYLISÉS --- */
-        .btn-glass {
-            padding: 18px 45px; border-radius: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
-            transition: 0.4s; text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
-            border: 1px solid var(--accent); color: #fff; background: rgba(255, 45, 117, 0.1); backdrop-filter: blur(5px);
+        .animation-box { height: 60px; overflow: hidden; margin-top: 25px; position: relative; }
+        .scrolling-text { font-weight: 700; text-transform: uppercase; letter-spacing: 8px; color: var(--accent); height: 60px; line-height: 60px; position: absolute; width: 100%; top: 0; left: 0; opacity: 0; animation: slideTextFade 16s infinite; }
+        @keyframes slideTextFade {
+            0% { opacity: 0; transform: translateY(30px) scale(0.9); filter: blur(10px); }
+            5%, 20% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+            25% { opacity: 0; transform: translateY(-30px) scale(1.1); filter: blur(10px); }
+            100% { opacity: 0; }
         }
-        .btn-glass:hover { background: var(--accent); box-shadow: 0 0 30px var(--accent-glow); transform: translateY(-5px); color: #fff; }
-        .btn-outline-glass { border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
-        .btn-outline-glass:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
 
-        /* --- CV CARD & TIMELINE --- */
-        .cv-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 40px; backdrop-filter: blur(30px); overflow: hidden; }
-        .cv-sidebar { background: rgba(0,0,0,0.5); padding: 50px 40px; border-right: 1px solid var(--border); }
-        .cv-photo { width: 180px; height: 180px; border-radius: 40px; border: 2px solid var(--accent); object-fit: cover; margin-bottom: 30px; transition: 0.5s; }
-        .cv-photo:hover { transform: scale(1.05) rotate(3deg); }
+        /* --- BOUTONS --- */
+        .btn-creative { padding: 15px 40px; border-radius: 50px; background: rgba(255, 45, 117, 0.1); border: 1px solid var(--accent); color: #fff; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; transition: 0.5s; backdrop-filter: blur(5px); }
+        .btn-creative:hover { background: var(--accent); box-shadow: 0 0 40px var(--accent-glow); transform: translateY(-5px); color: #fff; }
+
+        /* --- CV CARDS --- */
+        .cv-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 40px; backdrop-filter: blur(20px); overflow: hidden; }
+        .cv-sidebar { background: rgba(0,0,0,0.4); padding: 40px; border-right: 1px solid var(--border); }
+        .cv-photo { width: 160px; height: 160px; border-radius: 35px; border: 3px solid var(--accent); object-fit: cover; margin-bottom: 25px; transition: 0.5s; }
+        .skill-badge { display: inline-block; padding: 7px 15px; margin: 4px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); font-size: 0.75rem; transition: 0.3s; }
+        .timeline-item { border-left: 2px solid var(--border); padding-left: 25px; margin-bottom: 35px; position: relative; transition: 0.4s; text-align: left; }
+        .timeline-item:hover { transform: translateX(10px); border-left-color: var(--accent); }
+        .timeline-item::after { content: ''; position: absolute; left: -9px; top: 0; width: 15px; height: 15px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent); }
+
+        /* --- PROJETS (BOUTONS DIMINUÉS) --- */
+        .project-card { height: 400px; border-radius: 35px; overflow: hidden; position: relative; border: 1px solid var(--border); background: #000; transition: 0.6s; }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(255, 45, 117, 0.3); }
+        .project-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.6s; }
+        .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; opacity: 0; transition: 0.4s; }
+        .project-card:hover .project-overlay { opacity: 1; }
         
-        .skill-badge { display: inline-block; padding: 8px 18px; margin: 5px; border-radius: 50px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); font-size: 0.8rem; transition: 0.3s; color: #ccc; }
-        .skill-badge:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: scale(1.1); }
-
-        .timeline-item { border-left: 2px solid var(--border); padding-left: 30px; margin-bottom: 40px; position: relative; transition: 0.3s; }
-        .timeline-item:hover { border-left-color: var(--accent); }
-        .timeline-item::after { content: ''; position: absolute; left: -9px; top: 0; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
-
-        /* --- PROJETS (CARDS) --- */
-        .project-card { height: 480px; border-radius: 40px; overflow: hidden; position: relative; border: 1px solid var(--border); transition: 0.5s; }
-        .project-img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6) grayscale(30%); transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
-        .project-overlay { 
-            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent 80%); 
-            display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; 
-            opacity: 0; transform: translateY(20px); transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1); 
+        /* Styles des petits boutons de projets */
+        .btn-mini { 
+            padding: 6px 14px; 
+            font-size: 0.65rem; 
+            border-radius: 8px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            text-decoration: none; 
+            transition: 0.3s; 
+            display: inline-block;
+            letter-spacing: 1px;
         }
-        .project-card:hover { border-color: var(--accent); transform: scale(1.02); }
-        .project-card:hover .project-overlay { opacity: 1; transform: translateY(0); }
-        .project-card:hover .project-img { transform: scale(1.1); filter: brightness(0.4) grayscale(0); }
+        .btn-mini-fill { background: var(--accent); color: white; border: none; }
+        .btn-mini-outline { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.5); }
+        .btn-mini:hover { transform: translateY(-2px); filter: brightness(1.2); color: white; }
 
-        /* --- CONTACT FORM --- */
-        .form-control-custom { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 15px; color: #fff; padding: 20px; margin-bottom: 25px; transition: 0.3s; width: 100%; }
-        .form-control-custom:focus { outline: none; border-color: var(--accent); background: rgba(255, 45, 117, 0.05); box-shadow: 0 0 20px rgba(255, 45, 117, 0.1); }
-
-        @media (max-width: 991px) { .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border); text-align: center; } .hero-title { font-size: 3.5rem; } }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+        @media (max-width: 991px) { .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border); text-align: center; } }
     </style>
 </head>
 <body>
 
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
     <div class="bg-blobs"><div class="blob"></div></div>
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#home">FATIMA.DADI</a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -121,152 +128,137 @@
         </div>
     </nav>
 
-    <main>
-        <section id="home">
-            <div class="container">
-                <h1 class="hero-title">FATIMA<br><span>EZZOHRA</span> DADI</h1>
+    <main id="main-content">
+        <header id="home">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content" data-aos="zoom-out" data-aos-duration="1500">
+                <h1 class="hero-title">FATIMA<br><span class="glitch-text">EZZOHRA</span> DADI</h1>
                 <div class="animation-box">
-                    <div>Développement Web & Multimédia</div>
-                    <div>UX / UI Designer Créative</div>
-                    <div>Modélisation 3D (3DS Max)</div>
-                    <div>Support IT & Helpdesk</div>
+                    <div class="scrolling-text">Développement Web & Multimédia</div>
+                    <div class="scrolling-text" style="animation-delay: 4s;">UX / UI Designer Créative</div>
+                    <div class="scrolling-text" style="animation-delay: 8s;">Modélisation 3D (3DS Max)</div>
+                    <div class="scrolling-text" style="animation-delay: 12s;">Support IT & Helpdesk</div>
                 </div>
                 <div class="mt-5">
-                    <a href="#portfolio" class="btn-glass">Explorer mon univers <i class="fas fa-arrow-right"></i></a>
+                    <a href="#portfolio" class="btn-creative">Explorer mon univers <i class="fas fa-chevron-down ms-2"></i></a>
                 </div>
             </div>
-        </section>
+        </header>
 
         <section id="cv" class="container py-5">
-            <div class="cv-card row mx-0">
+            <div class="cv-card row mx-0" data-aos="fade-up">
                 <aside class="col-lg-4 cv-sidebar">
                     <div class="text-center">
-                        <img src="images/photosperso.png" alt="Fatima Dadi" class="cv-photo shadow-lg">
-                        <h2 class="h3 fw-bold mb-1">Fatima Ezzohra DADI</h2>
-                        <p class="small fw-bold mb-5" style="color: var(--accent); letter-spacing: 3px;">LICENCE PRO MÉTIERS DU NUMÉRIQUE</p>
+                        <img src="images/photosperso.png" alt="Fatima Dadi" class="cv-photo shadow">
+                        <h3 class="h4 fw-bold">Fatima Ezzohra DADI</h3>
+                        <p class="small fw-bold mb-5" style="color:var(--accent)">DÉVELOPPEMENT WEB & MULTIMÉDIA</p>
                     </div>
-
-                    <h5 class="small fw-bold border-bottom border-secondary pb-2 mb-3 text-start">COMPÉTENCES</h5>
+                    
+                    <h3 class="small fw-bold border-bottom border-secondary pb-2 mb-3 text-start">COMPÉTENCES</h3>
                     <div class="mb-5 text-start">
-                        <span class="skill-badge">React JS</span> <span class="skill-badge">PHP / MySQL</span>
-                        <span class="skill-badge">JavaScript ES6</span> <span class="skill-badge">HTML5 / CSS3</span>
+                        <span class="skill-badge">Support Helpdesk IT</span>
+                        <span class="skill-badge">React JS</span> <span class="skill-badge">PHP / SQL</span>
                         <span class="skill-badge">Figma UX/UI</span> <span class="skill-badge">Suite Adobe</span>
-                        <span class="skill-badge">3DS Max</span> <span class="skill-badge">WordPress</span>
-                        <span class="skill-badge">IT Helpdesk</span> <span class="skill-badge">Leadership</span>
                     </div>
 
-                    <h5 class="small fw-bold border-bottom border-secondary pb-2 mb-3 text-start">CONTACT RAPIDE</h5>
+                    <h3 class="small fw-bold border-bottom border-secondary pb-2 mb-3 text-start">CONTACT</h3>
                     <div class="text-start small opacity-75">
-                        <p class="mb-3"><i class="fas fa-envelope me-2 text-accent"></i> fatimaezzohradadi1@gmail.com</p>
-                        <p class="mb-3"><i class="fas fa-phone me-2 text-accent"></i> +33 7 53 67 04 09</p>
-                        <p class="mb-3"><i class="fas fa-location-dot me-2 text-accent"></i> Charleville-Mézières, France</p>
+                        <p class="mb-3"><i class="fas fa-envelope me-3 text-accent"></i> fatimaezzohradadi1@gmail.com</p>
+                        <p class="mb-3"><i class="fas fa-phone me-3 text-accent"></i> +33 7 53 67 04 09</p>
+                        <p class="mb-3"><i class="fas fa-map-marker-alt me-3 text-accent"></i> Charleville-Mézières, France</p>
                     </div>
                 </aside>
 
                 <div class="col-lg-8 p-4 p-md-5 text-start">
-                    <h3 class="mb-5 fw-bold" style="font-family:'Syncopate'; font-size:1rem; color:var(--accent); letter-spacing:2px;">PARCOURS PROFESSIONNEL</h3>
-                    <div class="timeline-item"><h6>Freelancer Web & Graphisme</h6><p class="small opacity-50 mb-0">AOÛT 2022 - ACTUEL</p></div>
-                    <div class="timeline-item"><h6>Chargée de clientèle | INTELCIA</h6><p class="small opacity-50 mb-0">MAI 2024 - JUILLET 2025 | MEKNÈS, MAROC</p></div>
-                    <div class="timeline-item"><h6>Stagiaire Développeur | WEHELP DIGITAL</h6><p class="small opacity-50 mb-0">AVRIL 2024 - JUILLET 2024 | MEKNÈS, MAROC</p></div>
-                    <div class="timeline-item"><h6>Responsable Logistique | JLM ESTM</h6><p class="small opacity-50 mb-0">SEPTEMBRE 2023 - AVRIL 2024 | MEKNÈS, MAROC</p></div>
-                    <div class="timeline-item"><h6>Stagiaire Développeur | WEHELP DIGITAL</h6><p class="small opacity-50 mb-0">AOUT 2023 | | MEKNÈS, MAROC</p></div>
-                    <div class="timeline-item"><h6>Stagiaire Enseignante | ECOLE PRIMAIRE</h6><p class="small opacity-50 mb-0">JUILLET 2023 | OUED IFRANE, MAROC</p></div>
+                    <h3 class="small fw-bold mb-4" style="color:var(--accent); letter-spacing:2px;">PARCOURS PROFESSIONNEL</h3>
+                    <div class="timeline-item"><h6>Freelancer Web & Graphisme</h6><p class="small opacity-75 mb-0">AOÛT 2022 - ACTUEL</p></div>
+                    <div class="timeline-item"><h6>Chargée de clientèle | INTELCIA</h6><p class="small opacity-75 mb-0">2024 - 2025 | MAROC</p></div>
+                    <div class="timeline-item"><h6>Stagiaire Développeur | WEHELP DIGITAL</h6><p class="small opacity-75 mb-0">AVRIL 2024 - JUILLET 2024</p></div>
+                    <div class="timeline-item"><h6>Responsable Logistique | JLM ESTM</h6><p class="small opacity-75 mb-0">2023 - 2024</p></div>
+                    <div class="timeline-item"><h6>Stagiaire Enseignante | ECOLE PRIMAIRE</h6><p class="small opacity-75 mb-0">JUILLET 2023</p></div>
 
-                    <h3 class="mt-5 mb-5 fw-bold" style="font-family:'Syncopate'; font-size:1rem; color:var(--accent); letter-spacing:2px;">FORMATIONS</h3>
-                    <div class="timeline-item"><h6>Licence Pro Métiers du numérique</h6><p class="small opacity-50 mb-0">EISINE | 2025 - PRÉSENT</p></div>
-                    <div class="timeline-item"><h6>DUT Web et Multimédia</h6><p class="small opacity-50 mb-0">ESTM | Mention Bien | 2022 - 2024</p></div>
-                    <div class="timeline-item"><h6>Bac Sciences Mathématiques A</h6><p class="small opacity-50 mb-0">Mention Bien | 2022</p></div>
+                    <h3 class="small fw-bold mt-5 mb-4" style="color:var(--accent); letter-spacing:2px;">FORMATIONS</h3>
+                    <div class="timeline-item"><h6>Licence Pro Métiers du numérique</h6><p class="small opacity-75 mb-0">EISINE | 2025 - PRÉSENT</p></div>
+                    <div class="timeline-item"><h6>DUT Web et Multimédia</h6><p class="small opacity-75 mb-0">ESTM | Mention Bien | 2022 - 2024</p></div>
                 </div>
             </div>
-            <div class="mt-5 text-center">
-                <a href="images/cvfatimadadi.pdf" download class="btn-glass"><i class="fas fa-file-pdf"></i> Télécharger CV Complet (PDF)</a>
+            <div class="mt-4 text-center">
+                <a href="images/cvfatimadadi.pdf" download class="btn-creative"><i class="fas fa-file-pdf me-2"></i> Télécharger CV PDF</a>
             </div>
         </section>
 
         <section id="portfolio" class="container py-5">
-            <h2 class="text-center mb-5 hero-title" style="font-size:3rem">RÉALISATIONS</h2>
+            <h2 class="text-center mb-5 hero-title" style="font-size:3rem" data-aos="fade-right">RÉALISATIONS</h2>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
+                <article class="col-md-6 col-lg-4" data-aos="flip-left">
                     <div class="project-card">
                         <img src="images/logo.png" class="project-img" alt="ThaiJap">
                         <div class="project-overlay">
-                            <h4 class="fw-bold">THAIJAP QR</h4>
-                            <p class="small opacity-75">Système de commande digitale.</p>
-                            <div class="d-flex gap-2 w-100 mt-3">
-                                <a href="https://fd-top.github.io/thaijap/" target="_blank" class="btn-glass flex-grow-1 p-2" style="font-size:0.7rem">Client</a>
-                                <a href="https://fd-top.github.io/thaijap/admin.html" target="_blank" class="btn-glass btn-outline-glass flex-grow-1 p-2" style="font-size:0.7rem">Admin</a>
+                            <h5 class="mb-3">THAIJAP QR</h5>
+                            <div class="d-flex gap-2">
+                                <a href="https://fd-top.github.io/thaijap/" target="_blank" class="btn-mini btn-mini-fill">Client</a>
+                                <a href="https://fd-top.github.io/thaijap/admin.html" target="_blank" class="btn-mini btn-mini-outline">Admin</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
+                </article>
+                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="100">
                     <div class="project-card">
                         <img src="images/skill.png" class="project-img" alt="Skill Shop">
                         <div class="project-overlay">
-                            <h4 class="fw-bold">SKILL SHOP</h4>
-                            <p class="small opacity-75">App de gestion des compétences (JS).</p>
-                            <a href="https://fd-top.github.io/Skillshop/" target="_blank" class="btn-glass w-100 mt-3" style="font-size:0.7rem">Voir le projet</a>
+                            <h5 class="mb-3">SKILL SHOP</h5>
+                            <a href="https://fd-top.github.io/Skillshop/" target="_blank" class="btn-mini btn-mini-fill">Lancer l'App</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
+                </article>
+                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="200">
                     <div class="project-card">
-                        <img src="images/3D.png" class="project-img" alt="Modélisation 3D">
+                        <img src="images/3D.png" class="project-img" alt="3D">
                         <div class="project-overlay">
-                            <h4 class="fw-bold">RENDU ARCHI 3D</h4>
-                            <p class="small opacity-75">Architecture complexe sous 3DS Max.</p>
-                            <a href="estm/ESTM2.max" download class="btn-glass btn-outline-glass w-100 mt-3" style="font-size:0.7rem">Fichier .Max</a>
+                            <h5 class="mb-3">RENDU ARCHI 3D</h5>
+                            <a href="estm/ESTM2.max" download class="btn-mini btn-mini-outline">Fichier .Max</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
+                </article>
+                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="300">
                     <div class="project-card">
-                        <img src="images/ui.png" class="project-img" alt="Branding Design">
+                        <img src="images/ui.png" class="project-img" alt="Identity">
                         <div class="project-overlay">
-                            <h4 class="fw-bold">BRAND IDENTITY</h4>
-                            <p class="small opacity-75">Conception graphique Suite Adobe.</p>
-                            <a href="images/chartegraphique.pdf" target="_blank" class="btn-glass w-100 mt-3" style="font-size:0.7rem">Consulter le PDF</a>
+                            <h5 class="mb-3">BRAND IDENTITY</h5>
+                            <a href="images/chartegraphique.pdf" target="_blank" class="btn-mini btn-mini-fill">Voir PDF</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
+                </article>
+                <article class="col-md-6 col-lg-4" data-aos="flip-left" data-aos-delay="400">
                     <div class="project-card">
                         <img src="images/gestion.png" class="project-img" alt="Logistique">
                         <div class="project-overlay">
-                            <h4 class="fw-bold">LOGISTIQUE JLM</h4>
-                            <p class="small opacity-75">Gestion d'événements & Coordination.</p>
-                            <a href="#cv" class="btn-glass btn-outline-glass w-100 mt-3" style="font-size:0.7rem">Voir détails</a>
+                            <h5 class="mb-3">LOGISTIQUE JLM</h5>
+                            <a href="#cv" class="btn-mini btn-mini-outline">Détails CV</a>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
         <section id="contact" class="container py-5">
-            <div class="cv-card p-5">
+            <div class="cv-card p-4 p-md-5" data-aos="zoom-in">
                 <h2 class="text-center mb-5 hero-title" style="font-size:2.5rem">CONTACT</h2>
-                <div class="row g-5">
+                <div class="row g-4">
                     <div class="col-lg-5">
-                        <div class="d-grid gap-4">
-                            <a href="mailto:fatimaezzohradadi1@gmail.com" class="btn-glass justify-content-start w-100 py-4">
-                                <i class="fas fa-envelope fa-2x"></i>
-                                <div class="text-start"><span class="d-block small opacity-50">Email</span><span>fatimaezzohra...</span></div>
-                            </a>
-                            <a href="https://linkedin.com/in/fatima-ezzohra-dadi" target="_blank" class="btn-glass justify-content-start w-100 py-4">
-                                <i class="fab fa-linkedin fa-2x"></i>
-                                <div class="text-start"><span class="d-block small opacity-50">LinkedIn</span><span>Fatima Ezzohra Dadi</span></div>
-                            </a>
-                        </div>
+                        <a href="mailto:fatimaezzohradadi1@gmail.com" class="btn-creative w-100 mb-3 justify-content-center" aria-label="Mail">
+                            <i class="fas fa-envelope me-3"></i> Email Direct
+                        </a>
+                        <a href="https://linkedin.com/in/fatima-ezzohra-dadi" target="_blank" class="btn-creative w-100 justify-content-center" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin me-3"></i> LinkedIn
+                        </a>
                     </div>
                     <div class="col-lg-7">
                         <form id="contact-form" class="text-start">
-                            <div class="row g-3">
-                                <div class="col-md-6"><input type="text" class="form-control-custom" placeholder="Nom complet" required></div>
-                                <div class="col-md-6"><input type="email" class="form-control-custom" placeholder="Email" required></div>
-                            </div>
-                            <input type="text" class="form-control-custom" placeholder="Objet">
-                            <textarea class="form-control-custom" rows="5" placeholder="Comment puis-je vous aider ?" required></textarea>
-                            <button type="submit" class="btn-glass w-100 border-0 p-4">Envoyer le message <i class="fas fa-paper-plane"></i></button>
+                            <input type="text" class="form-control bg-transparent text-white border-secondary mb-3 rounded-pill p-3" placeholder="Nom complet" required>
+                            <input type="email" class="form-control bg-transparent text-white border-secondary mb-3 rounded-pill p-3" placeholder="Email" required>
+                            <textarea class="form-control bg-transparent text-white border-secondary mb-4 rounded-4 p-3" rows="3" placeholder="Message..."></textarea>
+                            <button type="submit" class="btn-creative w-100">Envoyer le message</button>
                         </form>
                     </div>
                 </div>
@@ -275,9 +267,23 @@
     </main>
 
     <footer class="py-5 text-center opacity-50 small">
-        © 2026 FATIMA EZZOHRA DADI | Licence Pro EISINE | Charleville-Mézières
+        <p>© 2026 FATIMA EZZOHRA DADI | Charleville-Mézières | France</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+        const dot = document.getElementById('cursor-dot');
+        const outline = document.getElementById('cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            dot.style.left = e.clientX + 'px';
+            dot.style.top = e.clientY + 'px';
+            outline.animate({
+                left: e.clientX + 'px',
+                top: e.clientY + 'px'
+            }, { duration: 500, fill: "forwards" });
+        });
+    </script>
 </body>
 </html>
