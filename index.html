@@ -1,206 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Fatima Ezzohra Dadi | Portfolio Digital</title>
     <link rel="icon" type="image/png" href="images/LF.png">
-    <link rel="apple-touch-icon" href="images/LF.png"> 
+    <link rel="apple-touch-icon" href="images/LF.png">
     <link rel="manifest" href="manifest.json">
-    
-    <meta name="description" content="Portfolio de Fatima Ezzohra Dadi, étudiante à l'EiSINe spécialisée en développement web, design UX/UI et création numérique.">
-    <meta name="keywords" content="Dadi, Fatima Ezzohra, Fatima Dadi, EiSINe, développeuse, développeur web, freelancer, designer graphique, portfolio, Charleville-Mézières">
+    <meta name="description" content="Portfolio de Fatima Ezzohra Dadi — Développeuse Web & Designer UX/UI.">
     <meta name="author" content="Fatima Ezzohra Dadi">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* ===== VARIABLES ===== */
-        :root { 
-            --accent: #ff2d75;
-            --accent-glow: rgba(255, 45, 117, 0.5);
-            --accent2: #bc13fe;
-            --dark-bg: #050508;
-            --dark-card: #0d0d14;
-            --card-bg: rgba(255, 255, 255, 0.04);
-            --card-bg-hover: rgba(255, 45, 117, 0.06);
-            --border: rgba(255, 45, 117, 0.25);
-            --border-hover: rgba(255, 45, 117, 0.7);
-            --grad: linear-gradient(135deg, #ff2d75, #bc13fe);
-            --grad-text: linear-gradient(90deg, #ff2d75, #bc13fe);
-            --text-muted: rgba(255, 255, 255, 0.6);
-            --text-body: rgba(255, 255, 255, 0.88);
-        }
-
-        /* ===== BASE ===== */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { 
-            background-color: var(--dark-bg); 
-            color: var(--text-body); 
-            font-family: 'Space Grotesk', sans-serif; 
-            overflow-x: hidden; 
-            line-height: 1.7;
-        }
-
-        /* ===== SCROLL PROGRESS BAR ===== */
-        #scroll-progress {
-            position: fixed;
-            top: 0; left: 0;
-            width: 0%;
-            height: 3px;
-            background: var(--grad);
-            z-index: 9999;
-            transition: width 0.1s linear;
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        /* ===== CURSEUR PERSONNALISÉ ===== */
-        @media (min-width: 992px) {
-            * { cursor: none !important; }
-            #cursor-dot { 
-                width: 8px; height: 8px; 
-                background: var(--accent); 
-                position: fixed; border-radius: 50%; 
-                pointer-events: none; z-index: 10000;
-                transform: translate(-50%, -50%);
-                box-shadow: 0 0 10px var(--accent-glow);
-            }
-            #cursor-outline { 
-                width: 40px; height: 40px; 
-                border: 2px solid rgba(255, 45, 117, 0.5); 
-                position: fixed; border-radius: 50%; 
-                pointer-events: none; z-index: 9999; 
-                transform: translate(-50%, -50%);
-                transition: 0.12s ease-out;
-            }
-        }
-
-        /* ===== BACK TO TOP ===== */
-        #back-to-top {
-            position: fixed; bottom: 30px; right: 30px;
-            width: 50px; height: 50px;
-            background: var(--grad);
-            border: none; border-radius: 50%;
-            color: #fff; font-size: 1.2rem;
-            display: flex; align-items: center; justify-content: center;
-            z-index: 9000; opacity: 0; pointer-events: none;
-            transition: 0.4s ease;
-            box-shadow: 0 4px 20px var(--accent-glow);
-            text-decoration: none;
-        }
-        #back-to-top.visible { opacity: 1; pointer-events: all; }
-        #back-to-top:hover { transform: translateY(-5px); box-shadow: 0 8px 30px var(--accent-glow); }
-
-        /* ===== NAVIGATION ===== */
-        .navbar { 
-            background: rgba(5, 5, 8, 0.88) !important; 
-            backdrop-filter: blur(24px) saturate(180%); 
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid var(--border); 
-            padding: 12px 0; 
-            z-index: 1000;
-            transition: 0.3s ease;
-        }
-        .navbar.scrolled { 
-            background: rgba(5, 5, 8, 0.97) !important; 
-            box-shadow: 0 4px 30px rgba(255, 45, 117, 0.1); 
-        }
-        .navbar-brand img { height: 65px; border-radius: 40%; transition: 0.3s; }
-        .navbar-brand img:hover { transform: scale(1.05); }
-
-        .navbar-toggler { border: none; color: var(--accent); padding: 0; }
-        .navbar-toggler:focus { box-shadow: none; outline: none; }
-
-        .navbar-collapse { 
-            position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; 
-            background: rgba(5, 5, 8, 0.99); 
-            transition: 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); 
-            padding: 80px 30px 30px; 
-            border-left: 1px solid var(--border); 
-            display: block !important;
-            overflow-y: auto;
-        }
-        .navbar-collapse.show { right: 0; box-shadow: -10px 0 60px rgba(0,0,0,0.8); }
-
-        .nav-link { 
-            font-family: 'Syncopate', sans-serif; 
-            font-size: 0.8rem; 
-            margin-bottom: 12px; 
-            transition: 0.3s; 
-            color: rgba(255,255,255,0.7) !important; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 8px 12px !important;
-            border-radius: 8px;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .nav-link::before { 
-            content: ''; 
-            width: 4px; height: 4px; 
-            border-radius: 50%; 
-            background: var(--accent); 
-            opacity: 0; 
-            transition: 0.3s;
-            flex-shrink: 0;
-        }
-        .nav-link:hover, .nav-link.active { 
-            color: var(--accent) !important; 
-            background: rgba(255, 45, 117, 0.08);
-            padding-left: 16px !important;
-        }
-        .nav-link:hover::before, .nav-link.active::before { opacity: 1; }
-
-        /* ===== UTILITAIRES ===== */
-        .text-accent { color: var(--accent) !important; }
-        .text-grad {
-            background: var(--grad-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* ===== HERO SECTION ===== */
-        #home { 
-            height: 100vh; 
+        /* ===== HERO HOME ===== */
+        #home {
+            height: 100vh;
             display: flex; align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.80), rgba(5,5,8,1)), url('images/bg.webp') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.78), rgba(5,5,8,1)),
+                        url('images/bg.webp') no-repeat center center/cover;
             background-attachment: fixed;
             padding: 0 20px;
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
         }
         #home::before {
             content: '';
             position: absolute; inset: 0;
-            background: radial-gradient(ellipse at 60% 50%, rgba(255, 45, 117, 0.08) 0%, transparent 60%),
-                        radial-gradient(ellipse at 20% 80%, rgba(188, 19, 254, 0.06) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 65% 45%, rgba(255, 45, 117, 0.1) 0%, transparent 55%),
+                        radial-gradient(ellipse at 15% 80%, rgba(188, 19, 254, 0.07) 0%, transparent 50%);
             pointer-events: none;
         }
-
         .hero-badge {
             display: inline-flex; align-items: center; gap: 8px;
             background: rgba(255, 45, 117, 0.1);
             border: 1px solid rgba(255, 45, 117, 0.3);
             color: var(--accent);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 24px;
+            padding: 6px 16px; border-radius: 50px;
+            font-size: 0.72rem; letter-spacing: 2px;
+            text-transform: uppercase; margin-bottom: 22px;
             font-family: 'Syncopate', sans-serif;
         }
-        .hero-badge .dot { 
-            width: 7px; height: 7px; 
-            border-radius: 50%; 
+        .hero-badge .dot {
+            width: 7px; height: 7px; border-radius: 50%;
             background: var(--accent);
             animation: pulse 2s infinite;
         }
@@ -208,59 +52,44 @@
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.4; transform: scale(0.8); }
         }
-
-        .hero-title { 
-            font-family: 'Syncopate', sans-serif; 
-            font-size: clamp(1.8rem, 7vw, 4.5rem); 
-            text-transform: uppercase; 
-            letter-spacing: 3px;
-            line-height: 1.1;
-            margin-bottom: 20px;
+        .hero-title {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(1.8rem, 7vw, 4.8rem);
+            text-transform: uppercase;
+            letter-spacing: 3px; line-height: 1.1;
+            margin-bottom: 18px;
         }
-        .typed-text { color: var(--accent); min-height: 1.2em; display: inline-block; font-weight: 500; }
-        
-        .hero-social {
-            display: flex; gap: 12px; justify-content: center; margin-top: 36px; flex-wrap: wrap;
-        }
+        .typed-text { color: var(--accent); min-height: 1.2em; display: inline-block; }
+        .hero-social { display: flex; gap: 11px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
         .hero-social a {
             width: 46px; height: 46px;
-            border: 1px solid var(--border);
-            border-radius: 50%;
+            border: 1px solid var(--border); border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            color: rgba(255,255,255,0.7);
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: 0.3s;
+            color: rgba(255,255,255,0.65); font-size: 1.1rem;
+            text-decoration: none; transition: 0.3s;
             background: rgba(255,255,255,0.03);
         }
-        .hero-social a:hover { 
-            background: var(--accent); 
-            border-color: var(--accent); 
-            color: #fff;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px var(--accent-glow);
+        .hero-social a:hover {
+            background: var(--accent); border-color: var(--accent); color: #fff;
+            transform: translateY(-4px); box-shadow: 0 8px 20px var(--accent-glow);
         }
-
         .hero-scroll {
-            position: absolute; bottom: 36px; left: 50%;
+            position: absolute; bottom: 32px; left: 50%;
             transform: translateX(-50%);
-            display: flex; flex-direction: column; align-items: center; gap: 8px;
-            color: var(--text-muted); font-size: 0.75rem; letter-spacing: 2px;
+            display: flex; flex-direction: column; align-items: center; gap: 7px;
+            color: var(--text-muted); font-size: 0.7rem; letter-spacing: 2px;
             text-transform: uppercase;
-            animation: bounce 2.5s ease-in-out infinite;
+            animation: bounceScroll 2.5s ease-in-out infinite;
         }
-        @keyframes bounce {
+        @keyframes bounceScroll {
             0%, 100% { transform: translateX(-50%) translateY(0); }
             50% { transform: translateX(-50%) translateY(8px); }
         }
 
-        /* ===== ABOUT ===== */
-        #about { padding: 100px 0; background: rgba(255,255,255,0.01); }
-
+        /* ===== ABOUT HOME ===== */
+        #about { padding: 100px 0; }
         #aboutCarousel .carousel-item img {
-            height: 480px;
-            object-fit: cover;
-            border-radius: 12px;
+            height: 450px; object-fit: cover; border-radius: 12px;
         }
         #about .carousel-control-prev-icon,
         #about .carousel-control-next-icon {
@@ -268,340 +97,89 @@
             background-color: var(--accent);
             border-radius: 50%; background-size: 50%;
         }
-        #about p { font-size: 1.05rem; line-height: 1.85; color: var(--text-body); }
 
-        @media (max-width: 991px) {
-            #about .section-title { text-align: center !important; }
-            #aboutCarousel .carousel-item img { height: 320px; }
-        }
-
-        /* ===== SECTION TITLES ===== */
-        .section-title { 
-            font-family: 'Syncopate', sans-serif; 
-            font-size: clamp(1.1rem, 4vw, 1.8rem); 
-            text-align: center; 
-            margin: 90px 0 50px; 
-            text-transform: uppercase; 
-            letter-spacing: 3px;
-            position: relative;
-            display: inline-block;
-            width: 100%;
-        }
-        .section-title span {
-            background: var(--grad-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px; height: 3px;
-            background: var(--grad);
-            border-radius: 2px;
-            margin: 14px auto 0;
-            box-shadow: 0 0 12px var(--accent-glow);
-        }
-
-        /* ===== CARDS ===== */
-        .content-card { 
-            background: var(--card-bg); 
-            backdrop-filter: blur(15px); 
-            border: 1px solid var(--border); 
-            border-radius: 18px; 
-            padding: 22px; 
-            height: 100%; 
-            transition: 0.4s ease; 
-            display: flex; flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-        .content-card::before {
-            content: '';
-            position: absolute; top: 0; left: 0; right: 0; height: 2px;
-            background: var(--grad);
-            opacity: 0; transition: 0.4s;
-        }
-        .content-card:hover { 
-            transform: translateY(-8px); 
-            border-color: rgba(255, 45, 117, 0.5); 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 30px rgba(255,45,117,0.1);
-            background: var(--card-bg-hover);
-        }
-        .content-card:hover::before { opacity: 1; }
-
-        .media-box { 
-            width: 100%; height: 190px; 
-            border-radius: 12px; overflow: hidden; 
-            margin-bottom: 16px; 
+        /* ===== NAV PAGES HOME ===== */
+        .nav-pages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+        .nav-page-card {
+            background: var(--card-bg);
             border: 1px solid var(--border);
-            background: rgba(0,0,0,0.3);
-        }
-        .media-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
-        .content-card:hover .media-box img { transform: scale(1.08); }
-        .doc-box { height: 240px; }
-
-        /* ===== EXPERIENCE TIMELINE ===== */
-        .timeline-badge {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(255, 45, 117, 0.12);
-            border: 1px solid rgba(255, 45, 117, 0.3);
-            color: var(--accent);
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        /* ===== SKILLS ===== */
-        .skill-card { padding: 25px !important; transition: 0.4s ease; }
-
-        .skill-icon {
-            font-size: 2rem;
-            margin-bottom: 14px;
-            background: var(--grad-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 8px var(--accent-glow));
-        }
-        /* Fix: filter breaks text-fill on some browsers */
-        .skill-icon i { font-style: normal; }
-
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-        .skill-tags span {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-body);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.82rem;
-            transition: 0.3s ease;
-        }
-        .skill-card:hover .skill-tags span { 
-            border-color: rgba(255, 45, 117, 0.4); 
-            background: rgba(255, 45, 117, 0.05);
-        }
-        .skill-card:hover { background: rgba(255, 45, 117, 0.04) !important; }
-
-        .lang-tag {
-            font-weight: 600;
-            color: var(--accent) !important;
-            border-color: rgba(255, 45, 117, 0.4) !important;
-            background: rgba(255, 45, 117, 0.07) !important;
-        }
-
-        @media (max-width: 768px) {
-            .skill-card { text-align: center; }
-            .skill-tags { justify-content: center !important; }
-            .skill-icon { font-size: 1.8rem; }
-        }
-
-        /* ===== BUTTONS ===== */
-        .btn-creative { 
-            padding: 10px 22px; 
-            border-radius: 10px; 
-            border: 1px solid var(--accent); 
-            color: #fff !important; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            text-decoration: none; 
-            display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-            transition: 0.3s; 
-            background: transparent; 
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
+            border-radius: 18px; padding: 30px 26px;
+            text-decoration: none; color: var(--text-body);
+            transition: 0.4s ease;
+            display: flex; flex-direction: column;
             position: relative; overflow: hidden;
         }
-        .btn-creative::before {
+        .nav-page-card::before {
             content: '';
-            position: absolute; inset: 0;
-            background: var(--grad);
-            opacity: 0; transition: 0.3s;
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: var(--grad); opacity: 0; transition: 0.4s;
         }
-        .btn-creative:hover { 
-            box-shadow: 0 0 20px var(--accent-glow), 0 4px 15px rgba(0,0,0,0.3);
-            transform: translateY(-2px);
-            border-color: transparent;
+        .nav-page-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,45,117,0.45);
+            box-shadow: 0 16px 45px rgba(0,0,0,0.45), 0 0 30px rgba(255,45,117,0.1);
+            background: var(--card-bg-hover); color: #fff;
         }
-        .btn-creative:hover::before { opacity: 1; }
-        .btn-creative span { position: relative; z-index: 1; }
-        .btn-creative i { position: relative; z-index: 1; }
-
-        /* ===== CONTACT FORM ===== */
-        .form-control-custom { 
-            background: rgba(255,255,255,0.03); 
-            border: 1px solid var(--border); 
-            border-radius: 10px; 
-            color: #fff; 
-            padding: 13px 16px; 
-            width: 100%; 
-            margin-bottom: 14px; 
-            font-size: 0.95rem;
-            font-family: 'Space Grotesk', sans-serif;
-            transition: 0.3s;
+        .nav-page-card:hover::before { opacity: 1; }
+        .nav-page-card .icon {
+            font-size: 2rem; margin-bottom: 16px;
+            background: var(--grad-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .form-control-custom:focus { 
-            outline: none; 
-            border-color: var(--accent); 
-            background: rgba(255,255,255,0.05);
-            box-shadow: 0 0 0 3px rgba(255, 45, 117, 0.1);
-        }
-        .form-control-custom::placeholder { color: rgba(255,255,255,0.35); }
-        .form-control-custom option { background: #0d0d14; color: #fff; }
-
-        .contact-info-card {
-            display: flex; align-items: center; gap: 16px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 18px 22px;
-            transition: 0.3s;
-            text-decoration: none;
-            color: var(--text-body);
-        }
-        .contact-info-card:hover {
-            border-color: rgba(255,45,117,0.5);
-            background: var(--card-bg-hover);
-            transform: translateX(6px);
-            color: #fff;
-        }
-        .contact-info-card .icon {
-            width: 46px; height: 46px;
-            background: rgba(255, 45, 117, 0.1);
-            border: 1px solid rgba(255, 45, 117, 0.3);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--accent); font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer-section {
-            background: rgba(255, 255, 255, 0.015);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--border);
-            padding: 70px 0 25px;
-            margin-top: 100px;
-        }
-        .footer-title {
+        .nav-page-card h3 {
             font-family: 'Syncopate', sans-serif;
-            font-size: 0.85rem;
-            color: var(--accent);
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 0.9rem; text-transform: uppercase;
+            letter-spacing: 1.5px; color: #fff;
+            margin-bottom: 10px;
         }
-        .footer-links, .contact-info { list-style: none; padding: 0; }
-        .footer-links li, .contact-info li { margin-bottom: 10px; font-size: 0.9rem; }
-        .footer-links a, .contact-info a {
-            color: var(--text-muted);
-            text-decoration: none;
+        .nav-page-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+        .nav-page-card .arrow {
+            margin-top: 20px;
+            color: var(--accent); font-size: 0.85rem;
+            display: flex; align-items: center; gap: 6px;
+            font-weight: 600;
             transition: 0.3s;
-            display: inline-flex; align-items: center; gap: 6px;
         }
-        .footer-links a:hover { color: var(--accent); padding-left: 6px; }
-        .contact-info i { width: 22px; color: var(--accent); }
+        .nav-page-card:hover .arrow { gap: 12px; }
 
-        .social-icons { display: flex; gap: 12px; flex-wrap: wrap; }
-        .social-icons a {
-            width: 46px; height: 46px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: rgba(255,255,255,0.7);
-            font-size: 1.1rem;
-            transition: 0.4s;
-            text-decoration: none;
-        }
-        .social-icons a:hover {
-            background: var(--grad);
-            border-color: transparent;
-            color: #fff;
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px var(--accent-glow);
-        }
-
-        .footer-bottom {
-            margin-top: 55px;
-            padding-top: 22px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-            opacity: 0.45;
-            font-size: 0.8rem;
-        }
-
-        /* ===== BADGE TECH ===== */
-        .badge-tech { 
-            background: rgba(255, 45, 117, 0.1); 
-            color: var(--accent); 
-            border: 1px solid var(--border); 
-            padding: 4px 10px; border-radius: 20px; 
-            font-size: 0.8rem; margin: 3px; 
-            display: inline-block; 
-        }
-
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .section-title { margin: 70px 0 36px; }
-            .content-card { padding: 16px; }
-            .media-box { height: 170px; }
             #home { background-attachment: scroll; }
-            .footer-section { text-align: center; }
-            .social-icons { justify-content: center; }
-            .contact-info-card:hover { transform: translateY(-4px); }
-        }
-
-        @media (max-width: 575px) {
-            .hero-title { letter-spacing: 1px; }
-            #back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+            #aboutCarousel .carousel-item img { height: 300px; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Barre de progression scroll -->
     <div id="scroll-progress"></div>
-
-    <!-- Curseur personnalisé -->
     <div id="cursor-dot"></div>
     <div id="cursor-outline"></div>
+    <a href="#about" id="back-to-top" aria-label="Retour en haut"><i class="fas fa-chevron-up"></i></a>
 
-    <!-- Bouton retour en haut -->
-    <a href="#home" id="back-to-top" aria-label="Retour en haut">
-        <i class="fas fa-chevron-up"></i>
-    </a>
-
-    <!-- ===== NAVIGATION ===== -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#home">
+            <a class="navbar-brand" href="index.html">
                 <img src="images/LOGO.gif" alt="Fatima Dadi">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Menu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fa-solid fa-bars-staggered fa-lg"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <button type="button" class="btn-close btn-close-white mb-4 shadow-none" data-bs-toggle="collapse" data-bs-target="#navbarNav"></button>
+                <button type="button" class="btn-close btn-close-white mb-3 shadow-none" data-bs-toggle="collapse" data-bs-target="#navbarNav"></button>
+                <div class="nav-page-label">Pages</div>
                 <ul class="navbar-nav">
-                    <li><a class="nav-link" href="#home"><i class="fas fa-home fa-xs opacity-50"></i> Accueil</a></li>
-                    <li><a class="nav-link" href="#about"><i class="fas fa-user fa-xs opacity-50"></i> Qui suis-je ?</a></li>
-                    <li><a class="nav-link" href="#experiences"><i class="fas fa-briefcase fa-xs opacity-50"></i> Parcours</a></li>
-                    <li><a class="nav-link" href="#jobs"><i class="fas fa-mug-hot fa-xs opacity-50"></i> Jobs</a></li>
-                    <li><a class="nav-link" href="#projets"><i class="fas fa-rocket fa-xs opacity-50"></i> Projets</a></li>
-                    <li><a class="nav-link" href="#diplomes"><i class="fas fa-graduation-cap fa-xs opacity-50"></i> Diplômes</a></li>
-                    <li><a class="nav-link" href="#certificats"><i class="fas fa-certificate fa-xs opacity-50"></i> Certificats</a></li>
-                    <li><a class="nav-link" href="#skills"><i class="fas fa-code fa-xs opacity-50"></i> Compétences</a></li>
-                    <li><a class="nav-link" href="#contact"><i class="fas fa-envelope fa-xs opacity-50"></i> Contact</a></li>
+                    <li><a class="nav-link active" href="index.html"><span class="nav-icon"><i class="fas fa-home"></i></span> Accueil</a></li>
+                    <li><a class="nav-link" href="projets.html"><span class="nav-icon"><i class="fas fa-rocket"></i></span> Projets</a></li>
+                    <li><a class="nav-link" href="parcours.html"><span class="nav-icon"><i class="fas fa-briefcase"></i></span> Parcours</a></li>
+                    <li><a class="nav-link" href="competences.html"><span class="nav-icon"><i class="fas fa-code"></i></span> Compétences</a></li>
+                    <li><a class="nav-link" href="contact.html"><span class="nav-icon"><i class="fas fa-envelope"></i></span> Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- ===== HERO ===== -->
+    <!-- HERO -->
     <header id="home">
         <div class="container" data-aos="fade-up" data-aos-duration="1000">
             <div class="hero-badge">
@@ -616,11 +194,11 @@
                 Je suis <span class="typed-text" id="typed"></span>
             </p>
             <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
-                <a href="#projets" class="btn-creative">
-                    <span><i class="fas fa-rocket me-2"></i>Voir mes projets</span>
+                <a href="projets.html" class="btn-creative">
+                    <i class="fas fa-rocket"></i> Voir mes projets
                 </a>
-                <a href="#contact" class="btn-creative" style="border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.03);">
-                    <span><i class="fas fa-paper-plane me-2"></i>Me contacter</span>
+                <a href="contact.html" class="btn-creative btn-ghost">
+                    <i class="fas fa-paper-plane"></i> Me contacter
                 </a>
             </div>
             <div class="hero-social mt-4" data-aos="fade-up" data-aos-delay="200">
@@ -637,31 +215,19 @@
         </div>
     </header>
 
-    <!-- ===== ABOUT ===== -->
+    <!-- ABOUT -->
     <section id="about">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5" data-aos="fade-right">
                     <div id="aboutCarousel" class="carousel slide content-card p-2" data-bs-ride="carousel">
                         <div class="carousel-inner rounded-4">
-                            <div class="carousel-item active">
-                                <img src="images/1.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/2.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/3.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/4.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/5.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/6.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi">
-                            </div>
+                            <div class="carousel-item active"><img src="images/1.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi"></div>
+                            <div class="carousel-item"><img src="images/2.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi"></div>
+                            <div class="carousel-item"><img src="images/3.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi"></div>
+                            <div class="carousel-item"><img src="images/4.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi"></div>
+                            <div class="carousel-item"><img src="images/5.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi"></div>
+                            <div class="carousel-item"><img src="images/6.jpeg" class="d-block w-100" alt="Fatima Ezzohra Dadi"></div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -671,29 +237,17 @@
                         </button>
                     </div>
                 </div>
-
                 <div class="col-lg-7" data-aos="fade-left">
-                    <h2 class="section-title text-start m-0 mb-4" style="text-align: left !important; margin-top: 0 !important;">
+                    <h2 class="section-title left-align" style="margin-top: 0;">
                         <span>Qui suis-je ?</span>
                     </h2>
                     <div class="content-card">
-                        <p class="lead text-accent mb-3" style="-webkit-text-fill-color: initial;">
-                            <strong>Développeuse Web & Designer UX/UI passionnée.</strong>
-                        </p>
-                        <p>
-                            Je m'appelle <strong>Fatima Ezzohra Dadi</strong>. Mon parcours est marqué par une double expertise : la rigueur technique du développement web et la créativité du design numérique. Actuellement étudiante en <strong>Licence Professionnelle à l'EiSINe</strong>, j'ai consolidé mes bases avec un DUT en Web et Multimédia avant de m'installer en France en septembre 2025.
-                        </p>
-                        <p class="mt-3">
-                            Mon approche repose sur l'équilibre entre fonctionnalité et esthétique. Que ce soit pour coder des interfaces en <strong>JS/PHP</strong>, concevoir des prototypes sur <strong>Figma</strong> ou modéliser en <strong>3D sous 3ds Max</strong>, je crée des solutions digitales qui ont du sens et de l'impact.
-                        </p>
-                        <p class="mt-3">
-                            Forte d'expériences en freelance et en support client chez Intelcia, je sais allier autonomie et écoute pour répondre aux besoins utilisateurs.
-                        </p>
+                        <p class="lead text-accent mb-3"><strong>Développeuse Web & Designer UX/UI passionnée.</strong></p>
+                        <p>Je m'appelle <strong>Fatima Ezzohra Dadi</strong>. Mon parcours est marqué par une double expertise : la rigueur technique du développement web et la créativité du design numérique. Actuellement étudiante en <strong>Licence Professionnelle à l'EiSINe</strong>, j'ai consolidé mes bases avec un DUT en Web et Multimédia avant de m'installer en France en septembre 2025.</p>
+                        <p class="mt-3">Mon approche repose sur l'équilibre entre fonctionnalité et esthétique. Que ce soit pour coder des interfaces en <strong>JS/PHP</strong>, concevoir des prototypes sur <strong>Figma</strong> ou modéliser en <strong>3D sous 3ds Max</strong>, je crée des solutions qui ont du sens et de l'impact.</p>
                         <div class="mt-4 d-flex gap-3 flex-wrap">
-                            <a href="#contact" class="btn-creative"><span>Me contacter</span></a>
-                            <a href="#projets" class="btn-creative" style="border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.02);">
-                                <span>Voir mes projets</span>
-                            </a>
+                            <a href="parcours.html" class="btn-creative"><i class="fas fa-briefcase"></i> Mon parcours</a>
+                            <a href="contact.html" class="btn-creative btn-ghost"><i class="fas fa-paper-plane"></i> Me contacter</a>
                         </div>
                     </div>
                 </div>
@@ -701,369 +255,85 @@
         </div>
     </section>
 
-    <main class="container">
-
-        <!-- ===== EXPÉRIENCES ===== -->
-        <section id="experiences">
-            <h2 class="section-title" data-aos="fade-up"><span>Parcours Professionnel</span></h2>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
-                    <article class="content-card">
-                        <div class="media-box"><img src="images/cam.png" alt="Camalaytics"></div>
-                        <div class="timeline-badge"><i class="fas fa-circle fa-xs"></i> 2026</div>
-                        <h3 class="h5 text-accent">Stagiaire UX/UI</h3>
-                        <p class="small" style="color: var(--text-muted);">Camalaytics</p>
-                        <p class="small mt-2">Conception et prototypage d'interfaces utilisateur.</p>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <article class="content-card">
-                        <div class="media-box"><img src="images/freelance.webp" alt="Freelance"></div>
-                        <div class="timeline-badge"><i class="fas fa-circle fa-xs"></i> Depuis 2022</div>
-                        <h3 class="h5 text-accent">Freelance Web & Design</h3>
-                        <p class="small" style="color: var(--text-muted);">Meknès</p>
-                        <p class="small mt-2">Développement web et identité visuelle pour clients internationaux.</p>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <article class="content-card">
-                        <div class="media-box"><img src="images/intelcia.webp" alt="Intelcia"></div>
-                        <div class="timeline-badge"><i class="fas fa-circle fa-xs"></i> 2024 – 2025</div>
-                        <h3 class="h5 text-accent">Chargée de Clientèle</h3>
-                        <p class="small" style="color: var(--text-muted);">INTELCIA – GLOVO</p>
-                        <p class="small mt-2">Expertise relationnelle et support digital multi-canal.</p>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
-                    <article class="content-card">
-                        <div class="media-box"><img src="images/wehelpgroup_logo.jfif" alt="WeHelp"></div>
-                        <div class="timeline-badge"><i class="fas fa-circle fa-xs"></i> 2024</div>
-                        <h3 class="h5 text-accent">Stagiaire Dév Web (L2)</h3>
-                        <p class="small" style="color: var(--text-muted);">WEHELP</p>
-                        <p class="small mt-2">Immersion technique avancée en Front-end (JS/PHP).</p>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <article class="content-card">
-                        <div class="media-box"><img src="images/jlm.webp" alt="JLM"></div>
-                        <div class="timeline-badge"><i class="fas fa-circle fa-xs"></i> 2023 – 2024</div>
-                        <h3 class="h5 text-accent">Resp. Logistique</h3>
-                        <p class="small" style="color: var(--text-muted);">JLM ESTM</p>
-                        <p class="small mt-2">Management d'équipe et organisation d'événements.</p>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <article class="content-card">
-                        <div class="media-box"><img src="images/wehelpgroup_logo.jfif" alt="WeHelp 2023"></div>
-                        <div class="timeline-badge"><i class="fas fa-circle fa-xs"></i> 2023</div>
-                        <h3 class="h5 text-accent">Stagiaire Dév Web (L1)</h3>
-                        <p class="small" style="color: var(--text-muted);">WEHELP</p>
-                        <p class="small mt-2">Consolidation des fondamentaux en intégration web.</p>
-                    </article>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
-                    <article class="content-card">
-                        <div class="media-box"><img src="images/com.webp" alt="Ecole"></div>
-                        <div class="timeline-badge"><i class="fas fa-circle fa-xs"></i> 2023</div>
-                        <h3 class="h5 text-accent">Stagiaire Enseignante</h3>
-                        <p class="small" style="color: var(--text-muted);">ÉCOLE PRIMAIRE.COM</p>
-                        <p class="small mt-2">Pédagogie et gestion de groupes d'apprentissage.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== JOB ÉTUDIANT ===== -->
-        <section id="jobs">
-            <h2 class="section-title" data-aos="fade-up"><span>Job Étudiant</span></h2>
-            <div class="row justify-content-center">
-                <div class="col-md-7 col-lg-5" data-aos="zoom-in">
-                    <article class="content-card text-center">
-                        <div class="media-box"><img src="images/logo.webp" alt="ThaiJap"></div>
-                        <div class="timeline-badge" style="width: fit-content; margin: 0 auto 8px;"><i class="fas fa-circle fa-xs"></i> Oct. 2024 – Présent</div>
-                        <h3 class="h5 text-accent">Serveuse & Caissière</h3>
-                        <p class="small" style="color: var(--text-muted);">ThaiJap</p>
-                        <p class="small mt-2">Accueil, service client et gestion de caisse rigoureuse.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== PROJETS ===== -->
-        <section id="projets">
-            <h2 class="section-title" data-aos="fade-up"><span>Mes Projets</span></h2>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="0">
-                    <article class="content-card h-100 d-flex flex-column">
-                        <div class="media-box"><img src="images/logo.webp" alt="ThaiJap" class="img-fluid"></div>
-                        <h3 class="h5 text-accent mt-2">Plateforme ThaiJap</h3>
-                        <p class="small mt-1" style="color: var(--text-muted);">Interface client élégante et panel admin complet.</p>
-                        <div class="mt-auto d-flex gap-2 pt-3">
-                            <a href="https://fd-top.github.io/thaijap/index.html?table=3" class="btn-creative flex-grow-1" target="_blank" rel="noopener noreferrer">
-                                <span><i class="fas fa-user"></i> Client</span>
-                            </a>
-                            <a href="https://fd-top.github.io/thaijap/admin.html" class="btn-creative flex-grow-1" target="_blank" rel="noopener noreferrer">
-                                <span><i class="fas fa-cog"></i> Admin</span>
-                            </a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                    <article class="content-card h-100 d-flex flex-column">
-                        <div class="media-box"><img src="images/geologo.png" alt="Geoptime" class="img-fluid"></div>
-                        <h3 class="h5 text-accent mt-2">Geoptime</h3>
-                        <p class="small mt-1" style="color: var(--text-muted);">Solution pour la gestion de temps et la géolocalisation.</p>
-                        <div class="mt-auto pt-3">
-                            <div class="row g-2">
-                                <div class="col-6"><a href="https://fd-top.github.io/Geoptime/" class="btn-creative w-100" target="_blank" rel="noopener"><span><i class="fas fa-globe"></i> Site</span></a></div>
-                                <div class="col-6"><a href="images/design-geoptime.pdf" class="btn-creative w-100"><span><i class="fas fa-pen-ruler"></i> Design</span></a></div>
-                                <div class="col-6"><a href="images/charte-geoptime.pdf" class="btn-creative w-100"><span><i class="fas fa-palette"></i> Charte</span></a></div>
-                                <div class="col-6"><a href="images/rapport-geoptime.pdf" class="btn-creative w-100"><span><i class="fas fa-file-pdf"></i> Rapport</span></a></div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                    <article class="content-card h-100 d-flex flex-column">
-                        <div class="media-box"><img src="images/synapcco.png" alt="Synapco" class="img-fluid"></div>
-                        <h3 class="h5 text-accent mt-2">Synapco</h3>
-                        <p class="small mt-1" style="color: var(--text-muted);">Site vitrine professionnel pour un partenaire stratégique.</p>
-                        <div class="mt-auto pt-3">
-                            <a href="https://fd-top.github.io/synapco1/" target="_blank" class="btn-creative w-100" rel="noopener noreferrer">
-                                <span><i class="fas fa-globe"></i> Voir le site</span>
-                            </a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== DIPLÔMES ===== -->
-        <section id="diplomes">
-            <h2 class="section-title" data-aos="fade-up"><span>Mes Diplômes</span></h2>
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="flip-right" data-aos-delay="0">
-                    <div class="content-card">
-                        <div class="media-box doc-box"><img src="images/eisine.png" alt="Licence"></div>
-                        <h3 class="h6 mt-2">Licence Pro Métiers du Numérique</h3>
-                        <p class="small text-accent mt-1">EISINE | En cours</p>
+    <!-- STATS -->
+    <section class="py-3">
+        <div class="container">
+            <div class="row g-3" data-aos="fade-up">
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Années d'expérience</div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="flip-right" data-aos-delay="150">
-                    <div class="content-card">
-                        <div class="media-box doc-box"><img src="images/dut.jpeg" alt="DUT"></div>
-                        <h3 class="h6 mt-2">DUT Informatique & Web</h3>
-                        <p class="small text-accent mt-1">ESTM | 2024</p>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">7+</div>
+                        <div class="stat-label">Expériences pro</div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="flip-right" data-aos-delay="300">
-                    <div class="content-card">
-                        <div class="media-box doc-box"><img src="images/bac.jpeg" alt="Bac"></div>
-                        <h3 class="h6 mt-2">Bac Sciences Mathématiques A</h3>
-                        <p class="small text-accent mt-1">Lycée Mohamed 5 | 2022</p>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Projets réalisés</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Certifications</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ===== CERTIFICATIONS ===== -->
-        <section id="certificats">
-            <h2 class="section-title" data-aos="fade-up"><span>Certifications</span></h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="0">
-                    <div class="content-card">
-                        <div class="media-box doc-box"><img src="images/markin.png" alt="Marketing Inbound"></div>
-                        <h3 class="h6 mt-2">Marketing Inbound</h3>
-                        <p class="small mt-1" style="color: var(--text-muted);">HubSpot Academy</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="content-card">
-                        <div class="media-box doc-box"><img src="images/gestionre.png" alt="Réseaux Sociaux"></div>
-                        <h3 class="h6 mt-2">Marketing des Réseaux Sociaux</h3>
-                        <p class="small mt-1" style="color: var(--text-muted);">HubSpot Academy</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="content-card">
-                        <div class="media-box doc-box"><img src="images/gglmark.png" alt="Google Marketing"></div>
-                        <h3 class="h6 mt-2">Principes Fondamentaux du Marketing Digital</h3>
-                        <p class="small mt-1" style="color: var(--text-muted);">Google</p>
-                    </div>
-                </div>
+    <!-- NAVIGATION PAGES -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up"><span>Explorer mon portfolio</span></h2>
+            <div class="nav-pages-grid" data-aos="fade-up" data-aos-delay="100">
+                <a href="projets.html" class="nav-page-card">
+                    <div class="icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Mes Projets</h3>
+                    <p>Sites web, applications, design — tous mes réalisations en un coup d'œil.</p>
+                    <div class="arrow"><span>Voir les projets</span> <i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="parcours.html" class="nav-page-card">
+                    <div class="icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Parcours</h3>
+                    <p>Expériences professionnelles, jobs étudiants, diplômes et certifications.</p>
+                    <div class="arrow"><span>Voir le parcours</span> <i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="competences.html" class="nav-page-card">
+                    <div class="icon"><i class="fas fa-code"></i></div>
+                    <h3>Compétences</h3>
+                    <p>Développement web, design UX/UI, marketing digital et plus encore.</p>
+                    <div class="arrow"><span>Voir les skills</span> <i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="contact.html" class="nav-page-card">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Contact</h3>
+                    <p>Discutons de votre projet ou d'une opportunité de collaboration.</p>
+                    <div class="arrow"><span>Me contacter</span> <i class="fas fa-arrow-right"></i></div>
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ===== SKILLS ===== -->
-        <section id="skills">
-            <h2 class="section-title" data-aos="fade-up"><span>Expertises & Compétences</span></h2>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="0">
-                    <div class="content-card skill-card h-100">
-                        <div class="skill-icon"><i class="fas fa-code"></i></div>
-                        <h3 class="h5 text-accent mb-3">Développement Web</h3>
-                        <div class="skill-tags">
-                            <span>HTML5 / CSS3</span>
-                            <span>JavaScript</span>
-                            <span>PHP / MySQL</span>
-                            <span>Bootstrap / Tailwind</span>
-                            <span>WordPress</span>
-                            <span>Web Performance</span>
-                            <span>Bases de données</span>
-                            <span>Git / GitHub</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="content-card skill-card h-100">
-                        <div class="skill-icon"><i class="fas fa-pen-nib"></i></div>
-                        <h3 class="h5 text-accent mb-3">Design & Création</h3>
-                        <div class="skill-tags">
-                            <span>UX/UI Design</span>
-                            <span>Figma</span>
-                            <span>3DS Max (2D/3D)</span>
-                            <span>Adobe Photoshop</span>
-                            <span>Adobe Premiere Pro</span>
-                            <span>Prototypage</span>
-                            <span>Charte Graphique</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="content-card skill-card h-100">
-                        <div class="skill-icon"><i class="fas fa-headset"></i></div>
-                        <h3 class="h5 text-accent mb-3">Support & IT</h3>
-                        <div class="skill-tags">
-                            <span>Support IT Helpdesk</span>
-                            <span>Relation Client</span>
-                            <span>Customer Success</span>
-                            <span>Diagnostic Technique</span>
-                            <span>Gestion d'équipe</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6" data-aos="zoom-in" data-aos-delay="0">
-                    <div class="content-card skill-card h-100">
-                        <div class="d-flex align-items-center mb-3 gap-3">
-                            <div class="skill-icon m-0" style="font-size: 1.6rem;"><i class="fas fa-chart-line"></i></div>
-                            <h3 class="h5 text-accent m-0">Marketing & Digital</h3>
-                        </div>
-                        <div class="skill-tags">
-                            <span>Inbound Marketing (HubSpot)</span>
-                            <span>Social Media Marketing</span>
-                            <span>Marketing Digital (Google)</span>
-                            <span>SEO / Stratégie Digitale</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-12" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="content-card skill-card h-100">
-                        <div class="d-flex align-items-center mb-3 gap-3">
-                            <div class="skill-icon m-0" style="font-size: 1.6rem;"><i class="fas fa-language"></i></div>
-                            <h3 class="h5 text-accent m-0">Langues & Atouts</h3>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="lang-tag">🇫🇷 Français (Courant)</span>
-                            <span class="lang-tag">🇲🇦 Arabe (Maternel)</span>
-                            <span class="lang-tag">🇬🇧 Anglais (Courant)</span>
-                            <span class="lang-tag"><i class="fas fa-car me-1"></i> Permis B</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== CONTACT ===== -->
-        <section id="contact" class="py-5">
-            <h2 class="section-title" data-aos="fade-up"><span>Me Contacter</span></h2>
-            <div class="row g-4 align-items-start">
-                <div class="col-lg-5" data-aos="fade-right">
-                    <div class="d-flex flex-column gap-3">
-                        <a href="tel:+33753670409" class="contact-info-card">
-                            <div class="icon"><i class="fas fa-phone-alt"></i></div>
-                            <div>
-                                <div class="small" style="color: var(--text-muted);">Téléphone</div>
-                                <div class="fw-600">+33 7 53 67 04 09</div>
-                            </div>
-                        </a>
-                        <a href="mailto:fatimaezzohradadi1@gmail.com" class="contact-info-card">
-                            <div class="icon"><i class="fas fa-envelope"></i></div>
-                            <div>
-                                <div class="small" style="color: var(--text-muted);">Email</div>
-                                <div class="fw-600">fatimaezzohradadi1@gmail.com</div>
-                            </div>
-                        </a>
-                        <div class="contact-info-card" style="pointer-events: none;">
-                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <div class="small" style="color: var(--text-muted);">Localisation</div>
-                                <div class="fw-600">Charleville-Mézières, France</div>
-                            </div>
-                        </div>
-                        <div class="content-card p-3" style="border-style: dashed;">
-                            <p class="small mb-2" style="color: var(--text-muted);">Retrouvez-moi sur</p>
-                            <div class="social-icons">
-                                <a href="https://www.instagram.com/fatima_ezzohra_dadi" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="https://github.com/FD-TOP" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-                                <a href="https://www.linkedin.com/in/fatima-ezzohra-dadi-8384a5362" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-7" data-aos="fade-left">
-                    <form class="content-card" action="mailto:fatimaezzohradadi1@gmail.com" method="post" enctype="text/plain">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control-custom" placeholder="Votre nom" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control-custom" placeholder="Votre email" required>
-                            </div>
-                            <div class="col-12">
-                                <input type="text" class="form-control-custom" placeholder="Objet">
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control-custom" rows="5" placeholder="Votre message..." required></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn-creative w-100 py-3">
-                                    <span><i class="fas fa-paper-plane me-2"></i>Envoyer le message</span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ===== FOOTER ===== -->
+    <!-- FOOTER -->
     <footer class="footer-section">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <h4 class="footer-title">Navigation</h4>
+                    <h4 class="footer-title">Pages</h4>
                     <ul class="footer-links">
-                        <li><a href="#home">Accueil</a></li>
-                        <li><a href="#about">Qui suis-je ?</a></li>
-                        <li><a href="#experiences">Parcours</a></li>
-                        <li><a href="#jobs">Jobs</a></li>
-                        <li><a href="#projets">Projets</a></li>
-                        <li><a href="#diplomes">Diplômes</a></li>
-                        <li><a href="#certificats">Certificats</a></li>
-                        <li><a href="#skills">Compétences</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="projets.html">Projets</a></li>
+                        <li><a href="parcours.html">Parcours</a></li>
+                        <li><a href="competences.html">Compétences</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="col-lg-4 col-md-6">
                     <h4 class="footer-title">Suivez-moi</h4>
                     <div class="social-icons">
@@ -1072,100 +342,29 @@
                         <a href="https://www.linkedin.com/in/fatima-ezzohra-dadi-8384a5362" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-12">
+                <div class="col-lg-4">
                     <h4 class="footer-title">Contact Direct</h4>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+33753670409">+33 7 53 67 04 09</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:fatimaezzohradadi1@gmail.com">fatimaezzohradadi1@gmail.com</a></li>
+                    <ul class="footer-contact-list">
+                        <li><i class="fas fa-phone-alt"></i><a href="tel:+33753670409">+33 7 53 67 04 09</a></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:fatimaezzohradadi1@gmail.com">fatimaezzohradadi1@gmail.com</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Charleville-Mézières, France</li>
                     </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p>© 2026 FATIMA EZZOHRA DADI &nbsp;|&nbsp; Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ===== SCRIPTS ===== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="shared.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            // AOS animations
-            AOS.init({ duration: 750, once: true, offset: 60 });
-
-            // Typed.js
-            new Typed('#typed', {
-                strings: ['Développeuse Web', 'Designer UX/UI', 'Expert Support IT', 'Freelance Digital', 'Créatrice de solutions'],
-                typeSpeed: 50, backSpeed: 30, loop: true, backDelay: 1800
-            });
-
-            // Curseur personnalisé
-            if (window.innerWidth >= 992) {
-                const dot = document.getElementById('cursor-dot');
-                const outline = document.getElementById('cursor-outline');
-                let mouseX = 0, mouseY = 0, outX = 0, outY = 0;
-
-                window.addEventListener('mousemove', (e) => {
-                    mouseX = e.clientX; mouseY = e.clientY;
-                    dot.style.left = mouseX + 'px';
-                    dot.style.top = mouseY + 'px';
-                });
-
-                (function animateOutline() {
-                    outX += (mouseX - outX) * 0.15;
-                    outY += (mouseY - outY) * 0.15;
-                    outline.style.left = outX + 'px';
-                    outline.style.top = outY + 'px';
-                    requestAnimationFrame(animateOutline);
-                })();
-            }
-
-            // Scroll progress bar
-            const progressBar = document.getElementById('scroll-progress');
-            const backToTop = document.getElementById('back-to-top');
-            const navbar = document.querySelector('.navbar');
-
-            window.addEventListener('scroll', () => {
-                const scrollTop = window.scrollY;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                progressBar.style.width = (scrollTop / docHeight * 100) + '%';
-
-                // Back to top visibility
-                backToTop.classList.toggle('visible', scrollTop > 500);
-
-                // Navbar scrolled
-                navbar.classList.toggle('scrolled', scrollTop > 50);
-
-                // Active nav link
-                const sections = document.querySelectorAll('section[id], header[id]');
-                const navLinks = document.querySelectorAll('.nav-link');
-                let current = '';
-                sections.forEach(s => {
-                    if (scrollTop >= s.offsetTop - 120) current = s.id;
-                });
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-                });
-            });
-
-            // Fermeture auto menu mobile
-            const navLinks = document.querySelectorAll('.nav-link');
-            const menu = document.getElementById('navbarNav');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (menu.classList.contains('show')) {
-                        bootstrap.Collapse.getInstance(menu)?.hide();
-                    }
-                });
-            });
-
+        new Typed('#typed', {
+            strings: ['Développeuse Web', 'Designer UX/UI', 'Expert Support IT', 'Freelance Digital', 'Créatrice de solutions'],
+            typeSpeed: 50, backSpeed: 30, loop: true, backDelay: 1800
         });
     </script>
 </body>
