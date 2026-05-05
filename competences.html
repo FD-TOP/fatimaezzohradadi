@@ -12,27 +12,6 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Skill progress bars */
-        .skill-progress-wrap { margin-bottom: 20px; }
-        .skill-progress-label {
-            display: flex; justify-content: space-between;
-            font-size: 0.88rem; margin-bottom: 7px;
-            color: var(--text-body);
-        }
-        .skill-progress-label span:last-child { color: var(--accent); font-weight: 600; }
-        .skill-bar-track {
-            width: 100%; height: 5px;
-            background: rgba(255,255,255,0.06);
-            border-radius: 10px; overflow: hidden;
-        }
-        .skill-bar-fill {
-            height: 100%;
-            background: var(--grad);
-            border-radius: 10px;
-            width: 0;
-            transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
-            box-shadow: 0 0 8px var(--accent-glow);
-        }
 
         /* Tool pill */
         .tool-pill {
@@ -214,71 +193,6 @@
             </div>
         </div>
 
-        <!-- NIVEAUX -->
-        <h2 class="section-title" data-aos="fade-up"><span>Niveaux de maîtrise</span></h2>
-        <p class="section-sub" data-aos="fade-up">Auto-évaluation basée sur les expériences professionnelles et projets réalisés.</p>
-
-        <div class="row g-5">
-            <div class="col-lg-6" data-aos="fade-right">
-                <div class="content-card card-static p-4" style="height: auto;">
-                    <h4 class="text-accent mb-4" style="font-size: 0.9rem; font-family: 'Syncopate', sans-serif; letter-spacing: 1.5px; text-transform: uppercase;">Développement</h4>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>HTML5 / CSS3</span><span>95%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
-                    </div>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>JavaScript</span><span>80%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
-                    </div>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>PHP / MySQL</span><span>70%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div>
-                    </div>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>Bootstrap / Tailwind</span><span>90%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
-                    </div>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>WordPress</span><span>75%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
-                    </div>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>Git / GitHub</span><span>80%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6" data-aos="fade-left">
-                <div class="content-card card-static p-4" style="height: auto;">
-                    <h4 class="text-accent mb-4" style="font-size: 0.9rem; font-family: 'Syncopate', sans-serif; letter-spacing: 1.5px; text-transform: uppercase;">Design & Outils</h4>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>Figma / Prototypage</span><span>90%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
-                    </div>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>UX/UI Design</span><span>85%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-                    </div>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>Adobe Photoshop</span><span>78%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div>
-                    </div>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>3DS Max</span><span>65%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="65"></div></div>
-                    </div>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>Adobe Premiere Pro</span><span>70%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div>
-                    </div>
-                    <div class="skill-progress-wrap">
-                        <div class="skill-progress-label"><span>Marketing Digital</span><span>80%</span></div>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- OUTILS -->
         <h2 class="section-title" data-aos="fade-up"><span>Outils & Technologies</span></h2>
         <div class="content-card card-static" style="height: auto;" data-aos="fade-up">
@@ -382,18 +296,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="shared.js"></script>
-    <script>
-        // Animate skill bars when visible
-        const bars = document.querySelectorAll('.skill-bar-fill');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.style.width = e.target.dataset.width + '%';
-                    observer.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        bars.forEach(bar => observer.observe(bar));
-    </script>
 </body>
 </html>
