@@ -128,15 +128,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <button type="button" class="btn-close btn-close-white mb-3 shadow-none" data-bs-toggle="collapse" data-bs-target="#navbarNav"></button>
-                <div class="nav-page-label">Navigation</div>
+                <div class="nav-page-label" data-i18n="nav.label">Navigation</div>
                 <ul class="navbar-nav">
-                    <li><a class="nav-link" href="index.html"><span class="nav-icon"><i class="fas fa-home"></i></span> Accueil</a></li>
-                    <li><a class="nav-link" href="projets.html"><span class="nav-icon"><i class="fas fa-rocket"></i></span> Projets</a></li>
-                    <li><a class="nav-link active" href="experiences.html"><span class="nav-icon"><i class="fas fa-briefcase"></i></span> Expériences</a></li>
-                    <li><a class="nav-link" href="diplomes.html"><span class="nav-icon"><i class="fas fa-graduation-cap"></i></span> Diplômes</a></li>
-                    <li><a class="nav-link" href="competences.html"><span class="nav-icon"><i class="fas fa-code"></i></span> Compétences</a></li>
-                    <li><a class="nav-link" href="contact.html"><span class="nav-icon"><i class="fas fa-envelope"></i></span> Contact</a></li>
+                    <li><a class="nav-link" href="index.html"><span class="nav-icon"><i class="fas fa-home"></i></span> <span data-i18n="nav.home">Accueil</span></a></li>
+                    <li><a class="nav-link" href="projets.html"><span class="nav-icon"><i class="fas fa-rocket"></i></span> <span data-i18n="nav.projects">Projets</span></a></li>
+                    <li><a class="nav-link active" href="experiences.html"><span class="nav-icon"><i class="fas fa-briefcase"></i></span> <span data-i18n="nav.experiences">Expériences</span></a></li>
+                    <li><a class="nav-link" href="diplomes.html"><span class="nav-icon"><i class="fas fa-graduation-cap"></i></span> <span data-i18n="nav.diplomas">Diplômes</span></a></li>
+                    <li><a class="nav-link" href="competences.html"><span class="nav-icon"><i class="fas fa-code"></i></span> <span data-i18n="nav.skills">Compétences</span></a></li>
+                    <li><a class="nav-link" href="contact.html"><span class="nav-icon"><i class="fas fa-envelope"></i></span> <span data-i18n="nav.contact">Contact</span></a></li>
                 </ul>
+                <div class="lang-switcher">
+                    <button class="lang-btn" data-lang="fr" title="Français">🇫🇷 <span>FR</span></button>
+                    <button class="lang-btn" data-lang="en" title="English">🇬🇧 <span>EN</span></button>
+                    <button class="lang-btn" data-lang="ar" title="العربية">🇸🇦 <span>AR</span></button>
+                    <button class="lang-btn" data-lang="de" title="Deutsch">🇩🇪 <span>DE</span></button>
+                </div>
             </div>
         </div>
     </nav>
@@ -144,9 +150,9 @@
     <!-- PAGE HERO -->
     <div class="page-hero" data-title="EXPÉRIENCES">
         <div class="container" data-aos="fade-up">
-            <div class="page-hero-badge"><i class="fas fa-briefcase me-1"></i> Carrière</div>
-            <h1 class="page-hero-title"><span class="text-grad">Expériences</span></h1>
-            <p class="page-hero-sub">Un parcours professionnel riche entre développement web, design, support client et management.</p>
+            <div class="page-hero-badge"><i class="fas fa-briefcase me-1"></i> <span data-i18n="exp.hero_badge">Carrière</span></div>
+            <h1 class="page-hero-title"><span class="text-grad" data-i18n="exp.title">Expériences</span></h1>
+            <p class="page-hero-sub" data-i18n="exp.sub">Un parcours professionnel riche entre développement web, design, support client et management.</p>
         </div>
     </div>
 
@@ -155,7 +161,7 @@
         <!-- EXPÉRIENCES PRO -->
         <div class="section-divider" data-aos="fade-right">
             <div class="divider-icon"><i class="fas fa-briefcase"></i></div>
-            <h3>Expériences professionnelles</h3>
+            <h3 data-i18n="exp.pro_section">Expériences professionnelles</h3>
         </div>
 
         <div class="d-flex flex-column gap-4">
@@ -163,11 +169,11 @@
             <div class="exp-card" data-aos="fade-up" data-aos-delay="0">
                 <img src="images/cam.png" alt="Camalaytics" class="exp-logo">
                 <div class="flex-1">
-                    <span class="type-badge type-stage"><i class="fas fa-circle fa-xs"></i> Stage</span>
+                    <span class="type-badge type-stage"><i class="fas fa-circle fa-xs"></i> <span data-i18n="exp.badge_stage">Stage</span></span>
                     <div class="exp-date"><i class="fas fa-calendar-alt fa-xs"></i> 2026</div>
-                    <div class="exp-title">Stagiaire UX/UI Designer</div>
+                    <div class="exp-title" data-i18n="exp.cam_title">Stagiaire UX/UI Designer</div>
                     <div class="exp-company"><i class="fas fa-building fa-xs"></i> Camalaytics</div>
-                    <p class="exp-desc">Conception et prototypage d'interfaces utilisateur pour des solutions analytiques. Réalisation de wireframes, maquettes haute-fidélité et documentation de specs développeur sur Figma.</p>
+                    <p class="exp-desc" data-i18n="exp.cam_desc">Conception et prototypage d'interfaces utilisateur pour des solutions analytiques. Réalisation de wireframes, maquettes haute-fidélité et documentation de specs développeur sur Figma.</p>
                     <div class="exp-tags">
                         <span class="exp-tag">Figma</span>
                         <span class="exp-tag">UX Research</span>
@@ -180,11 +186,11 @@
             <div class="exp-card" data-aos="fade-up" data-aos-delay="50">
                 <img src="images/freelance.webp" alt="Freelance" class="exp-logo">
                 <div class="flex-1">
-                    <span class="type-badge type-freelance"><i class="fas fa-circle fa-xs"></i> Freelance</span>
-                    <div class="exp-date"><i class="fas fa-calendar-alt fa-xs"></i> Depuis Août 2022 — Meknès</div>
-                    <div class="exp-title">Freelance Web & Design</div>
-                    <div class="exp-company"><i class="fas fa-user-tie fa-xs"></i> Auto-entrepreneur</div>
-                    <p class="exp-desc">Développement de sites web sur mesure et création d'identités visuelles pour des clients internationaux. Gestion complète des projets : cahier des charges, design, développement et livraison.</p>
+                    <span class="type-badge type-freelance"><i class="fas fa-circle fa-xs"></i> <span data-i18n="exp.badge_freelance">Freelance</span></span>
+                    <div class="exp-date"><i class="fas fa-calendar-alt fa-xs"></i> <span data-i18n="exp.freelance_date">Depuis Août 2022 — Meknès</span></div>
+                    <div class="exp-title" data-i18n="exp.freelance_title">Freelance Web & Design</div>
+                    <div class="exp-company"><i class="fas fa-user-tie fa-xs"></i> <span data-i18n="exp.freelance_company">Auto-entrepreneur</span></div>
+                    <p class="exp-desc" data-i18n="exp.freelance_desc">Développement de sites web sur mesure et création d'identités visuelles pour des clients internationaux. Gestion complète des projets : cahier des charges, design, développement et livraison.</p>
                     <div class="exp-tags">
                         <span class="exp-tag">HTML/CSS/JS</span>
                         <span class="exp-tag">PHP</span>
@@ -199,11 +205,11 @@
             <div class="exp-card" data-aos="fade-up" data-aos-delay="100">
                 <img src="images/intelcia.webp" alt="Intelcia" class="exp-logo">
                 <div class="flex-1">
-                    <span class="type-badge type-emploi"><i class="fas fa-circle fa-xs"></i> Emploi</span>
+                    <span class="type-badge type-emploi"><i class="fas fa-circle fa-xs"></i> <span data-i18n="exp.badge_emploi">Emploi</span></span>
                     <div class="exp-date"><i class="fas fa-calendar-alt fa-xs"></i> 2024 – 2025</div>
-                    <div class="exp-title">Chargée de Clientèle</div>
+                    <div class="exp-title" data-i18n="exp.intelcia_title">Chargée de Clientèle</div>
                     <div class="exp-company"><i class="fas fa-building fa-xs"></i> INTELCIA – GLOVO</div>
-                    <p class="exp-desc">Support multi-canal pour les utilisateurs de la plateforme Glovo. Expertise relationnelle et résolution de problèmes techniques en temps réel. Accompagnement client, gestion des réclamations et suivi qualité.</p>
+                    <p class="exp-desc" data-i18n="exp.intelcia_desc">Support multi-canal pour les utilisateurs de la plateforme Glovo. Expertise relationnelle et résolution de problèmes techniques en temps réel. Accompagnement client, gestion des réclamations et suivi qualité.</p>
                     <div class="exp-tags">
                         <span class="exp-tag">Relation Client</span>
                         <span class="exp-tag">Support Technique</span>
@@ -216,11 +222,11 @@
             <div class="exp-card" data-aos="fade-up" data-aos-delay="0">
                 <img src="images/wehelpgroup_logo.jfif" alt="WeHelp" class="exp-logo">
                 <div class="flex-1">
-                    <span class="type-badge type-stage"><i class="fas fa-circle fa-xs"></i> Stage L2</span>
+                    <span class="type-badge type-stage"><i class="fas fa-circle fa-xs"></i> <span data-i18n="exp.badge_stage_l2">Stage L2</span></span>
                     <div class="exp-date"><i class="fas fa-calendar-alt fa-xs"></i> 2024</div>
-                    <div class="exp-title">Stagiaire Développeur Web (L2)</div>
+                    <div class="exp-title" data-i18n="exp.wehelp2_title">Stagiaire Développeur Web (L2)</div>
                     <div class="exp-company"><i class="fas fa-building fa-xs"></i> WEHELP</div>
-                    <p class="exp-desc">Immersion technique avancée en développement Front-end. Travail sur des projets réels : intégration d'interfaces, consommation d'APIs REST et développement PHP/JavaScript.</p>
+                    <p class="exp-desc" data-i18n="exp.wehelp2_desc">Immersion technique avancée en développement Front-end. Travail sur des projets réels : intégration d'interfaces, consommation d'APIs REST et développement PHP/JavaScript.</p>
                     <div class="exp-tags">
                         <span class="exp-tag">JavaScript</span>
                         <span class="exp-tag">PHP</span>
@@ -234,11 +240,11 @@
             <div class="exp-card" data-aos="fade-up" data-aos-delay="50">
                 <img src="images/jlm.webp" alt="JLM" class="exp-logo">
                 <div class="flex-1">
-                    <span class="type-badge type-emploi"><i class="fas fa-circle fa-xs"></i> Emploi</span>
+                    <span class="type-badge type-emploi"><i class="fas fa-circle fa-xs"></i> <span data-i18n="exp.badge_emploi">Emploi</span></span>
                     <div class="exp-date"><i class="fas fa-calendar-alt fa-xs"></i> 2023 – 2024</div>
-                    <div class="exp-title">Responsable Logistique</div>
+                    <div class="exp-title" data-i18n="exp.jlm_title">Responsable Logistique</div>
                     <div class="exp-company"><i class="fas fa-building fa-xs"></i> JLM ESTM</div>
-                    <p class="exp-desc">Management d'une équipe et organisation d'événements étudiants. Planification opérationnelle, gestion des ressources et coordination des intervenants.</p>
+                    <p class="exp-desc" data-i18n="exp.jlm_desc">Management d'une équipe et organisation d'événements étudiants. Planification opérationnelle, gestion des ressources et coordination des intervenants.</p>
                     <div class="exp-tags">
                         <span class="exp-tag">Management</span>
                         <span class="exp-tag">Organisation</span>
@@ -251,11 +257,11 @@
             <div class="exp-card" data-aos="fade-up" data-aos-delay="100">
                 <img src="images/wehelpgroup_logo.jfif" alt="WeHelp" class="exp-logo">
                 <div class="flex-1">
-                    <span class="type-badge type-stage"><i class="fas fa-circle fa-xs"></i> Stage L1</span>
+                    <span class="type-badge type-stage"><i class="fas fa-circle fa-xs"></i> <span data-i18n="exp.badge_stage_l1">Stage L1</span></span>
                     <div class="exp-date"><i class="fas fa-calendar-alt fa-xs"></i> 2023</div>
-                    <div class="exp-title">Stagiaire Développeur Web (L1)</div>
+                    <div class="exp-title" data-i18n="exp.wehelp1_title">Stagiaire Développeur Web (L1)</div>
                     <div class="exp-company"><i class="fas fa-building fa-xs"></i> WEHELP</div>
-                    <p class="exp-desc">Premier stage en développement web. Consolidation des fondamentaux en intégration web : HTML, CSS, JavaScript et bonnes pratiques de code.</p>
+                    <p class="exp-desc" data-i18n="exp.wehelp1_desc">Premier stage en développement web. Consolidation des fondamentaux en intégration web : HTML, CSS, JavaScript et bonnes pratiques de code.</p>
                     <div class="exp-tags">
                         <span class="exp-tag">HTML5</span>
                         <span class="exp-tag">CSS3</span>
@@ -268,11 +274,11 @@
             <div class="exp-card" data-aos="fade-up" data-aos-delay="0">
                 <img src="images/com.webp" alt="École" class="exp-logo">
                 <div class="flex-1">
-                    <span class="type-badge type-stage"><i class="fas fa-circle fa-xs"></i> Stage</span>
+                    <span class="type-badge type-stage"><i class="fas fa-circle fa-xs"></i> <span data-i18n="exp.badge_stage">Stage</span></span>
                     <div class="exp-date"><i class="fas fa-calendar-alt fa-xs"></i> 2023</div>
-                    <div class="exp-title">Stagiaire Enseignante</div>
+                    <div class="exp-title" data-i18n="exp.school_title">Stagiaire Enseignante</div>
                     <div class="exp-company"><i class="fas fa-building fa-xs"></i> École Primaire.com</div>
-                    <p class="exp-desc">Pédagogie active et gestion de groupes d'apprentissage. Conception de supports éducatifs et communication adaptée à différents niveaux et publics.</p>
+                    <p class="exp-desc" data-i18n="exp.school_desc">Pédagogie active et gestion de groupes d'apprentissage. Conception de supports éducatifs et communication adaptée à différents niveaux et publics.</p>
                     <div class="exp-tags">
                         <span class="exp-tag">Pédagogie</span>
                         <span class="exp-tag">Communication</span>
@@ -286,17 +292,17 @@
         <!-- JOB ÉTUDIANT -->
         <div class="section-divider mt-5" data-aos="fade-right">
             <div class="divider-icon"><i class="fas fa-mug-hot"></i></div>
-            <h3>Job étudiant</h3>
+            <h3 data-i18n="exp.student_section">Job étudiant</h3>
         </div>
 
         <div class="exp-card" data-aos="fade-up" style="max-width: 700px;">
             <img src="images/logo.webp" alt="ThaiJap" class="exp-logo">
             <div class="flex-1">
-                <span class="type-badge type-job"><i class="fas fa-circle fa-xs"></i> Job étudiant</span>
-                <div class="exp-date"><i class="fas fa-calendar-alt fa-xs"></i> Oct. 2024 — Présent</div>
-                <div class="exp-title">Serveuse & Caissière</div>
+                <span class="type-badge type-job"><i class="fas fa-circle fa-xs"></i> <span data-i18n="exp.badge_job">Job étudiant</span></span>
+                <div class="exp-date"><i class="fas fa-calendar-alt fa-xs"></i> <span data-i18n="exp.thaijap_date">Oct. 2024 — Présent</span></div>
+                <div class="exp-title" data-i18n="exp.thaijap_title">Serveuse & Caissière</div>
                 <div class="exp-company"><i class="fas fa-utensils fa-xs"></i> ThaiJap — Charleville-Mézières</div>
-                <p class="exp-desc">Accueil et service clientèle dans un restaurant thaïlandais-japonais. Prise de commandes, gestion de caisse rigoureuse et travail en équipe dans un environnement rythmé.</p>
+                <p class="exp-desc" data-i18n="exp.thaijap_desc">Accueil et service clientèle dans un restaurant thaïlandais-japonais. Prise de commandes, gestion de caisse rigoureuse et travail en équipe dans un environnement rythmé.</p>
                 <div class="exp-tags">
                     <span class="exp-tag">Relation Client</span>
                     <span class="exp-tag">Gestion de caisse</span>
@@ -308,10 +314,10 @@
 
         <!-- CTA -->
         <div class="text-center mt-5 pt-3" data-aos="fade-up">
-            <p class="mb-4" style="color: var(--text-muted);">Intéressé·e par mon profil ?</p>
+            <p class="mb-4" style="color: var(--text-muted);" data-i18n="exp.interested">Intéressé·e par mon profil ?</p>
             <div class="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="contact.html" class="btn-creative"><i class="fas fa-paper-plane"></i> Me contacter</a>
-                <a href="diplomes.html" class="btn-creative btn-ghost"><i class="fas fa-graduation-cap"></i> Mes diplômes</a>
+                <a href="contact.html" class="btn-creative"><i class="fas fa-paper-plane"></i> <span data-i18n="exp.btn_contact">Me contacter</span></a>
+                <a href="diplomes.html" class="btn-creative btn-ghost"><i class="fas fa-graduation-cap"></i> <span data-i18n="exp.btn_diplomas">Mes diplômes</span></a>
             </div>
         </div>
 
@@ -322,18 +328,18 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <h4 class="footer-title">Navigation</h4>
+                    <h4 class="footer-title" data-i18n="footer.nav">Navigation</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="projets.html">Projets</a></li>
-                        <li><a href="experiences.html">Expériences</a></li>
-                        <li><a href="diplomes.html">Diplômes</a></li>
-                        <li><a href="competences.html">Compétences</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                        <li><a href="projets.html" data-i18n="nav.projects">Projets</a></li>
+                        <li><a href="experiences.html" data-i18n="nav.experiences">Expériences</a></li>
+                        <li><a href="diplomes.html" data-i18n="nav.diplomas">Diplômes</a></li>
+                        <li><a href="competences.html" data-i18n="nav.skills">Compétences</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <h4 class="footer-title">Suivez-moi</h4>
+                    <h4 class="footer-title" data-i18n="footer.follow">Suivez-moi</h4>
                     <div class="social-icons">
                         <a href="https://www.instagram.com/fatima_ezzohra_dadi" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                         <a href="https://github.com/FD-TOP" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
@@ -341,22 +347,24 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <h4 class="footer-title">Contact Direct</h4>
+                    <h4 class="footer-title" data-i18n="footer.direct">Contact Direct</h4>
                     <ul class="footer-contact-list">
                         <li><i class="fas fa-phone-alt"></i><a href="tel:+33753670409">+33 7 53 67 04 09</a></li>
                         <li><i class="fas fa-envelope"></i><a href="mailto:fatimaezzohradadi1@gmail.com">fatimaezzohradadi1@gmail.com</a></li>
-                        <li><i class="fas fa-map-marker-alt"></i> Charleville-Mézières, France</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact.location_val">Charleville-Mézières, France</span></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 FATIMA EZZOHRA DADI &nbsp;|&nbsp; Tous droits réservés.</p>
+                <p data-i18n="footer.rights">© 2026 FATIMA EZZOHRA DADI &nbsp;|&nbsp; Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
     <script src="shared.js"></script>
 </body>
 </html>

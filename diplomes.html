@@ -177,15 +177,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <button type="button" class="btn-close btn-close-white mb-3 shadow-none" data-bs-toggle="collapse" data-bs-target="#navbarNav"></button>
-                <div class="nav-page-label">Navigation</div>
+                <div class="nav-page-label" data-i18n="nav.label">Navigation</div>
                 <ul class="navbar-nav">
-                    <li><a class="nav-link" href="index.html"><span class="nav-icon"><i class="fas fa-home"></i></span> Accueil</a></li>
-                    <li><a class="nav-link" href="projets.html"><span class="nav-icon"><i class="fas fa-rocket"></i></span> Projets</a></li>
-                    <li><a class="nav-link" href="experiences.html"><span class="nav-icon"><i class="fas fa-briefcase"></i></span> Expériences</a></li>
-                    <li><a class="nav-link active" href="diplomes.html"><span class="nav-icon"><i class="fas fa-graduation-cap"></i></span> Diplômes</a></li>
-                    <li><a class="nav-link" href="competences.html"><span class="nav-icon"><i class="fas fa-code"></i></span> Compétences</a></li>
-                    <li><a class="nav-link" href="contact.html"><span class="nav-icon"><i class="fas fa-envelope"></i></span> Contact</a></li>
+                    <li><a class="nav-link" href="index.html"><span class="nav-icon"><i class="fas fa-home"></i></span> <span data-i18n="nav.home">Accueil</span></a></li>
+                    <li><a class="nav-link" href="projets.html"><span class="nav-icon"><i class="fas fa-rocket"></i></span> <span data-i18n="nav.projects">Projets</span></a></li>
+                    <li><a class="nav-link" href="experiences.html"><span class="nav-icon"><i class="fas fa-briefcase"></i></span> <span data-i18n="nav.experiences">Expériences</span></a></li>
+                    <li><a class="nav-link active" href="diplomes.html"><span class="nav-icon"><i class="fas fa-graduation-cap"></i></span> <span data-i18n="nav.diplomas">Diplômes</span></a></li>
+                    <li><a class="nav-link" href="competences.html"><span class="nav-icon"><i class="fas fa-code"></i></span> <span data-i18n="nav.skills">Compétences</span></a></li>
+                    <li><a class="nav-link" href="contact.html"><span class="nav-icon"><i class="fas fa-envelope"></i></span> <span data-i18n="nav.contact">Contact</span></a></li>
                 </ul>
+                <div class="lang-switcher">
+                    <button class="lang-btn" data-lang="fr" title="Français">🇫🇷 <span>FR</span></button>
+                    <button class="lang-btn" data-lang="en" title="English">🇬🇧 <span>EN</span></button>
+                    <button class="lang-btn" data-lang="ar" title="العربية">🇸🇦 <span>AR</span></button>
+                    <button class="lang-btn" data-lang="de" title="Deutsch">🇩🇪 <span>DE</span></button>
+                </div>
             </div>
         </div>
     </nav>
@@ -193,9 +199,9 @@
     <!-- PAGE HERO -->
     <div class="page-hero" data-title="DIPLÔMES">
         <div class="container" data-aos="fade-up">
-            <div class="page-hero-badge"><i class="fas fa-graduation-cap me-1"></i> Formation</div>
-            <h1 class="page-hero-title"><span class="text-grad">Diplômes &<br>Certifications</span></h1>
-            <p class="page-hero-sub">Un parcours académique solide entre mathématiques, informatique et design numérique.</p>
+            <div class="page-hero-badge"><i class="fas fa-graduation-cap me-1"></i> <span data-i18n="dip.hero_badge">Formation</span></div>
+            <h1 class="page-hero-title"><span class="text-grad" data-i18n-html="dip.title">Diplômes &amp;<br>Certifications</span></h1>
+            <p class="page-hero-sub" data-i18n="dip.sub">Un parcours académique solide entre mathématiques, informatique et design numérique.</p>
         </div>
     </div>
 
@@ -204,7 +210,7 @@
         <!-- DIPLÔMES -->
         <div class="section-divider" data-aos="fade-right">
             <div class="divider-icon"><i class="fas fa-graduation-cap"></i></div>
-            <h3>Diplômes</h3>
+            <h3 data-i18n="dip.section_diplomas">Diplômes</h3>
         </div>
 
         <div class="row g-4">
@@ -213,13 +219,13 @@
                     <div class="diplome-img-wrap">
                         <img src="images/eisine.png" alt="EiSINe Licence Pro">
                         <div class="diplome-overlay"></div>
-                        <span class="diplome-status status-encours"><i class="fas fa-spinner fa-spin me-1"></i> En cours</span>
+                        <span class="diplome-status status-encours"><i class="fas fa-spinner fa-spin me-1"></i> <span data-i18n="dip.status_encours">En cours</span></span>
                     </div>
                     <div class="diplome-body">
-                        <div class="diplome-year">2025 — En cours</div>
-                        <div class="diplome-title">Licence Professionnelle Métiers du Numérique</div>
-                        <div class="diplome-school mt-2"><i class="fas fa-university fa-xs"></i> EiSINe — Charleville-Mézières</div>
-                        <p class="small mt-3" style="color: var(--text-muted); line-height: 1.65;">Spécialisation en développement web, multimédia interactif et conception numérique.</p>
+                        <div class="diplome-year" data-i18n="dip.eisine_year">2025 — En cours</div>
+                        <div class="diplome-title" data-i18n="dip.eisine_title">Licence Professionnelle Métiers du Numérique</div>
+                        <div class="diplome-school mt-2"><i class="fas fa-university fa-xs"></i> <span data-i18n="dip.eisine_school">EiSINe — Charleville-Mézières</span></div>
+                        <p class="small mt-3" style="color: var(--text-muted); line-height: 1.65;" data-i18n="dip.eisine_desc">Spécialisation en développement web, multimédia interactif et conception numérique.</p>
                     </div>
                 </div>
             </div>
@@ -229,13 +235,13 @@
                     <div class="diplome-img-wrap">
                         <img src="images/dut.jpeg" alt="DUT Informatique">
                         <div class="diplome-overlay"></div>
-                        <span class="diplome-status status-obtenu"><i class="fas fa-check me-1"></i> Obtenu</span>
+                        <span class="diplome-status status-obtenu"><i class="fas fa-check me-1"></i> <span data-i18n="dip.status_obtenu">Obtenu</span></span>
                     </div>
                     <div class="diplome-body">
-                        <div class="diplome-year">2022 — 2024</div>
-                        <div class="diplome-title">DUT Informatique & Web Multimédia</div>
-                        <div class="diplome-school mt-2"><i class="fas fa-university fa-xs"></i> ESTM — Meknès</div>
-                        <p class="small mt-3" style="color: var(--text-muted); line-height: 1.65;">Formation complète en développement web, bases de données, design et multimédia.</p>
+                        <div class="diplome-year" data-i18n="dip.dut_year">2022 — 2024</div>
+                        <div class="diplome-title" data-i18n="dip.dut_title">DUT Informatique & Web Multimédia</div>
+                        <div class="diplome-school mt-2"><i class="fas fa-university fa-xs"></i> <span data-i18n="dip.dut_school">ESTM — Meknès</span></div>
+                        <p class="small mt-3" style="color: var(--text-muted); line-height: 1.65;" data-i18n="dip.dut_desc">Formation complète en développement web, bases de données, design et multimédia.</p>
                     </div>
                 </div>
             </div>
@@ -245,13 +251,13 @@
                     <div class="diplome-img-wrap">
                         <img src="images/bac.jpeg" alt="Baccalauréat">
                         <div class="diplome-overlay"></div>
-                        <span class="diplome-status status-obtenu"><i class="fas fa-check me-1"></i> Obtenu</span>
+                        <span class="diplome-status status-obtenu"><i class="fas fa-check me-1"></i> <span data-i18n="dip.status_obtenu">Obtenu</span></span>
                     </div>
                     <div class="diplome-body">
-                        <div class="diplome-year">2022</div>
-                        <div class="diplome-title">Baccalauréat Sciences Mathématiques A</div>
-                        <div class="diplome-school mt-2"><i class="fas fa-school fa-xs"></i> Lycée Mohamed 5</div>
-                        <p class="small mt-3" style="color: var(--text-muted); line-height: 1.65;">Formation scientifique rigoureuse avec spécialisation en mathématiques.</p>
+                        <div class="diplome-year" data-i18n="dip.bac_year">2022</div>
+                        <div class="diplome-title" data-i18n="dip.bac_title">Baccalauréat Sciences Mathématiques A</div>
+                        <div class="diplome-school mt-2"><i class="fas fa-school fa-xs"></i> <span data-i18n="dip.bac_school">Lycée Mohamed 5</span></div>
+                        <p class="small mt-3" style="color: var(--text-muted); line-height: 1.65;" data-i18n="dip.bac_desc">Formation scientifique rigoureuse avec spécialisation en mathématiques.</p>
                     </div>
                 </div>
             </div>
@@ -260,7 +266,7 @@
         <!-- PARCOURS ACADÉMIQUE TIMELINE -->
         <div class="section-divider mt-4" data-aos="fade-right">
             <div class="divider-icon"><i class="fas fa-route"></i></div>
-            <h3>Parcours académique</h3>
+            <h3 data-i18n="dip.section_academic">Parcours académique</h3>
         </div>
 
         <div class="row justify-content-center">
@@ -269,25 +275,25 @@
                     <div class="formation-step">
                         <div class="formation-step-dot"></div>
                         <div class="formation-step-content">
-                            <div style="font-size: 0.72rem; color: var(--accent); font-weight: 700; margin-bottom: 4px;">2025 — Présent</div>
-                            <div style="font-weight: 700; color: #fff; margin-bottom: 3px;">Licence Pro Métiers du Numérique</div>
-                            <div style="font-size: 0.83rem; color: var(--text-muted);">EiSINe · Charleville-Mézières, France</div>
+                            <div style="font-size: 0.72rem; color: var(--accent); font-weight: 700; margin-bottom: 4px;" data-i18n="dip.timeline_1_label">2025 — Présent</div>
+                            <div style="font-weight: 700; color: #fff; margin-bottom: 3px;" data-i18n="dip.timeline_1_title">Licence Pro Métiers du Numérique</div>
+                            <div style="font-size: 0.83rem; color: var(--text-muted);" data-i18n="dip.timeline_1_place">EiSINe · Charleville-Mézières, France</div>
                         </div>
                     </div>
                     <div class="formation-step">
                         <div class="formation-step-dot"></div>
                         <div class="formation-step-content">
-                            <div style="font-size: 0.72rem; color: var(--accent); font-weight: 700; margin-bottom: 4px;">2022 — 2024</div>
-                            <div style="font-weight: 700; color: #fff; margin-bottom: 3px;">DUT Informatique & Web Multimédia</div>
-                            <div style="font-size: 0.83rem; color: var(--text-muted);">ESTM · Meknès, Maroc</div>
+                            <div style="font-size: 0.72rem; color: var(--accent); font-weight: 700; margin-bottom: 4px;" data-i18n="dip.timeline_2_label">2022 — 2024</div>
+                            <div style="font-weight: 700; color: #fff; margin-bottom: 3px;" data-i18n="dip.timeline_2_title">DUT Informatique & Web Multimédia</div>
+                            <div style="font-size: 0.83rem; color: var(--text-muted);" data-i18n="dip.timeline_2_place">ESTM · Meknès, Maroc</div>
                         </div>
                     </div>
                     <div class="formation-step">
                         <div class="formation-step-dot" style="background: rgba(255,45,117,0.4); box-shadow: none;"></div>
                         <div class="formation-step-content">
-                            <div style="font-size: 0.72rem; color: var(--accent); font-weight: 700; margin-bottom: 4px;">2022</div>
-                            <div style="font-weight: 700; color: #fff; margin-bottom: 3px;">Baccalauréat Sciences Mathématiques A</div>
-                            <div style="font-size: 0.83rem; color: var(--text-muted);">Lycée Mohamed 5 · Maroc</div>
+                            <div style="font-size: 0.72rem; color: var(--accent); font-weight: 700; margin-bottom: 4px;" data-i18n="dip.timeline_3_label">2022</div>
+                            <div style="font-weight: 700; color: #fff; margin-bottom: 3px;" data-i18n="dip.timeline_3_title">Baccalauréat Sciences Mathématiques A</div>
+                            <div style="font-size: 0.83rem; color: var(--text-muted);" data-i18n="dip.timeline_3_place">Lycée Mohamed 5 · Maroc</div>
                         </div>
                     </div>
                 </div>
@@ -297,7 +303,7 @@
         <!-- CERTIFICATIONS -->
         <div class="section-divider" data-aos="fade-right">
             <div class="divider-icon"><i class="fas fa-certificate"></i></div>
-            <h3>Certifications</h3>
+            <h3 data-i18n="dip.section_certs">Certifications</h3>
         </div>
 
         <div class="d-flex flex-column gap-3" data-aos="fade-up">
@@ -305,8 +311,8 @@
                 <img src="images/markin.png" alt="HubSpot Marketing Inbound" class="cert-logo">
                 <div class="flex-1">
                     <div class="cert-issuer"><i class="fas fa-award me-1"></i> HubSpot Academy</div>
-                    <div class="cert-title">Certification Marketing Inbound</div>
-                    <div class="cert-meta">Stratégie de contenu, lead nurturing, funnel marketing</div>
+                    <div class="cert-title" data-i18n="dip.cert1_title">Certification Marketing Inbound</div>
+                    <div class="cert-meta" data-i18n="dip.cert1_meta">Stratégie de contenu, lead nurturing, funnel marketing</div>
                 </div>
                 <div class="cert-check"><i class="fas fa-check"></i></div>
             </div>
@@ -315,8 +321,8 @@
                 <img src="images/gestionre.png" alt="HubSpot Social Media" class="cert-logo">
                 <div class="flex-1">
                     <div class="cert-issuer"><i class="fas fa-award me-1"></i> HubSpot Academy</div>
-                    <div class="cert-title">Marketing des Réseaux Sociaux</div>
-                    <div class="cert-meta">Stratégie social media, création de contenu, analyse de performance</div>
+                    <div class="cert-title" data-i18n="dip.cert2_title">Marketing des Réseaux Sociaux</div>
+                    <div class="cert-meta" data-i18n="dip.cert2_meta">Stratégie social media, création de contenu, analyse de performance</div>
                 </div>
                 <div class="cert-check"><i class="fas fa-check"></i></div>
             </div>
@@ -325,8 +331,8 @@
                 <img src="images/gglmark.png" alt="Google Marketing Digital" class="cert-logo">
                 <div class="flex-1">
                     <div class="cert-issuer"><i class="fab fa-google me-1"></i> Google</div>
-                    <div class="cert-title">Principes Fondamentaux du Marketing Digital</div>
-                    <div class="cert-meta">SEO, SEM, e-commerce, analytics, stratégie digitale</div>
+                    <div class="cert-title" data-i18n="dip.cert3_title">Principes Fondamentaux du Marketing Digital</div>
+                    <div class="cert-meta" data-i18n="dip.cert3_meta">SEO, SEM, e-commerce, analytics, stratégie digitale</div>
                 </div>
                 <div class="cert-check"><i class="fas fa-check"></i></div>
             </div>
@@ -335,8 +341,8 @@
         <!-- CTA -->
         <div class="text-center mt-5 pt-3" data-aos="fade-up">
             <div class="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="competences.html" class="btn-creative"><i class="fas fa-code"></i> Voir mes compétences</a>
-                <a href="contact.html" class="btn-creative btn-ghost"><i class="fas fa-paper-plane"></i> Me contacter</a>
+                <a href="competences.html" class="btn-creative"><i class="fas fa-code"></i> <span data-i18n="dip.btn_skills">Voir mes compétences</span></a>
+                <a href="contact.html" class="btn-creative btn-ghost"><i class="fas fa-paper-plane"></i> <span data-i18n="dip.btn_contact">Me contacter</span></a>
             </div>
         </div>
 
@@ -347,18 +353,18 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <h4 class="footer-title">Navigation</h4>
+                    <h4 class="footer-title" data-i18n="footer.nav">Navigation</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="projets.html">Projets</a></li>
-                        <li><a href="experiences.html">Expériences</a></li>
-                        <li><a href="diplomes.html">Diplômes</a></li>
-                        <li><a href="competences.html">Compétences</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                        <li><a href="projets.html" data-i18n="nav.projects">Projets</a></li>
+                        <li><a href="experiences.html" data-i18n="nav.experiences">Expériences</a></li>
+                        <li><a href="diplomes.html" data-i18n="nav.diplomas">Diplômes</a></li>
+                        <li><a href="competences.html" data-i18n="nav.skills">Compétences</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <h4 class="footer-title">Suivez-moi</h4>
+                    <h4 class="footer-title" data-i18n="footer.follow">Suivez-moi</h4>
                     <div class="social-icons">
                         <a href="https://www.instagram.com/fatima_ezzohra_dadi" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                         <a href="https://github.com/FD-TOP" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
@@ -366,22 +372,24 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <h4 class="footer-title">Contact Direct</h4>
+                    <h4 class="footer-title" data-i18n="footer.direct">Contact Direct</h4>
                     <ul class="footer-contact-list">
                         <li><i class="fas fa-phone-alt"></i><a href="tel:+33753670409">+33 7 53 67 04 09</a></li>
                         <li><i class="fas fa-envelope"></i><a href="mailto:fatimaezzohradadi1@gmail.com">fatimaezzohradadi1@gmail.com</a></li>
-                        <li><i class="fas fa-map-marker-alt"></i> Charleville-Mézières, France</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="contact.location_val">Charleville-Mézières, France</span></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 FATIMA EZZOHRA DADI &nbsp;|&nbsp; Tous droits réservés.</p>
+                <p data-i18n="footer.rights">© 2026 FATIMA EZZOHRA DADI &nbsp;|&nbsp; Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
     <script src="shared.js"></script>
 </body>
 </html>

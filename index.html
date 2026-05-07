@@ -167,15 +167,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <button type="button" class="btn-close btn-close-white mb-3 shadow-none" data-bs-toggle="collapse" data-bs-target="#navbarNav"></button>
-                <div class="nav-page-label">Navigation</div>
+                <div class="nav-page-label" data-i18n="nav.label">Navigation</div>
                 <ul class="navbar-nav">
-                    <li><a class="nav-link active" href="index.html"><span class="nav-icon"><i class="fas fa-home"></i></span> Accueil</a></li>
-                    <li><a class="nav-link" href="projets.html"><span class="nav-icon"><i class="fas fa-rocket"></i></span> Projets</a></li>
-                    <li><a class="nav-link" href="experiences.html"><span class="nav-icon"><i class="fas fa-briefcase"></i></span> Expériences</a></li>
-                    <li><a class="nav-link" href="diplomes.html"><span class="nav-icon"><i class="fas fa-graduation-cap"></i></span> Diplômes</a></li>
-                    <li><a class="nav-link" href="competences.html"><span class="nav-icon"><i class="fas fa-code"></i></span> Compétences</a></li>
-                    <li><a class="nav-link" href="contact.html"><span class="nav-icon"><i class="fas fa-envelope"></i></span> Contact</a></li>
+                    <li><a class="nav-link active" href="index.html"><span class="nav-icon"><i class="fas fa-home"></i></span> <span data-i18n="nav.home">Accueil</span></a></li>
+                    <li><a class="nav-link" href="projets.html"><span class="nav-icon"><i class="fas fa-rocket"></i></span> <span data-i18n="nav.projects">Projets</span></a></li>
+                    <li><a class="nav-link" href="experiences.html"><span class="nav-icon"><i class="fas fa-briefcase"></i></span> <span data-i18n="nav.experiences">Expériences</span></a></li>
+                    <li><a class="nav-link" href="diplomes.html"><span class="nav-icon"><i class="fas fa-graduation-cap"></i></span> <span data-i18n="nav.diplomas">Diplômes</span></a></li>
+                    <li><a class="nav-link" href="competences.html"><span class="nav-icon"><i class="fas fa-code"></i></span> <span data-i18n="nav.skills">Compétences</span></a></li>
+                    <li><a class="nav-link" href="contact.html"><span class="nav-icon"><i class="fas fa-envelope"></i></span> <span data-i18n="nav.contact">Contact</span></a></li>
                 </ul>
+                <div class="lang-switcher">
+                    <button class="lang-btn" data-lang="fr" title="Français">🇫🇷 <span>FR</span></button>
+                    <button class="lang-btn" data-lang="en" title="English">🇬🇧 <span>EN</span></button>
+                    <button class="lang-btn" data-lang="ar" title="العربية">🇸🇦 <span>AR</span></button>
+                    <button class="lang-btn" data-lang="de" title="Deutsch">🇩🇪 <span>DE</span></button>
+                </div>
             </div>
         </div>
     </nav>
@@ -185,21 +191,21 @@
         <div class="container" data-aos="fade-up" data-aos-duration="1000">
             <div class="hero-badge">
                 <span class="dot"></span>
-                Disponible pour missions
+                <span data-i18n="hero.badge">Disponible pour missions</span>
             </div>
             <h1 class="hero-title">
                 FATIMA<br>
                 <span class="text-grad">EZZOHRA DADI</span>
             </h1>
             <p class="fs-5 mt-3" style="color: var(--text-muted);">
-                Je suis <span class="typed-text" id="typed"></span>
+                <span data-i18n="hero.typed_prefix">Je suis</span> <span class="typed-text" id="typed"></span>
             </p>
             <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
                 <a href="projets.html" class="btn-creative">
-                    <i class="fas fa-rocket"></i> Voir mes projets
+                    <i class="fas fa-rocket"></i> <span data-i18n="hero.btn_projects">Voir mes projets</span>
                 </a>
                 <a href="contact.html" class="btn-creative btn-ghost">
-                    <i class="fas fa-paper-plane"></i> Me contacter
+                    <i class="fas fa-paper-plane"></i> <span data-i18n="hero.btn_contact">Me contacter</span>
                 </a>
             </div>
             <div class="hero-social mt-4" data-aos="fade-up" data-aos-delay="200">
@@ -211,7 +217,7 @@
             </div>
         </div>
         <div class="hero-scroll">
-            <span>Scroll</span>
+            <span data-i18n="hero.scroll">Scroll</span>
             <i class="fas fa-chevron-down"></i>
         </div>
     </header>
@@ -240,15 +246,15 @@
                 </div>
                 <div class="col-lg-7" data-aos="fade-left">
                     <h2 class="section-title left-align" style="margin-top: 0;">
-                        <span>Qui suis-je ?</span>
+                        <span data-i18n="about.title">Qui suis-je ?</span>
                     </h2>
                     <div class="content-card">
-                        <p class="lead text-accent mb-3"><strong>Développeuse Web & Designer UX/UI passionnée.</strong></p>
-                        <p>Je m'appelle <strong>Fatima Ezzohra Dadi</strong>. Mon parcours est marqué par une double expertise : la rigueur technique du développement web et la créativité du design numérique. Actuellement étudiante en <strong>Licence Professionnelle à l'EiSINe</strong>, j'ai consolidé mes bases avec un DUT en Web et Multimédia avant de m'installer en France en septembre 2025.</p>
-                        <p class="mt-3">Mon approche repose sur l'équilibre entre fonctionnalité et esthétique. Que ce soit pour coder des interfaces en <strong>JS/PHP</strong>, concevoir des prototypes sur <strong>Figma</strong> ou modéliser en <strong>3D sous 3ds Max</strong>, je crée des solutions qui ont du sens et de l'impact.</p>
+                        <p class="lead text-accent mb-3"><strong data-i18n="about.tagline">Développeuse Web & Designer UX/UI passionnée.</strong></p>
+                        <p data-i18n-html="about.p1">Je m'appelle <strong>Fatima Ezzohra Dadi</strong>. Mon parcours est marqué par une double expertise : la rigueur technique du développement web et la créativité du design numérique. Actuellement étudiante en <strong>Licence Professionnelle à l'EiSINe</strong>, j'ai consolidé mes bases avec un DUT en Web et Multimédia avant de m'installer en France en septembre 2025.</p>
+                        <p class="mt-3" data-i18n-html="about.p2">Mon approche repose sur l'équilibre entre fonctionnalité et esthétique. Que ce soit pour coder des interfaces en <strong>JS/PHP</strong>, concevoir des prototypes sur <strong>Figma</strong> ou modéliser en <strong>3D sous 3ds Max</strong>, je crée des solutions qui ont du sens et de l'impact.</p>
                         <div class="mt-4 d-flex gap-3 flex-wrap">
-                            <a href="experiences.html" class="btn-creative"><i class="fas fa-briefcase"></i> Mon parcours</a>
-                            <a href="contact.html" class="btn-creative btn-ghost"><i class="fas fa-paper-plane"></i> Me contacter</a>
+                            <a href="experiences.html" class="btn-creative"><i class="fas fa-briefcase"></i> <span data-i18n="about.btn_career">Mon parcours</span></a>
+                            <a href="contact.html" class="btn-creative btn-ghost"><i class="fas fa-paper-plane"></i> <span data-i18n="about.btn_contact">Me contacter</span></a>
                         </div>
                     </div>
                 </div>
@@ -263,25 +269,25 @@
                 <div class="col-6 col-md-3">
                     <div class="stat-card">
                         <div class="stat-number">3+</div>
-                        <div class="stat-label">Années d'expérience</div>
+                        <div class="stat-label" data-i18n="stat.years">Années d'expérience</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="stat-card">
                         <div class="stat-number">7+</div>
-                        <div class="stat-label">Expériences pro</div>
+                        <div class="stat-label" data-i18n="stat.exp">Expériences pro</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="stat-card">
                         <div class="stat-number">10+</div>
-                        <div class="stat-label">Projets réalisés</div>
+                        <div class="stat-label" data-i18n="stat.projects">Projets réalisés</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="stat-card">
                         <div class="stat-number">3</div>
-                        <div class="stat-label">Certifications</div>
+                        <div class="stat-label" data-i18n="stat.certs">Certifications</div>
                     </div>
                 </div>
             </div>
@@ -291,37 +297,37 @@
     <!-- NAVIGATION PAGES -->
     <section class="py-5">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up"><span>Explorer mon portfolio</span></h2>
+            <h2 class="section-title" data-aos="fade-up"><span data-i18n="explore.title">Explorer mon portfolio</span></h2>
             <div class="nav-pages-grid" data-aos="fade-up" data-aos-delay="100">
                 <a href="projets.html" class="nav-page-card">
                     <div class="icon"><i class="fas fa-rocket"></i></div>
-                    <h3>Mes Projets</h3>
-                    <p>Sites web, applications, design — tous mes réalisations en un coup d'œil.</p>
-                    <div class="arrow"><span>Voir les projets</span> <i class="fas fa-arrow-right"></i></div>
+                    <h3 data-i18n="nav_card.projects.title">Mes Projets</h3>
+                    <p data-i18n="nav_card.projects.desc">Sites web, applications, design — tous mes réalisations en un coup d'œil.</p>
+                    <div class="arrow"><span data-i18n="nav_card.projects.arrow">Voir les projets</span> <i class="fas fa-arrow-right"></i></div>
                 </a>
                 <a href="experiences.html" class="nav-page-card">
                     <div class="icon"><i class="fas fa-briefcase"></i></div>
-                    <h3>Expériences</h3>
-                    <p>Parcours professionnel, stages, jobs étudiants et missions freelance.</p>
-                    <div class="arrow"><span>Voir les expériences</span> <i class="fas fa-arrow-right"></i></div>
+                    <h3 data-i18n="nav_card.experiences.title">Expériences</h3>
+                    <p data-i18n="nav_card.experiences.desc">Parcours professionnel, stages, jobs étudiants et missions freelance.</p>
+                    <div class="arrow"><span data-i18n="nav_card.experiences.arrow">Voir les expériences</span> <i class="fas fa-arrow-right"></i></div>
                 </a>
                 <a href="diplomes.html" class="nav-page-card">
                     <div class="icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Diplômes</h3>
-                    <p>Formations académiques et certifications professionnelles obtenues.</p>
-                    <div class="arrow"><span>Voir les diplômes</span> <i class="fas fa-arrow-right"></i></div>
+                    <h3 data-i18n="nav_card.diplomas.title">Diplômes</h3>
+                    <p data-i18n="nav_card.diplomas.desc">Formations académiques et certifications professionnelles obtenues.</p>
+                    <div class="arrow"><span data-i18n="nav_card.diplomas.arrow">Voir les diplômes</span> <i class="fas fa-arrow-right"></i></div>
                 </a>
                 <a href="competences.html" class="nav-page-card">
                     <div class="icon"><i class="fas fa-code"></i></div>
-                    <h3>Compétences</h3>
-                    <p>Développement web, design UX/UI, marketing digital et plus encore.</p>
-                    <div class="arrow"><span>Voir les skills</span> <i class="fas fa-arrow-right"></i></div>
+                    <h3 data-i18n="nav_card.skills.title">Compétences</h3>
+                    <p data-i18n="nav_card.skills.desc">Développement web, design UX/UI, marketing digital et plus encore.</p>
+                    <div class="arrow"><span data-i18n="nav_card.skills.arrow">Voir les skills</span> <i class="fas fa-arrow-right"></i></div>
                 </a>
                 <a href="contact.html" class="nav-page-card">
                     <div class="icon"><i class="fas fa-envelope"></i></div>
-                    <h3>Contact</h3>
-                    <p>Discutons de votre projet ou d'une opportunité de collaboration.</p>
-                    <div class="arrow"><span>Me contacter</span> <i class="fas fa-arrow-right"></i></div>
+                    <h3 data-i18n="nav_card.contact.title">Contact</h3>
+                    <p data-i18n="nav_card.contact.desc">Discutons de votre projet ou d'une opportunité de collaboration.</p>
+                    <div class="arrow"><span data-i18n="nav_card.contact.arrow">Me contacter</span> <i class="fas fa-arrow-right"></i></div>
                 </a>
             </div>
         </div>
@@ -332,18 +338,18 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <h4 class="footer-title">Pages</h4>
+                    <h4 class="footer-title" data-i18n="footer.pages">Pages</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="projets.html">Projets</a></li>
-                    <li><a href="experiences.html">Expériences</a></li>
-                    <li><a href="diplomes.html">Diplômes</a></li>
-                    <li><a href="competences.html">Compétences</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                        <li><a href="projets.html" data-i18n="nav.projects">Projets</a></li>
+                        <li><a href="experiences.html" data-i18n="nav.experiences">Expériences</a></li>
+                        <li><a href="diplomes.html" data-i18n="nav.diplomas">Diplômes</a></li>
+                        <li><a href="competences.html" data-i18n="nav.skills">Compétences</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <h4 class="footer-title">Suivez-moi</h4>
+                    <h4 class="footer-title" data-i18n="footer.follow">Suivez-moi</h4>
                     <div class="social-icons">
                         <a href="https://www.instagram.com/fatima_ezzohra_dadi" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://github.com/FD-TOP" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
@@ -351,7 +357,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <h4 class="footer-title">Contact Direct</h4>
+                    <h4 class="footer-title" data-i18n="footer.direct">Contact Direct</h4>
                     <ul class="footer-contact-list">
                         <li><i class="fas fa-phone-alt"></i><a href="tel:+33753670409">+33 7 53 67 04 09</a></li>
                         <li><i class="fas fa-envelope"></i><a href="mailto:fatimaezzohradadi1@gmail.com">fatimaezzohradadi1@gmail.com</a></li>
@@ -360,7 +366,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 FATIMA EZZOHRA DADI &nbsp;|&nbsp; Tous droits réservés.</p>
+                <p data-i18n="footer.rights">© 2026 FATIMA EZZOHRA DADI &nbsp;|&nbsp; Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -368,11 +374,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
     <script src="shared.js"></script>
     <script>
-        new Typed('#typed', {
-            strings: ['Développeuse Web', 'Designer UX/UI', 'Expert Support IT', 'Freelance Digital', 'Créatrice de solutions'],
-            typeSpeed: 50, backSpeed: 30, loop: true, backDelay: 1800
+        // Typed.js is initialized / re-initialized by i18n.js on language change
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!window._typedInstance) {
+                const lang = localStorage.getItem('portfolio_lang') || 'fr';
+                const strings = (TRANSLATIONS[lang] || TRANSLATIONS['fr'])['typed.strings'];
+                window._typedInstance = new Typed('#typed', {
+                    strings: strings,
+                    typeSpeed: 50, backSpeed: 30, loop: true, backDelay: 1800
+                });
+            }
         });
     </script>
 </body>
