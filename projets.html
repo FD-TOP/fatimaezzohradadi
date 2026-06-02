@@ -556,8 +556,10 @@
         function buildModalSections(projectId) {
             const sections = [
                 { labelKey: 'proj.modal_context', contentKey: `proj.${projectId}_detail_context` },
+                { labelKey: 'proj.modal_objectives', contentKey: `proj.${projectId}_detail_objectives` },
                 { labelKey: 'proj.modal_role', contentKey: `proj.${projectId}_detail_role` },
                 { labelKey: 'proj.modal_tasks', contentKey: `proj.${projectId}_detail_tasks`, isHtml: true },
+                { labelKey: 'proj.modal_challenges', contentKey: `proj.${projectId}_detail_challenges` },
                 { labelKey: 'proj.modal_results', contentKey: `proj.${projectId}_detail_results` }
             ];
             const container = document.getElementById('projectModalSections');
