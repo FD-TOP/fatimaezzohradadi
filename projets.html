@@ -86,6 +86,118 @@
         @media (min-width: 769px) and (max-width: 991px) {
             .proj-card.featured { grid-column: span 1; }
         }
+
+        .proj-card { cursor: pointer; }
+        .proj-card .proj-footer a,
+        .proj-card .btn-details { cursor: pointer; position: relative; z-index: 2; }
+
+        .btn-details {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-top: 12px; padding: 0;
+            background: none; border: none;
+            font-size: 0.82rem; font-weight: 600;
+            color: var(--accent);
+            transition: 0.3s;
+        }
+        .btn-details:hover { color: #fff; gap: 10px; }
+
+        /* Modal détail projet */
+        .project-modal {
+            position: fixed; inset: 0; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px;
+            background: rgba(5, 5, 8, 0.88);
+            backdrop-filter: blur(12px);
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s;
+        }
+        .project-modal.is-open {
+            opacity: 1; visibility: visible;
+        }
+        .project-modal-dialog {
+            width: 100%; max-width: 720px; max-height: 90vh;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex; flex-direction: column;
+            transform: translateY(24px) scale(0.97);
+            transition: transform 0.35s ease;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(255,45,117,0.08);
+        }
+        .project-modal.is-open .project-modal-dialog {
+            transform: translateY(0) scale(1);
+        }
+        .project-modal-header {
+            position: relative; height: 180px; overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .project-modal-header img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .project-modal-close {
+            position: absolute; top: 14px; right: 14px;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: rgba(5,5,8,0.75);
+            color: #fff; font-size: 1rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.3s;
+            backdrop-filter: blur(8px);
+        }
+        .project-modal-close:hover {
+            background: var(--accent); border-color: var(--accent);
+        }
+        .project-modal-body {
+            padding: 28px 28px 20px;
+            overflow-y: auto; flex: 1;
+        }
+        .project-modal-title {
+            font-size: 1.45rem; font-weight: 700; color: #fff;
+            margin-bottom: 6px;
+        }
+        .project-modal-badge {
+            display: inline-block;
+            font-size: 0.72rem; font-weight: 600;
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,45,117,0.35);
+            background: rgba(255,45,117,0.08);
+            margin-bottom: 20px;
+        }
+        .project-modal-section { margin-bottom: 22px; }
+        .project-modal-section h4 {
+            font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+            color: var(--accent); margin-bottom: 8px;
+        }
+        .project-modal-section p,
+        .project-modal-section li {
+            font-size: 0.9rem; color: var(--text-muted);
+            line-height: 1.7; margin: 0;
+        }
+        .project-modal-section ul {
+            padding-left: 1.2rem; margin: 0;
+        }
+        .project-modal-section li { margin-bottom: 6px; }
+        .project-modal-tags {
+            display: flex; flex-wrap: wrap; gap: 6px;
+            margin-bottom: 20px;
+        }
+        .project-modal-footer {
+            padding: 16px 28px 24px;
+            border-top: 1px solid var(--border);
+            display: flex; flex-wrap: wrap; gap: 8px;
+        }
+        body.modal-open { overflow: hidden; }
+
+        [dir="rtl"] .project-modal-section ul {
+            padding-right: 1.2rem;
+            padding-left: 0;
+        }
+        [dir="rtl"] .btn-details i { transform: scaleX(-1); }
     </style>
 </head>
 <body>
@@ -147,7 +259,7 @@
         <div class="project-grid" id="projectGrid">
 
             <!-- ThaiJap — Featured -->
-            <div class="proj-card featured" data-category="fullstack web" data-aos="fade-up">
+            <div class="proj-card featured" data-category="fullstack web" data-project="thaijap" data-aos="fade-up">
                 <div class="proj-img-wrap">
                     <img src="images/logo.webp" alt="Plateforme ThaiJap" class="proj-img">
                     <span class="proj-category-badge">Full Stack</span>
@@ -161,6 +273,9 @@
                         <span class="proj-tag">GitHub Pages</span>
                         <span class="proj-tag">Responsive</span>
                     </div>
+                    <button type="button" class="btn-details" aria-label="Détails du projet">
+                        <span data-i18n="proj.btn_details">En savoir plus</span> <i class="fas fa-arrow-right"></i>
+                    </button>
                     <div class="proj-footer">
                         <a href="https://fd-top.github.io/thaijap/index.html?table=3" class="btn-creative" target="_blank" rel="noopener">
                             <i class="fas fa-user"></i> <span data-i18n="proj.btn_client">Interface Client</span>
@@ -173,7 +288,7 @@
             </div>
 
             <!-- Geoptime -->
-            <div class="proj-card" data-category="fullstack web design" data-aos="fade-up" data-aos-delay="50">
+            <div class="proj-card" data-category="fullstack web design" data-project="geoptime" data-aos="fade-up" data-aos-delay="50">
                 <div class="proj-img-wrap">
                     <img src="images/geologo.png" alt="Geoptime" class="proj-img">
                     <span class="proj-category-badge">Full Stack & Design</span>
@@ -187,6 +302,9 @@
                         <span class="proj-tag">UX/UI</span>
                         <span class="proj-tag">Géolocalisation</span>
                     </div>
+                    <button type="button" class="btn-details" aria-label="Détails du projet">
+                        <span data-i18n="proj.btn_details">En savoir plus</span> <i class="fas fa-arrow-right"></i>
+                    </button>
                     <div class="proj-footer">
                         <a href="https://fd-top.github.io/Geoptime/" class="btn-creative" target="_blank" rel="noopener"><i class="fas fa-globe"></i> <span data-i18n="proj.btn_site">Site</span></a>
                         <a href="images/design-geoptime.pdf" class="btn-creative btn-ghost"><i class="fas fa-pen-ruler"></i> <span data-i18n="proj.btn_design">Design</span></a>
@@ -198,7 +316,7 @@
 
 
             <!-- Portfolio Personnel -->
-            <div class="proj-card" data-category="web design fullstack" data-aos="fade-up" data-aos-delay="150">
+            <div class="proj-card" data-category="web design fullstack" data-project="portfolio" data-aos="fade-up" data-aos-delay="150">
                 <div class="proj-img-wrap">
                     <img src="images/LF.png" alt="Portfolio" class="proj-img" style="object-fit: contain; padding: 40px; background: #0d0d14;">
                     <span class="proj-category-badge">Portfolio</span>
@@ -212,6 +330,9 @@
                         <span class="proj-tag">AOS</span>
                         <span class="proj-tag">GitHub Pages</span>
                     </div>
+                    <button type="button" class="btn-details" aria-label="Détails du projet">
+                        <span data-i18n="proj.btn_details">En savoir plus</span> <i class="fas fa-arrow-right"></i>
+                    </button>
                     <div class="proj-footer">
                         <a href="index.html" class="btn-creative">
                             <i class="fas fa-eye"></i> <span data-i18n="proj.btn_site">Voir le site</span>
@@ -225,7 +346,7 @@
 
 
             <!-- Design UI/UX -->
-            <div class="proj-card" data-category="design" data-aos="fade-up" data-aos-delay="250">
+            <div class="proj-card" data-category="design" data-project="uxui" data-aos="fade-up" data-aos-delay="250">
                 <div class="proj-img-wrap">
                     <img src="images/ui.webp" alt="UX/UI Design" class="proj-img">
                     <span class="proj-category-badge">UX/UI Design</span>
@@ -239,16 +360,19 @@
                         <span class="proj-tag">Wireframes</span>
                         <span class="proj-tag">Photoshop</span>
                     </div>
+                    <button type="button" class="btn-details" aria-label="Détails du projet">
+                        <span data-i18n="proj.btn_details">En savoir plus</span> <i class="fas fa-arrow-right"></i>
+                    </button>
                     <div class="proj-footer">
                         <a href="contact.html" class="btn-creative">
-                            <i class="fas fa-paper-plane"></i> Me contacter
+                            <i class="fas fa-paper-plane"></i> <span data-i18n="proj.btn_contact">Me contacter</span>
                         </a>
                     </div>
                 </div>
             </div>
 
             <!-- KapAvenir -->
-            <div class="proj-card" data-category="web design" data-aos="fade-up" data-aos-delay="300">
+            <div class="proj-card" data-category="web design" data-project="kapavenir" data-aos="fade-up" data-aos-delay="300">
                 <div class="proj-img-wrap">
                     <img src="images/capavenir.png" alt="KapAvenir" class="proj-img">
                     <span class="proj-category-badge">Web & Design</span>
@@ -262,6 +386,9 @@
                         <span class="proj-tag">UX/UI</span>
                         <span class="proj-tag">Responsive</span>
                     </div>
+                    <button type="button" class="btn-details" aria-label="Détails du projet">
+                        <span data-i18n="proj.btn_details">En savoir plus</span> <i class="fas fa-arrow-right"></i>
+                    </button>
                     <div class="proj-footer">
                         <a href="https://kapavenir-site.vercel.app/" class="btn-creative" target="_blank" rel="noopener">
                             <i class="fas fa-globe"></i> <span data-i18n="proj.btn_site">Voir le site</span>
@@ -271,7 +398,7 @@
             </div>
 
             <!-- LA FAKH -->
-            <div class="proj-card" data-category="fullstack web" data-aos="fade-up" data-aos-delay="350">
+            <div class="proj-card" data-category="fullstack web" data-project="lafakh" data-aos="fade-up" data-aos-delay="350">
                 <div class="proj-img-wrap">
                     <img src="images/logolafakh.png" alt="LA FAKH" class="proj-img" style="object-fit: contain; padding: 30px; background: #050508;">
                     <span class="proj-category-badge">Full Stack</span>
@@ -286,6 +413,9 @@
                         <span class="proj-tag">Panel Admin</span>
                         <span class="proj-tag">Responsive</span>
                     </div>
+                    <button type="button" class="btn-details" aria-label="Détails du projet">
+                        <span data-i18n="proj.btn_details">En savoir plus</span> <i class="fas fa-arrow-right"></i>
+                    </button>
                     <div class="proj-footer">
                         <a href="https://lafakh.vercel.app/index.php" class="btn-creative" target="_blank" rel="noopener">
                             <i class="fas fa-globe"></i> <span data-i18n="proj.btn_site">Voir le site</span>
@@ -323,6 +453,25 @@
 
         </div><!-- /project-grid -->
     </main>
+
+    <!-- MODAL DÉTAIL PROJET -->
+    <div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle" hidden>
+        <div class="project-modal-dialog">
+            <div class="project-modal-header">
+                <img id="projectModalImg" src="" alt="">
+                <button type="button" class="project-modal-close" id="projectModalClose" aria-label="Fermer">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="project-modal-body">
+                <h2 class="project-modal-title" id="projectModalTitle"></h2>
+                <span class="project-modal-badge" id="projectModalBadge"></span>
+                <div class="project-modal-tags" id="projectModalTags"></div>
+                <div id="projectModalSections"></div>
+            </div>
+            <div class="project-modal-footer" id="projectModalFooter"></div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer-section">
@@ -386,6 +535,113 @@
                         card.classList.toggle('hidden', !cats.includes(filter));
                     }
                 });
+            });
+        });
+
+        // Modal détail projet
+        const projectModal = document.getElementById('projectModal');
+        const projectModalClose = document.getElementById('projectModalClose');
+        let activeProjectId = null;
+
+        function getLang() {
+            return (window.i18n && window.i18n.getLang()) || localStorage.getItem('portfolio_lang') || 'fr';
+        }
+
+        function t(key) {
+            const lang = getLang();
+            const dict = TRANSLATIONS[lang] || TRANSLATIONS.fr;
+            return dict[key] !== undefined ? dict[key] : (TRANSLATIONS.fr[key] || '');
+        }
+
+        function buildModalSections(projectId) {
+            const sections = [
+                { labelKey: 'proj.modal_context', contentKey: `proj.${projectId}_detail_context` },
+                { labelKey: 'proj.modal_role', contentKey: `proj.${projectId}_detail_role` },
+                { labelKey: 'proj.modal_tasks', contentKey: `proj.${projectId}_detail_tasks`, isHtml: true },
+                { labelKey: 'proj.modal_results', contentKey: `proj.${projectId}_detail_results` }
+            ];
+            const container = document.getElementById('projectModalSections');
+            container.innerHTML = '';
+            sections.forEach(sec => {
+                const content = t(sec.contentKey);
+                if (!content) return;
+                const block = document.createElement('div');
+                block.className = 'project-modal-section';
+                block.innerHTML = `<h4>${t(sec.labelKey)}</h4>${sec.isHtml ? content : `<p>${content}</p>`}`;
+                container.appendChild(block);
+            });
+        }
+
+        function openProjectModal(card) {
+            const projectId = card.dataset.project;
+            if (!projectId) return;
+            activeProjectId = projectId;
+
+            const title = card.querySelector('.proj-title')?.textContent?.trim() || '';
+            const badge = card.querySelector('.proj-category-badge')?.textContent?.trim() || '';
+            const img = card.querySelector('.proj-img');
+            const tags = card.querySelectorAll('.proj-tag');
+            const footerLinks = card.querySelector('.proj-footer');
+
+            document.getElementById('projectModalTitle').textContent = title;
+            document.getElementById('projectModalBadge').textContent = badge;
+            document.getElementById('projectModalImg').src = img?.src || '';
+            document.getElementById('projectModalImg').alt = img?.alt || title;
+
+            const tagsContainer = document.getElementById('projectModalTags');
+            tagsContainer.innerHTML = '';
+            tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'proj-tag';
+                span.textContent = tag.textContent;
+                tagsContainer.appendChild(span);
+            });
+
+            buildModalSections(projectId);
+
+            const modalFooter = document.getElementById('projectModalFooter');
+            modalFooter.innerHTML = '';
+            if (footerLinks) {
+                footerLinks.querySelectorAll('a').forEach(link => {
+                    modalFooter.appendChild(link.cloneNode(true));
+                });
+            }
+
+            projectModal.hidden = false;
+            projectModal.classList.add('is-open');
+            document.body.classList.add('modal-open');
+            projectModalClose.focus();
+        }
+
+        function closeProjectModal() {
+            projectModal.classList.remove('is-open');
+            document.body.classList.remove('modal-open');
+            activeProjectId = null;
+            setTimeout(() => { projectModal.hidden = true; }, 350);
+        }
+
+        projCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('a')) return;
+                openProjectModal(card);
+            });
+            card.querySelector('.btn-details')?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openProjectModal(card);
+            });
+        });
+
+        projectModalClose.addEventListener('click', closeProjectModal);
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) closeProjectModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && projectModal.classList.contains('is-open')) closeProjectModal();
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (activeProjectId) buildModalSections(activeProjectId);
             });
         });
     </script>
