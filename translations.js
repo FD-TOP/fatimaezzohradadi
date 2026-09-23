@@ -247,7 +247,10 @@ const TRANSLATIONS = {
     'contact.object_ph': 'Objet du message',
     'contact.message_ph': 'Décrivez votre projet ou votre demande...',
     'contact.send_btn': 'Envoyer le message',
+    'contact.sending': 'Envoi en cours...',
     'contact.success': 'Message envoyé\u00a0! Je vous réponds très vite.',
+    'contact.activate': 'Un email d\'activation a été envoyé à fatimaezzohradadi1@gmail.com. Cliquez le lien « Activate Form » pour recevoir les prochains messages.',
+    'contact.error': 'L\'envoi a échoué. Réessayez ou écrivez-moi directement par email.',
     // CV POPUP
     'cv.message': 'Mon CV est disponible —',
     'cv.download': 'télécharger',
@@ -474,7 +477,10 @@ const TRANSLATIONS = {
     'contact.object_ph': 'Message subject',
     'contact.message_ph': 'Describe your project or request...',
     'contact.send_btn': 'Send message',
+    'contact.sending': 'Sending...',
     'contact.success': 'Message sent! I\'ll reply very soon.',
+    'contact.activate': 'An activation email was sent to fatimaezzohradadi1@gmail.com. Click the “Activate Form” link to start receiving messages.',
+    'contact.error': 'Sending failed. Please try again or email me directly.',
     // CV POPUP
     'cv.message': 'My resume is available —',
     'cv.download': 'download',
@@ -701,7 +707,10 @@ const TRANSLATIONS = {
     'contact.object_ph': 'موضوع الرسالة',
     'contact.message_ph': 'صف مشروعك أو طلبك...',
     'contact.send_btn': 'إرسال الرسالة',
+    'contact.sending': 'جاري الإرسال...',
     'contact.success': 'تم إرسال الرسالة! سأرد في أقرب وقت.',
+    'contact.activate': 'تم إرسال بريد تفعيل إلى fatimaezzohradadi1@gmail.com. انقري على رابط Activate Form لاستلام الرسائل.',
+    'contact.error': 'فشل الإرسال. أعيدي المحاولة أو راسليني مباشرة بالبريد.',
     // CV POPUP
     'cv.message': 'سيرتي الذاتية متاحة —',
     'cv.download': 'تحميل',
@@ -928,7 +937,10 @@ const TRANSLATIONS = {
     'contact.object_ph': 'Betreff',
     'contact.message_ph': 'Beschreiben Sie Ihr Projekt oder Ihre Anfrage...',
     'contact.send_btn': 'Nachricht senden',
+    'contact.sending': 'Wird gesendet...',
     'contact.success': 'Nachricht gesendet! Ich antworte sehr bald.',
+    'contact.activate': 'Eine Aktivierungs-E-Mail wurde an fatimaezzohradadi1@gmail.com gesendet. Klicken Sie auf „Activate Form“, um Nachrichten zu empfangen.',
+    'contact.error': 'Senden fehlgeschlagen. Bitte erneut versuchen oder mir direkt eine E-Mail schreiben.',
     // CV POPUP
     'cv.message': 'Mein Lebenslauf ist verfügbar —',
     'cv.download': 'herunterladen',

@@ -156,23 +156,25 @@
 
             <!-- FORMULAIRE DROITE -->
             <div class="col-lg-7" data-aos="fade-left">
-                <form class="content-card" id="contactForm" style="height: auto;">
+                <form class="content-card" id="contactForm" style="height: auto;" novalidate>
                     <h3 style="font-family: 'Syncopate', sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1.5px; color: #fff; margin-bottom: 24px;" data-i18n="contact.form_title">
                         Envoyez un message
                     </h3>
 
+                    <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
+
                     <div class="row g-0">
                         <div class="col-md-6 pe-md-2">
-                            <input type="text" id="fname" class="form-control-custom" placeholder="Votre prénom" data-i18n-placeholder="contact.fname" required>
+                            <input type="text" id="fname" name="prenom" class="form-control-custom" placeholder="Votre prénom" data-i18n-placeholder="contact.fname" required>
                         </div>
                         <div class="col-md-6 ps-md-2">
-                            <input type="text" id="lname" class="form-control-custom" placeholder="Votre nom" data-i18n-placeholder="contact.lname" required>
+                            <input type="text" id="lname" name="nom" class="form-control-custom" placeholder="Votre nom" data-i18n-placeholder="contact.lname" required>
                         </div>
                     </div>
 
-                    <input type="email" id="email" class="form-control-custom" placeholder="Votre adresse email" data-i18n-placeholder="contact.email_ph" required>
+                    <input type="email" id="email" name="email" class="form-control-custom" placeholder="Votre adresse email" data-i18n-placeholder="contact.email_ph" required>
 
-                    <select class="form-control-custom" id="subject">
+                    <select class="form-control-custom" id="subject" name="type" required>
                         <option value="" disabled selected data-i18n="contact.subject_default">Type de demande</option>
                         <option value="freelance" data-i18n="contact.opt_freelance">Mission freelance</option>
                         <option value="stage" data-i18n="contact.opt_stage">Proposition de stage</option>
@@ -182,17 +184,20 @@
                         <option value="autre" data-i18n="contact.opt_autre">Autre</option>
                     </select>
 
-                    <input type="text" id="sujet" class="form-control-custom" placeholder="Objet du message" data-i18n-placeholder="contact.object_ph">
+                    <input type="text" id="sujet" name="objet" class="form-control-custom" placeholder="Objet du message" data-i18n-placeholder="contact.object_ph">
 
-                    <textarea class="form-control-custom" id="message" rows="5" placeholder="Décrivez votre projet ou votre demande..." data-i18n-placeholder="contact.message_ph" required></textarea>
+                    <textarea class="form-control-custom" id="message" name="message" rows="5" placeholder="Décrivez votre projet ou votre demande..." data-i18n-placeholder="contact.message_ph" required></textarea>
 
                     <button type="submit" class="btn-creative w-100 py-3" id="sendBtn">
                         <i class="fas fa-paper-plane"></i>
-                        <span data-i18n="contact.send_btn">Envoyer le message</span>
+                        <span id="sendBtnLabel" data-i18n="contact.send_btn">Envoyer le message</span>
                     </button>
 
                     <div id="formSuccess" style="display:none; margin-top: 14px; padding: 14px; background: rgba(0,200,100,0.08); border: 1px solid rgba(0,200,100,0.25); border-radius: 10px; color: #00c864; font-size: 0.9rem; text-align: center;">
                         <i class="fas fa-check-circle me-2"></i> <span data-i18n="contact.success">Message envoyé ! Je vous réponds très vite.</span>
+                    </div>
+                    <div id="formError" style="display:none; margin-top: 14px; padding: 14px; background: rgba(255,60,80,0.08); border: 1px solid rgba(255,60,80,0.28); border-radius: 10px; color: #ff6b7a; font-size: 0.9rem; text-align: center;">
+                        <i class="fas fa-exclamation-circle me-2"></i> <span id="formErrorText" data-i18n="contact.error">L'envoi a échoué. Réessayez ou écrivez-moi directement par email.</span>
                     </div>
                 </form>
             </div>
@@ -240,25 +245,96 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="translations.js?v=20260923g"></script>
+    <script src="translations.js?v=20260923h"></script>
     <script src="i18n.js"></script>
     <script src="shared.js"></script>
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const fname = document.getElementById('fname').value;
-            const lname = document.getElementById('lname').value;
-            const email = document.getElementById('email').value;
-            const sujet = document.getElementById('sujet').value || 'Contact via portfolio';
-            const message = document.getElementById('message').value;
-            const subject = document.getElementById('subject').value;
+        (function () {
+            const form = document.getElementById('contactForm');
+            const sendBtn = document.getElementById('sendBtn');
+            const sendBtnLabel = document.getElementById('sendBtnLabel');
+            const successBox = document.getElementById('formSuccess');
+            const errorBox = document.getElementById('formError');
+            const ENDPOINT = 'https://formsubmit.co/ajax/fatimaezzohradadi1@gmail.com';
 
-            const mailBody = `Bonjour,\n\nNom : ${fname} ${lname}\nEmail : ${email}\nType : ${subject}\n\nMessage :\n${message}`;
-            const mailLink = `mailto:fatimaezzohradadi1@gmail.com?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(mailBody)}`;
+            function t(key, fallback) {
+                const lang = (window.i18n && window.i18n.getLang()) || 'fr';
+                const dict = (typeof TRANSLATIONS !== 'undefined' && (TRANSLATIONS[lang] || TRANSLATIONS.fr)) || {};
+                return dict[key] || fallback;
+            }
 
-            window.location.href = mailLink;
-            document.getElementById('formSuccess').style.display = 'block';
-        });
+            function setBusy(busy) {
+                sendBtn.disabled = busy;
+                sendBtn.style.opacity = busy ? '0.7' : '1';
+                sendBtnLabel.textContent = busy
+                    ? t('contact.sending', 'Envoi en cours...')
+                    : t('contact.send_btn', 'Envoyer le message');
+            }
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                successBox.style.display = 'none';
+                errorBox.style.display = 'none';
+
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                const fname = document.getElementById('fname').value.trim();
+                const lname = document.getElementById('lname').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const typeSelect = document.getElementById('subject');
+                const typeLabel = typeSelect.options[typeSelect.selectedIndex]?.text || typeSelect.value;
+                const objet = document.getElementById('sujet').value.trim() || 'Contact via le portfolio';
+                const message = document.getElementById('message').value.trim();
+
+                setBusy(true);
+                try {
+                    const res = await fetch(ENDPOINT, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: fname + ' ' + lname,
+                            prenom: fname,
+                            nom: lname,
+                            email: email,
+                            type: typeLabel,
+                            objet: objet,
+                            message: message,
+                            _subject: 'Portfolio — ' + objet,
+                            _template: 'table',
+                            _captcha: 'false'
+                        })
+                    });
+                    const data = await res.json().catch(function () { return {}; });
+                    const apiMsg = String(data.message || '');
+                    const needsActivation = /activate form/i.test(apiMsg);
+                    const ok = res.ok && String(data.success) !== 'false';
+
+                    if (needsActivation) {
+                        form.reset();
+                        successBox.style.display = 'block';
+                        successBox.querySelector('span').textContent = t(
+                            'contact.activate',
+                            'Un email d\'activation a été envoyé à fatimaezzohradadi1@gmail.com. Cliquez le lien « Activate Form » pour recevoir les prochains messages.'
+                        );
+                    } else if (ok) {
+                        form.reset();
+                        successBox.style.display = 'block';
+                    } else {
+                        throw new Error(apiMsg || 'send failed');
+                    }
+                } catch (err) {
+                    errorBox.style.display = 'block';
+                } finally {
+                    setBusy(false);
+                }
+            });
+        })();
     </script>
 </body>
 </html>
