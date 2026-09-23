@@ -43,6 +43,11 @@
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
 
+    // CV download link follows site language (Arabic → French CV)
+    if (typeof window.updateCvDownloadLink === 'function') {
+      window.updateCvDownloadLink(lang);
+    }
+
     // Re-init Typed.js if present on this page
     if (typeof Typed !== 'undefined' && t['typed.strings'] && document.getElementById('typed')) {
       if (window._typedInstance) {

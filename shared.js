@@ -1,6 +1,9 @@
 // ===== SHARED JS — Fatima Ezzohra Dadi Portfolio =====
 document.addEventListener('DOMContentLoaded', () => {
 
+    // CV Popup — top right
+    initCvPopup();
+
     // AOS
     if (typeof AOS !== 'undefined') {
         AOS.init({ duration: 750, once: true, offset: 55 });
@@ -61,3 +64,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+const CV_FILES = {
+    fr: 'assets/CV_Fatima_Ezzohra_Dadi_FR.pdf',
+    en: 'assets/CV_Fatima_Ezzohra_Dadi_EN.pdf',
+    de: 'assets/CV_Fatima_Ezzohra_Dadi_DE.pdf',
+};
+
+function getCvDownloadPath(siteLang) {
+    const cvLang = siteLang === 'ar' ? 'fr' : (CV_FILES[siteLang] ? siteLang : 'fr');
+    return CV_FILES[cvLang];
+}
+
+function updateCvDownloadLink(lang) {
+    const link = document.querySelector('.cv-popup-link');
+    if (!link) return;
+    const cvLang = lang === 'ar' ? 'fr' : (CV_FILES[lang] ? lang : 'fr');
+    const path = CV_FILES[cvLang];
+    link.href = path;
+    link.setAttribute('download', path.split('/').pop());
+}
+
+function initCvPopup() {
+    if (sessionStorage.getItem('cv_popup_dismissed')) return;
+
+    const lang = (window.i18n && window.i18n.getLang()) || 'fr';
+    const popup = document.createElement('aside');
+    popup.id = 'cv-popup';
+    popup.className = 'cv-popup';
+    popup.setAttribute('role', 'status');
+    popup.innerHTML = `
+        <button type="button" class="cv-popup-close" aria-label="Fermer">&times;</button>
+        <i class="fas fa-file-pdf cv-popup-icon"></i>
+        <span class="cv-popup-text" data-i18n="cv.message">Mon CV est disponible —</span>
+        <a href="${getCvDownloadPath(lang)}" class="cv-popup-link" download data-i18n="cv.download">télécharger</a>
+    `;
+
+    document.body.appendChild(popup);
+    window.updateCvDownloadLink = updateCvDownloadLink;
+
+    if (window.i18n) window.i18n.applyLang(window.i18n.getLang());
+
+    setTimeout(() => popup.classList.add('visible'), 1200);
+
+    popup.querySelector('.cv-popup-close').addEventListener('click', () => {
+        popup.classList.remove('visible');
+        sessionStorage.setItem('cv_popup_dismissed', '1');
+        setTimeout(() => popup.remove(), 500);
+    });
+}
