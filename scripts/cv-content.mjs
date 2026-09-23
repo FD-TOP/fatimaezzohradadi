@@ -64,7 +64,7 @@ export const CV_CONTENT = {
         ],
       },
       {
-        title: 'Stagiaire Design & UI/UX',
+        title: 'Stagiaire Design & UI/UX (L3)',
         date: 'Mars — Juin 2026',
         place: 'CamAnalytics — Reims, France',
         bullets: [
@@ -248,7 +248,7 @@ export const CV_CONTENT = {
         ],
       },
       {
-        title: 'Design & UI/UX Intern',
+        title: 'Design & UI/UX Intern (L3)',
         date: 'Mar — Jun 2026',
         place: 'CamAnalytics — Reims, France',
         bullets: [
@@ -432,7 +432,7 @@ export const CV_CONTENT = {
         ],
       },
       {
-        title: 'Design & UI/UX Praktikantin',
+        title: 'Design & UI/UX Praktikantin (L3)',
         date: 'März — Juni 2026',
         place: 'CamAnalytics — Reims, Frankreich',
         bullets: [
