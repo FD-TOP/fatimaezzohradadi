@@ -65,6 +65,15 @@ export const CV_CONTENT = {
         ],
       },
       {
+        title: 'Stagiaire Développement Web & Helpdesk',
+        date: '2026',
+        place: 'MABSYRA',
+        bullets: [
+          'Développement web : intégration et maintenance d\'interfaces en HTML, CSS et JavaScript',
+          'Support helpdesk : assistance utilisateurs, suivi des tickets et résolution des incidents techniques',
+        ],
+      },
+      {
         title: 'Freelance Web & Design',
         date: 'Depuis août 2022',
         place: 'Auto-entrepreneur — Meknès, Maroc',
@@ -237,6 +246,15 @@ export const CV_CONTENT = {
           'Design and prototyping of user interfaces for analytical solutions',
           'Wireframes, high-fidelity mockups and developer spec documentation on Figma',
           'UX optimization and visual consistency across digital communication assets',
+        ],
+      },
+      {
+        title: 'Web Development & Helpdesk Intern',
+        date: '2026',
+        place: 'MABSYRA',
+        bullets: [
+          'Web development: integration and maintenance of HTML, CSS and JavaScript interfaces',
+          'Helpdesk support: user assistance, ticket follow-up and technical incident resolution',
         ],
       },
       {
@@ -414,6 +432,15 @@ export const CV_CONTENT = {
           '6 animierte E-Mail-Signaturen GIF (Canva/Figma) + HTML/CSS — Python-Automatisierung (build_all.py)',
           'App Store & Google Play Visuals in 6 Sprachen (FR, EN, ES, DE, PT, IT)',
           'Design des wöchentlichen Kundenberichts — B2B-Kommunikation und Markenkonsistenz',
+        ],
+      },
+      {
+        title: 'Praktikantin Webentwicklung & Helpdesk',
+        date: '2026',
+        place: 'MABSYRA',
+        bullets: [
+          'Webentwicklung: Integration und Wartung von Interfaces in HTML, CSS und JavaScript',
+          'Helpdesk-Support: Benutzerhilfe, Ticket-Nachverfolgung und Lösung technischer Vorfälle',
         ],
       },
       {
