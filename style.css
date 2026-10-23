@@ -645,13 +645,41 @@ html[dir="rtl"] .cv-popup-close { margin-left: 0; margin-right: 4px; }
     margin-bottom: 8px;
 }
 .timeline-desc { font-size: 0.88rem; color: var(--text-body); }
-.timeline-logo {
-    width: 48px; height: 48px;
-    border-radius: 10px;
-    object-fit: cover;
+.exp-logo,
+.timeline-logo,
+.cert-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 7px;
     border: 1px solid var(--border);
-    background: rgba(0,0,0,0.3);
     flex-shrink: 0;
+    box-sizing: border-box;
+}
+.exp-logo.logo-photo,
+.timeline-logo.logo-photo,
+.cert-logo.logo-photo {
+    object-fit: cover;
+    padding: 0;
+    background: #111;
+}
+@media (max-width: 576px) {
+    .exp-logo,
+    .timeline-logo,
+    .cert-logo {
+        width: 56px;
+        height: 56px;
+        padding: 6px;
+        border-radius: 10px;
+    }
+    .exp-logo.logo-photo,
+    .timeline-logo.logo-photo,
+    .cert-logo.logo-photo {
+        padding: 0;
+    }
 }
 
 /* ===== STAT CARDS ===== */
