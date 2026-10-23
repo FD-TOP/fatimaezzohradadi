@@ -15,7 +15,7 @@ export function getCvLang(siteLang) {
 export const CV_CONTENT = {
   fr: {
     role: 'Développeuse Web & Multimédia · UX/UI Designer',
-    profile: 'Spécialiste du numérique au profil hybride, je combine la rigueur technique du développement Front-end (HTML5, CSS3, JavaScript, ReactJS, PHP, WordPress) avec une expertise en design UX/UI (Figma, prototypage, Design System) et en modélisation 3D (3DS Max). Titulaire d\'une Licence Professionnelle Métiers du Numérique à l\'EiSINe (2026), après un DUT Web & Multimédia à l\'ESTM, j\'ai forgé mon expérience entre missions freelance, stages en développement et design, et un solide parcours en relation client (Glovo/INTELCIA). Mon approche repose sur l\'équilibre entre fonctionnalité et esthétique : je conçois des solutions digitales performantes, ergonomiques et créatives, de la maquette à la mise en production. Rigoureuse, polyvalente et orientée utilisateur, je m\'investis dans l\'optimisation de l\'expérience et le déploiement d\'interfaces innovantes.',
+    profile: 'Spécialiste du numérique au profil hybride, je combine la rigueur technique du développement Front-end (HTML5, CSS3, JavaScript, ReactJS, PHP, WordPress) avec une expertise en design UX/UI (Figma, prototypage, Design System) et en modélisation 3D (3DS Max). Titulaire d\'une Licence Professionnelle Métiers du Numérique à l\'EiSINe (2026), je poursuis un Master MAALSI au CESI Reims en alternance chez SynAppco (développement d\'applications et de sites web), après un DUT Web & Multimédia à l\'ESTM. J\'ai forgé mon expérience entre missions freelance, stages en développement et design, et un solide parcours en relation client (Glovo/INTELCIA). Mon approche repose sur l\'équilibre entre fonctionnalité et esthétique : je conçois des solutions digitales performantes, ergonomiques et créatives, de la maquette à la mise en production. Rigoureuse, polyvalente et orientée utilisateur, je m\'investis dans l\'optimisation de l\'expérience et le déploiement d\'interfaces innovantes.',
     sections: {
       contact: 'Contact',
       languages: 'Langues',
@@ -54,6 +54,15 @@ export const CV_CONTENT = {
     ],
     interests: 'Musique · Sport · Cuisine · Voyage · Art · Théâtre',
     experiences: [
+      {
+        title: 'Alternante Développeuse Web',
+        date: 'Octobre 2026 — Présent',
+        place: 'SynAppco',
+        bullets: [
+          'Développement d\'applications web et de sites web, de l\'intégration à la mise en production',
+          'Réalisation du site vitrine du cabinet (React, Vite, charte graphique)',
+        ],
+      },
       {
         title: 'Stagiaire Développement Web & Helpdesk',
         date: 'Juillet — Septembre 2026',
@@ -140,6 +149,12 @@ export const CV_CONTENT = {
     ],
     education: [
       {
+        title: 'Master MAALSI — Architecture et Applications Logicielles des SI',
+        date: '2026 — 2028 (en cours)',
+        place: 'CESI — Reims',
+        desc: 'Mastère en alternance chez SynAppco — titre RNCP niveau 7',
+      },
+      {
         title: 'Licence Pro — Métiers du Numérique',
         date: '2025 — 2026',
         place: 'EiSINe — Charleville-Mézières',
@@ -186,7 +201,7 @@ export const CV_CONTENT = {
       guildLabel: 'Guilde',
       serverLabel: 'Serveur',
       classValue: 'Dev Web & Designer UX/UI',
-      guildValue: 'EiSINe · Freelance Digital',
+      guildValue: 'CESI · SynAppco',
       serverValue: 'Charleville-Mézières, FR',
       bar1: 'CODE',
       bar2: 'DESIGN',
@@ -201,7 +216,7 @@ export const CV_CONTENT = {
 
   en: {
     role: 'Web & Multimedia Developer · UX/UI Designer',
-    profile: 'Digital specialist with a hybrid profile, I combine the technical rigor of Front-end development (HTML5, CSS3, JavaScript, ReactJS, PHP, WordPress) with expertise in UX/UI design (Figma, prototyping, Design System) and 3D modeling (3DS Max). A graduate of a Professional Bachelor\'s in Digital Careers at EiSINe (2026), after a Web & Multimedia DUT at ESTM, I have built experience across freelance missions, web and design internships, and a strong customer relations background (Glovo/INTELCIA). My approach balances functionality and aesthetics: I create high-performing, ergonomic and creative digital solutions, from mockup to production. Rigorous, versatile and user-focused, I am committed to optimizing user experience and deploying innovative interfaces.',
+    profile: 'Digital specialist with a hybrid profile, I combine the technical rigor of Front-end development (HTML5, CSS3, JavaScript, ReactJS, PHP, WordPress) with expertise in UX/UI design (Figma, prototyping, Design System) and 3D modeling (3DS Max). A graduate of a Professional Bachelor\'s in Digital Careers at EiSINe (2026), I am now pursuing a Master MAALSI at CESI Reims on a work-study program at SynAppco (web applications and websites), after a Web & Multimedia DUT at ESTM. I have built experience across freelance missions, web and design internships, and a strong customer relations background (Glovo/INTELCIA). My approach balances functionality and aesthetics: I create high-performing, ergonomic and creative digital solutions, from mockup to production. Rigorous, versatile and user-focused, I am committed to optimizing user experience and deploying innovative interfaces.',
     sections: {
       contact: 'Contact',
       languages: 'Languages',
@@ -238,6 +253,15 @@ export const CV_CONTENT = {
     ],
     interests: 'Music · Sports · Cooking · Travel · Art · Theatre',
     experiences: [
+      {
+        title: 'Web Developer (Work-study)',
+        date: 'October 2026 — Present',
+        place: 'SynAppco',
+        bullets: [
+          'Development of web applications and websites, from integration to production',
+          'Built the company showcase website (React, Vite, brand guidelines)',
+        ],
+      },
       {
         title: 'Web Development & Helpdesk Intern',
         date: 'July — September 2026',
@@ -324,6 +348,12 @@ export const CV_CONTENT = {
     ],
     education: [
       {
+        title: 'Master MAALSI — Software Architecture & IS Applications',
+        date: '2026 — 2028 (in progress)',
+        place: 'CESI — Reims',
+        desc: 'Work-study master’s at SynAppco — RNCP level 7',
+      },
+      {
         title: 'Professional Bachelor — Digital Careers',
         date: '2025 — 2026',
         place: 'EiSINe — Charleville-Mézières',
@@ -370,7 +400,7 @@ export const CV_CONTENT = {
       guildLabel: 'Guild',
       serverLabel: 'Server',
       classValue: 'Web Dev & UX/UI Designer',
-      guildValue: 'EiSINe · Freelance Digital',
+      guildValue: 'CESI · SynAppco',
       serverValue: 'Charleville-Mézières, FR',
       bar1: 'CODE',
       bar2: 'DESIGN',
@@ -385,7 +415,7 @@ export const CV_CONTENT = {
 
   de: {
     role: 'Web- & Multimedia-Entwicklerin · UX/UI-Designerin',
-    profile: 'Digital-Spezialistin mit hybridem Profil — ich verbinde die technische Präzision der Front-end-Entwicklung (HTML5, CSS3, JavaScript, ReactJS, PHP, WordPress) mit Expertise in UX/UI-Design (Figma, Prototyping, Design System) und 3D-Modellierung (3DS Max). Absolventin des Berufsbachelors Digitale Berufe an der EiSINe (2026), nach einem DUT Web & Multimedia an der ESTM, habe ich Erfahrung in Freelance-Projekten, Web- und Design-Praktika sowie in der Kundenbetreuung (Glovo/INTELCIA) gesammelt. Mein Ansatz vereint Funktionalität und Ästhetik: Ich entwickle leistungsstarke, ergonomische und kreative digitale Lösungen — vom Mockup bis zur Produktion. Gewissenhaft, vielseitig und nutzerorientiert setze ich mich für die Optimierung der User Experience und den Einsatz innovativer Interfaces ein.',
+    profile: 'Digital-Spezialistin mit hybridem Profil — ich verbinde die technische Präzision der Front-end-Entwicklung (HTML5, CSS3, JavaScript, ReactJS, PHP, WordPress) mit Expertise in UX/UI-Design (Figma, Prototyping, Design System) und 3D-Modellierung (3DS Max). Absolventin des Berufsbachelors Digitale Berufe an der EiSINe (2026), absolviere ich den Master MAALSI am CESI Reims im dualen Studium bei SynAppco (Webanwendungen und Websites), nach einem DUT Web & Multimedia an der ESTM. Ich habe Erfahrung in Freelance-Projekten, Web- und Design-Praktika sowie in der Kundenbetreuung (Glovo/INTELCIA) gesammelt. Mein Ansatz vereint Funktionalität und Ästhetik: Ich entwickle leistungsstarke, ergonomische und kreative digitale Lösungen — vom Mockup bis zur Produktion. Gewissenhaft, vielseitig und nutzerorientiert setze ich mich für die Optimierung der User Experience und den Einsatz innovativer Interfaces ein.',
     sections: {
       contact: 'Kontakt',
       languages: 'Sprachen',
@@ -422,6 +452,15 @@ export const CV_CONTENT = {
     ],
     interests: 'Musik · Sport · Kochen · Reisen · Kunst · Theater',
     experiences: [
+      {
+        title: 'Webentwicklerin (duales Studium)',
+        date: 'Oktober 2026 — Heute',
+        place: 'SynAppco',
+        bullets: [
+          'Entwicklung von Webanwendungen und Websites, von der Integration bis zur Produktion',
+          'Umsetzung der Showcase-Website des Unternehmens (React, Vite, Markenrichtlinie)',
+        ],
+      },
       {
         title: 'Praktikantin Webentwicklung & Helpdesk',
         date: 'Juli — September 2026',
@@ -510,6 +549,12 @@ export const CV_CONTENT = {
     ],
     education: [
       {
+        title: 'Master MAALSI — Softwarearchitektur & Anwendungen der IS',
+        date: '2026 — 2028 (laufend)',
+        place: 'CESI — Reims',
+        desc: 'Duales Masterstudium bei SynAppco — RNCP-Niveau 7',
+      },
+      {
         title: 'Berufsbachelor — Digitale Berufe',
         date: '2025 — 2026',
         place: 'EiSINe — Charleville-Mézières',
@@ -556,7 +601,7 @@ export const CV_CONTENT = {
       guildLabel: 'Gilde',
       serverLabel: 'Server',
       classValue: 'Web- & UX/UI-Entwicklerin',
-      guildValue: 'EiSINe · Freelance Digital',
+      guildValue: 'CESI · SynAppco',
       serverValue: 'Charleville-Mézières, FR',
       bar1: 'CODE',
       bar2: 'DESIGN',

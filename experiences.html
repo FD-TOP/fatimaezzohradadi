@@ -78,6 +78,7 @@
         .type-emploi { background: rgba(100,220,100,0.1); color: #4ade80; border: 1px solid rgba(100,220,100,0.25); }
         .type-freelance { background: rgba(188,19,254,0.1); color: #bc13fe; border: 1px solid rgba(188,19,254,0.25); }
         .type-job { background: rgba(250,180,0,0.1); color: #fbbf24; border: 1px solid rgba(250,180,0,0.25); }
+        .type-alternance { background: rgba(56,189,248,0.12); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3); }
 
         .section-divider {
             display: flex; align-items: center; gap: 16px;
@@ -165,6 +166,25 @@
         </div>
 
         <div class="d-flex flex-column gap-4">
+
+            <div class="exp-card" data-aos="fade-up" data-aos-delay="0">
+                <img src="images/synappco.png" alt="SynAppco" class="exp-logo" style="object-fit: contain; background: #111; padding: 6px; width: 88px;">
+                <div class="flex-1">
+                    <span class="type-badge type-alternance"><i class="fas fa-circle fa-xs"></i> <span data-i18n="exp.badge_alternance">Alternance</span></span>
+                    <div class="exp-date"><i class="fas fa-calendar-alt fa-xs"></i> <span data-i18n="exp.synappco_date">Octobre 2026 — Présent</span></div>
+                    <div class="exp-title" data-i18n="exp.synappco_title">Alternante Développeuse Web</div>
+                    <div class="exp-company"><i class="fas fa-building fa-xs"></i> SynAppco</div>
+                    <p class="exp-desc" data-i18n="exp.synappco_desc">Alternance chez SynAppco : développement d'applications web et de sites web, de l'intégration à la mise en production, dans le cadre du Master MAALSI au CESI Reims.</p>
+                    <div class="exp-tags">
+                        <span class="exp-tag">React</span>
+                        <span class="exp-tag">Vite</span>
+                        <span class="exp-tag">JavaScript</span>
+                        <span class="exp-tag">HTML/CSS</span>
+                        <span class="exp-tag">Applications web</span>
+                        <span class="exp-tag">Sites web</span>
+                    </div>
+                </div>
+            </div>
 
             <div class="exp-card" data-aos="fade-up" data-aos-delay="0">
                 <img src="images/mabsyra.png?v=3" alt="MABSYRA" class="exp-logo">
@@ -385,7 +405,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="translations.js?v=20260923h"></script>
+    <script src="translations.js?v=20261023a"></script>
     <script src="i18n.js"></script>
     <script src="shared.js"></script>
 </body>
